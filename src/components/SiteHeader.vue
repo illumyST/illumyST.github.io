@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { LOCALES, LOCALE_LABEL, type Locale } from '@/i18n'
 import { localePath } from '@/router'
@@ -9,11 +9,16 @@ import { useTheme } from '@/composables/useTheme'
 const { t, locale } = useI18n()
 const { theme, toggle } = useTheme()
 const route = useRoute()
+const router = useRouter()
 
 const current = computed(() => locale.value as Locale)
 const page = computed(() => (route.meta.page as 'home' | 'about') ?? 'home')
 const home = computed(() => localePath(current.value, 'home'))
 const about = computed(() => localePath(current.value, 'about'))
+
+function onLang(e: Event) {
+  router.push(localePath((e.target as HTMLSelectElement).value as Locale, page.value))
+}
 </script>
 
 <template>
@@ -31,16 +36,11 @@ const about = computed(() => localePath(current.value, 'about'))
         <RouterLink :to="`${home === '/' ? '' : home}/#contact`" class="talk">{{ t('nav.talk') }}</RouterLink>
       </nav>
 
-      <nav class="lang" :aria-label="t('nav.lang')">
-        <RouterLink
-          v-for="l in LOCALES"
-          :key="l"
-          :to="localePath(l, page)"
-          :hreflang="l"
-          :aria-current="l === current ? 'true' : undefined"
-          >{{ LOCALE_LABEL[l] }}</RouterLink
-        >
-      </nav>
+      <div class="lang">
+        <select :value="current" :aria-label="t('nav.lang')" @change="onLang">
+          <option v-for="l in LOCALES" :key="l" :value="l" :lang="l">{{ LOCALE_LABEL[l] }}</option>
+        </select>
+      </div>
 
       <button
         type="button"
@@ -123,21 +123,18 @@ const about = computed(() => localePath(current.value, 'about'))
   color: var(--red-ink);
 }
 .lang {
-  display: flex;
-  gap: 2px;
   padding-left: 18px;
   border-left: 1px solid var(--line);
 }
-.lang a {
-  color: var(--quiet);
-  padding: 2px 7px;
-  border-bottom: 1px solid transparent;
-  font-size: 0.8125rem;
+.lang select {
+  font: inherit;
   letter-spacing: 0.1em;
-}
-.lang a[aria-current='true'] {
-  color: var(--red-ink);
-  border-bottom-color: var(--red);
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 3px 6px;
+  cursor: pointer;
 }
 .theme {
   display: inline-grid;

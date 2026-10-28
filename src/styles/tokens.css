@@ -1,0 +1,63 @@
+/* Design tokens. One accent per section; blocks use the tinted versions. */
+:root {
+  --paper: #f8f5f0;
+  --paper-2: #fffdf9;
+  --ink: #30343b;
+  --quiet: #64686e;
+  --line: #d7d0c6;
+
+  --blue: #779db4;
+  --blue-ink: #476d85;
+  --blue-tint: #e9eff3;
+
+  --red: #c97d79;
+  --red-ink: #99514e;
+  --red-tint: #f5e8e6;
+
+  --gold: #e4c18b;
+  --gold-ink: #9c7a3c;
+  --gold-tint: #f6eddc;
+
+  --grain: 0.05;
+
+  --font-display: 'Noto Serif TC', 'Cormorant Garamond', 'Zen Old Mincho', 'PingFang TC', 'Hiragino Mincho ProN', serif;
+  --font-body: 'Noto Sans TC', 'Noto Sans JP', 'PingFang TC', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  --measure: 64ch;
+  --radius-block: 40px;
+  --radius-card: 24px;
+  --gutter: max(20px, env(safe-area-inset-left, 0px));
+  --content: 960px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: light;
+}
+
+:root[lang='en'] {
+  --font-display: 'Cormorant Garamond', 'Noto Serif TC', 'Zen Old Mincho', Georgia, serif;
+}
+:root[lang='ja'] {
+  --font-display: 'Zen Old Mincho', 'Noto Serif JP', 'Noto Serif TC', 'Hiragino Mincho ProN', serif;
+  --font-body: 'Noto Sans JP', 'Noto Sans TC', 'Hiragino Sans', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1f2124;
+    --paper-2: #26292d;
+    --ink: #e8e3da;
+    --quiet: #a39d93;
+    --line: #3a3d42;
+    --blue: #7fa6bd;
+    --blue-ink: #a9c6d6;
+    --blue-tint: #273039;
+    --red: #c98a86;
+    --red-ink: #e0a8a3;
+    --red-tint: #382c2c;
+    --gold: #d6b47e;
+    --gold-ink: #e2c48f;
+    --gold-tint: #35302a;
+    --grain: 0.07;
+    color-scheme: dark;
+  }
+}

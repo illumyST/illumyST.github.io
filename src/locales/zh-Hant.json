@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "陳絲彤 Stone Chen｜前端工程師 · 技術負責人",
+    "description": "從寫前端出發，到用產品思維定義需求，再到帶領團隊加速交付。國泰世華 CUBE 網銀與中山醫 AI 中心的前端工程師。"
+  },
+  "nav": { "home": "首頁", "work": "作品", "about": "關於我", "talk": "聯絡我", "lang": "語言" },
+  "hero": {
+    "eyebrow": "前端工程師 · 技術負責人",
+    "name": "陳絲彤",
+    "alt": "Stone Chen",
+    "line": "從寫前端出發，到用產品思維定義需求，再到帶領團隊加速交付：我做的是百萬用戶每天使用的產品，以及讓團隊交付得更快的方法。",
+    "stats": [
+      { "n": "340 萬", "label": "每月訪問次數，CUBE 網銀" },
+      { "n": "93%", "label": "平台營收來自我主導的基金與外幣功能" },
+      { "n": "1 個月", "label": "醫療 AI 系統從需求到上線" }
+    ],
+    "cta": { "work": "看作品", "cv": "下載履歷" },
+    "meta": ["中南部，可接受海外派駐", "React · TypeScript · Vue 3", "TOEIC 935 · JLPT N1"]
+  },
+  "work": {
+    "eyebrow": "Selected work",
+    "title": "這三個專案代表我怎麼做事。",
+    "more": "看案例",
+    "items": [
+      {
+        "id": "cube",
+        "tags": ["FinTech", "React", "高流量"],
+        "title": "在 400 項功能裡，把最賺錢的兩項做穩。",
+        "desc": "主導百萬流量網銀的基金與外幣模組，流量前 10、營收佔 93%；在銀行法規與每月穩定上線的要求下，兼顧速度與品質。"
+      },
+      {
+        "id": "endoscopy",
+        "tags": ["醫療 AI", "TPM", "Vue 3"],
+        "title": "把醫師的需求變成一個月內上線的系統。",
+        "desc": "擔任 TPM，與臨床端、資料分析師和工程團隊將需求轉成規格；報告產出時間縮短 60%，醫師每日省下近 20% 工時。"
+      },
+      {
+        "id": "harness",
+        "tags": ["AI harness", "DevEx", "Context"],
+        "title": "把專案整理到 AI 能放心上手的程度。",
+        "desc": "規格先行的開發 skill、Mock Server、CI 自動檢核、n8n 團隊知識庫、Claude Design System：AI 寫出來的東西有規格可對、有檢核可擋。開發效率 +50%。"
+      }
+    ]
+  },
+  "how": {
+    "eyebrow": "How I work",
+    "title": "畫面之外的事。",
+    "items": [
+      { "title": "規格先行", "desc": "spec 與 demo 先對齊、API spec 先給前端、Mock Server 先行開發。" },
+      { "title": "帶 5 至 8 人的前端團隊", "desc": "站會、新人手冊、元件庫與 Storybook，讓新人一週內能交付。" },
+      { "title": "AI 輔助開發", "desc": "把 AI 放進 review、切版、知識庫，不是只拿來寫 code。" },
+      { "title": "效能與品質", "desc": "Web Vitals、Lighthouse，以及值班維運養成的謹慎。" }
+    ]
+  },
+  "side": {
+    "eyebrow": "Side projects",
+    "title": "下班後也在碰新東西。",
+    "items": [
+      { "name": "火車大富翁", "desc": "台灣鐵路版大富翁小遊戲，GitHub Actions 自動部署。" },
+      { "name": "小工具與新技術試玩", "desc": "各式小工具與新技術的實驗場。" },
+      { "name": "美食部落格", "desc": "自建的美食部落格。" }
+    ]
+  },
+  "timeline": {
+    "eyebrow": "Path",
+    "title": "從廣告系走到醫療 AI。",
+    "items": [
+      { "year": "2017", "org": "政治大學", "role": "廣告系，雙主修日文" },
+      { "year": "2023", "org": "國泰世華銀行", "role": "前端工程師，CUBE 網銀" },
+      { "year": "2026", "org": "中山醫 AI 中心", "role": "前端技術負責人 / TPM" }
+    ],
+    "more": "完整經歷"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "說聲哈囉。",
+    "lead": "正在尋找前端或全端的機會，中南部或海外皆可。",
+    "copy": "複製",
+    "copied": "已複製",
+    "cv": "下載履歷",
+    "resumeEn": "英文履歷",
+    "resumeZh": "中文履歷"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "從廣告系走到醫療 AI。",
+    "story": [
+      "我在政大讀廣告，雙主修日文。大二的程式設計課以第一名修畢，第一次體會到用程式解決問題的成就感，從此走上工程這條路。廣告系留給我的是從使用者、而不是從系統出發的習慣。",
+      "第一份工程師工作在國泰世華，做 CUBE 網路銀行。在高度法規與品質要求的環境裡，我從需求的實作者，成長為能以前端專業和 PM 討論可行性、推進專案落地的工程師，也開始把 AI 放進團隊的工作流程。",
+      "2026 年到台中，加入中山醫學大學附設醫院 AI 中心（任職於醫院注資的新創賦拓智能股份有限公司），以技術負責人兼 TPM 的身分帶領前端團隊，為臨床端打造 AI 產品。"
+    ],
+    "exp": {
+      "eyebrow": "Experience",
+      "title": "從前端工程師，到帶團隊的技術負責人。",
+      "jobs": [
+        {
+          "id": "csmuh",
+          "time": "2026.07 — 至今",
+          "title": "前端技術負責人 / TPM",
+          "org": "中山醫學大學附設醫院 AI 中心",
+          "note": "任職於賦拓智能股份有限公司（醫院注資新創）",
+          "place": "台中",
+          "items": [
+            "台大醫院北護分院腸胃鏡 AI 語音病歷系統 TPM：與臨床端、資料分析師及工程團隊將醫療需求轉為規格與任務，需求接收後一個月內上線；報告產出時間縮短 60%，醫師每日省下近 20% 工時。",
+            "梳理近 5 個前端專案並規劃技術收斂；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。",
+            "主導國科會金獎平台「醫點家」前端現代化，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管。",
+            "導入敏捷：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收。",
+            "建立團隊開發流程：規格與 demo 先對齊、DB schema 與 API spec 先行、Mock Server、Storybook、每日站會與新人手冊。"
+          ],
+          "tags": ["Vue 3", "Nuxt", "TypeScript", "Web Components", "Storybook", "醫療 AI"]
+        },
+        {
+          "id": "cube",
+          "time": "2023.09 — 2026.07",
+          "title": "前端工程師",
+          "org": "國泰世華商業銀行",
+          "note": "",
+          "place": "台北",
+          "items": [
+            "CUBE 網路銀行：在 400 多項功能、每月 340 萬次以上訪問的平台上開發與優化功能，主導基金與外幣模組（流量前 10，營收佔 93%）。",
+            "值班維運：以 Grafana 監控分析並處理線上問題。",
+            "導入 AI 輔助 code review（審查時間降低約 90%）、Figma to Code，以及回歸測試、部署與程式碼樣板的自動化，開發效率提升 50%。",
+            "以 n8n 建立內部知識庫，讓 40 多位跨部門成員自行解決前端問題，每月省下約 2 人天。",
+            "ROBO：重建具動畫效果的官網並優化 SEO 與 Core Web Vitals；CrUX 顯示 LCP −35%、FCP −40%、TTFB −55%。"
+          ],
+          "tags": ["React", "TypeScript", "金融科技", "效能優化", "AI 輔助開發", "Azure DevOps"]
+        }
+      ]
+    },
+    "skills": {
+      "eyebrow": "Skills",
+      "title": "我用什麼把事情做出來。",
+      "groups": [
+        { "name": "框架與語言", "items": ["React 19", "Vue 3", "Nuxt", "Web Components", "TypeScript", "Effect.ts", "Jotai", "React Hook Form"] },
+        { "name": "品質與效能", "items": ["Vitest", "Storybook", "Lighthouse", "Web Vitals", "Code Splitting", "SSG", "Orval (OpenAPI)"] },
+        { "name": "交付與團隊", "items": ["Azure DevOps", "CI/CD", "GitHub Actions", "Mock Server", "Plop", "Scrum", "Figma"] },
+        { "name": "AI 工具", "items": ["AI code review", "Figma to Code", "n8n", "Ollama", "Claude Design System", "LLM context 文件"] }
+      ]
+    },
+    "langs": {
+      "eyebrow": "Education & languages",
+      "title": "三種語言工作。",
+      "items": [
+        { "name": "國立政治大學", "level": "廣告學系，雙主修日本語文學系 · 2017–2023" },
+        { "name": "中文", "level": "母語" },
+        { "name": "英文", "level": "TOEIC 935 · 可工作溝通" },
+        { "name": "日文", "level": "JLPT N1 · 商務程度" }
+      ]
+    },
+    "links": { "eyebrow": "Links", "title": "找得到我的地方。" }
+  },
+  "footer": { "text": "陳絲彤 · Stone Chen" }
+}

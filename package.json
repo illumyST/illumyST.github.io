@@ -24,5 +24,6 @@
     "vite-ssg": "^28.0.0",
     "vue-tsc": "^3.0.0"
   },
-  "engines": { "node": ">=20" }
+  "engines": { "node": ">=20" },
+  "packageManager": "pnpm@10.19.0"
 }

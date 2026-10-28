@@ -5,10 +5,10 @@ Stone Chen 的個人網站。Vite + Vue 3 + TypeScript，`vite-ssg` 靜態輸出
 ## 開發
 
 ```sh
-npm install
-npm run dev        # http://localhost:5173
-npm run build      # 型別檢查 + 靜態輸出到 dist/
-npm run preview
+pnpm install
+pnpm dev            # http://localhost:5173
+pnpm build          # 型別檢查 + 靜態輸出到 dist/
+pnpm preview
 ```
 
 ## 結構

@@ -30,7 +30,9 @@
   --content: 960px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  color-scheme: light;
+  /* Declared on :root so the canvas, scrollbars and form controls follow the user's scheme. */
+  color-scheme: light dark;
+  accent-color: var(--blue);
 }
 
 :root[lang='en'] {
@@ -58,6 +60,5 @@
     --gold-ink: #e2c48f;
     --gold-tint: #35302a;
     --grain: 0.07;
-    color-scheme: dark;
   }
 }

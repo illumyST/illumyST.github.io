@@ -5,11 +5,12 @@ import ColorBlocks from '@/components/ColorBlocks.vue'
 import SectionHead from '@/components/SectionHead.vue'
 import CopyEmail from '@/components/CopyEmail.vue'
 import { usePageHead } from '@/composables/usePageHead'
+import { useMessageList, resolveFields } from '@/composables/useMessages'
 import { localePath } from '@/router'
 import { site } from '@/site'
 import type { Locale } from '@/i18n'
 
-const { t, tm, rt, locale } = useI18n()
+const { t, locale } = useI18n()
 usePageHead('home')
 
 type Stat = { n: string; label: string }
@@ -18,20 +19,12 @@ type Item = { title: string; desc: string }
 type Side = { name: string; desc: string }
 type Stop = { year: string; org: string; role: string }
 
-// `tm` returns raw message trees; `rt` resolves each leaf so interpolation still works.
-const stats = computed(() => (tm('hero.stats') as Stat[]).map((s) => ({ n: rt(s.n), label: rt(s.label) })))
-const metaLine = computed(() => (tm('hero.meta') as string[]).map((m) => rt(m)))
-const cases = computed(() =>
-  (tm('work.items') as Case[]).map((c) => ({
-    id: rt(c.id),
-    tags: c.tags.map((x) => rt(x)),
-    title: rt(c.title),
-    desc: rt(c.desc),
-  })),
-)
-const how = computed(() => (tm('how.items') as Item[]).map((i) => ({ title: rt(i.title), desc: rt(i.desc) })))
-const side = computed(() => (tm('side.items') as Side[]).map((s, i) => ({ name: rt(s.name), desc: rt(s.desc), url: site.sideProjects[i] })))
-const stops = computed(() => (tm('timeline.items') as Stop[]).map((s) => ({ year: rt(s.year), org: rt(s.org), role: rt(s.role) })))
+const stats = useMessageList<Stat>('hero.stats', resolveFields)
+const metaLine = useMessageList<string>('hero.meta', (m, rt) => rt(m))
+const cases = useMessageList<Case>('work.items', resolveFields)
+const how = useMessageList<Item>('how.items', resolveFields)
+const side = useMessageList<Side & { url: string }>('side.items', (raw, rt, i) => ({ ...resolveFields<Side>(raw, rt), url: site.sideProjects[i] }))
+const stops = useMessageList<Stop>('timeline.items', resolveFields)
 
 const about = computed(() => localePath(locale.value as Locale, 'about'))
 const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
@@ -172,7 +165,7 @@ section {
   max-width: var(--content);
 }
 .name {
-  font-size: clamp(2.8rem, 7vw, 4.75rem);
+  font-size: clamp(2.8rem, 1.6rem + 4.5vw, 4.75rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
   font-weight: 500;
@@ -188,7 +181,7 @@ section {
 }
 .line {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-size: clamp(1.2rem, 0.9rem + 1.1vw, 1.55rem);
   line-height: 1.6;
   max-width: 32ch;
 }
@@ -214,7 +207,7 @@ section {
 }
 .stat strong {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.4rem);
   font-weight: 600;
   line-height: 1.1;
   font-variant-numeric: lining-nums tabular-nums;
@@ -241,10 +234,13 @@ section {
   transition:
     background 0.2s,
     border-color 0.2s,
-    transform 0.3s var(--ease);
+    translate 0.3s var(--ease);
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0s;
+  }
 }
 .btn:hover {
-  transform: translateY(-2px);
+  translate: 0 -2px;
   border-color: var(--blue);
 }
 .btn--primary {
@@ -299,7 +295,10 @@ section {
   overflow: hidden;
   aspect-ratio: 16 / 10;
   background: var(--blue-tint);
-  transition: transform 0.4s var(--ease);
+  transition: translate 0.4s var(--ease);
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 .case--red .shot {
   background: var(--red-tint);
@@ -308,7 +307,7 @@ section {
   background: var(--gold-tint);
 }
 .case-link:hover .shot {
-  transform: translateY(-4px);
+  translate: 0 -4px;
 }
 .shot img {
   width: 100%;
@@ -416,11 +415,14 @@ section {
   border: 1px solid var(--line);
   height: 100%;
   transition:
-    transform 0.3s var(--ease),
+    translate 0.3s var(--ease),
     border-color 0.2s;
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color 0.2s;
+  }
 }
 .side-grid a:hover {
-  transform: translateY(-3px);
+  translate: 0 -3px;
   border-color: var(--gold);
 }
 .side-grid h3 {

@@ -44,7 +44,7 @@ async function copy() {
 }
 .addr {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
   color: var(--ink);
   border-bottom: 1px solid var(--line);
   overflow-wrap: anywhere;

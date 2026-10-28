@@ -51,6 +51,18 @@ const about = computed(() => localePath(current.value, 'about'))
   background: color-mix(in srgb, var(--paper) 86%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  /* Scroll-state query: the bar gains a hairline only once the header is actually stuck. */
+  container-type: scroll-state;
+  container-name: site-header;
+}
+.bar {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+@container site-header scroll-state(stuck: top) {
+  .bar {
+    border-bottom-color: var(--line);
+  }
 }
 .bar {
   display: flex;

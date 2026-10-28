@@ -5,30 +5,20 @@ import ColorBlocks from '@/components/ColorBlocks.vue'
 import SectionHead from '@/components/SectionHead.vue'
 import CopyEmail from '@/components/CopyEmail.vue'
 import { usePageHead } from '@/composables/usePageHead'
+import { useMessageList, resolveFields } from '@/composables/useMessages'
 import { site } from '@/site'
 
-const { t, tm, rt, locale } = useI18n()
+const { t, locale } = useI18n()
 usePageHead('about')
 
 type Job = { id: string; time: string; title: string; org: string; note: string; place: string; items: string[]; tags: string[] }
 type Group = { name: string; items: string[] }
 type Lang = { name: string; level: string }
 
-const story = computed(() => (tm('about.story') as string[]).map((p) => rt(p)))
-const jobs = computed(() =>
-  (tm('about.exp.jobs') as Job[]).map((j) => ({
-    id: rt(j.id),
-    time: rt(j.time),
-    title: rt(j.title),
-    org: rt(j.org),
-    note: rt(j.note),
-    place: rt(j.place),
-    items: j.items.map((x) => rt(x)),
-    tags: j.tags.map((x) => rt(x)),
-  })),
-)
-const groups = computed(() => (tm('about.skills.groups') as Group[]).map((g) => ({ name: rt(g.name), items: g.items.map((x) => rt(x)) })))
-const langs = computed(() => (tm('about.langs.items') as Lang[]).map((l) => ({ name: rt(l.name), level: rt(l.level) })))
+const story = useMessageList<string>('about.story', (m, rt) => rt(m))
+const jobs = useMessageList<Job>('about.exp.jobs', resolveFields)
+const groups = useMessageList<Group>('about.skills.groups', resolveFields)
+const langs = useMessageList<Lang>('about.langs.items', resolveFields)
 const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
 </script>
 

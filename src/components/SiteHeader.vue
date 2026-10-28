@@ -4,8 +4,10 @@ import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { LOCALES, LOCALE_LABEL, type Locale } from '@/i18n'
 import { localePath } from '@/router'
+import { useTheme } from '@/composables/useTheme'
 
 const { t, locale } = useI18n()
+const { theme, toggle } = useTheme()
 const route = useRoute()
 
 const current = computed(() => locale.value as Locale)
@@ -39,6 +41,23 @@ const about = computed(() => localePath(current.value, 'about'))
           >{{ LOCALE_LABEL[l] }}</RouterLink
         >
       </nav>
+
+      <button
+        type="button"
+        class="theme"
+        :aria-label="theme === 'dark' ? t('nav.toLight') : t('nav.toDark')"
+        :title="theme === 'dark' ? t('nav.toLight') : t('nav.toDark')"
+        @click="toggle"
+      >
+        <!-- Sun in dark mode (go light), moon in light mode (go dark). -->
+        <svg v-if="theme === 'dark'" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+        </svg>
+        <svg v-else viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
+        </svg>
+      </button>
     </div>
   </header>
 </template>
@@ -119,6 +138,33 @@ const about = computed(() => localePath(current.value, 'about'))
 .lang a[aria-current='true'] {
   color: var(--red-ink);
   border-bottom-color: var(--red);
+}
+.theme {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: -12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--quiet);
+  cursor: pointer;
+  transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.theme:hover {
+  color: var(--ink);
+  background: var(--line);
+}
+.theme svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 @media (max-width: 720px) {

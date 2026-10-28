@@ -3,7 +3,7 @@
     "title": "Stone Chen, Frontend Engineer · Tech Lead",
     "description": "Frontend engineer turned product-minded tech lead. CUBE online banking at Cathay United Bank, now medical AI at the CSMUH AI Center."
   },
-  "nav": { "home": "Home", "work": "Work", "about": "About", "talk": "Let's talk", "lang": "Language" },
+  "nav": { "home": "Home", "work": "Work", "about": "About", "talk": "Let's talk", "lang": "Language", "toLight": "Switch to light mode", "toDark": "Switch to dark mode" },
   "hero": {
     "eyebrow": "Frontend Engineer · Tech Lead",
     "name": "Stone Chen",

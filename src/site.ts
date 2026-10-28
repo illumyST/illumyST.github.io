@@ -6,6 +6,8 @@ export const site = {
   linkedinLabel: 'in/chenstone',
   github: 'https://github.com/illumyST',
   githubLabel: '@illumyST',
+  portrait: '/images/portrait.webp',
+  portraitSmall: '/images/portrait-480.webp',
   resumeEn: 'https://chen-stone.notion.site/Stone-Chen-Resume-283e8b07e6cd80258647fe61889323ca',
   resumeZh: 'https://chen-stone.notion.site/Stone-Chen-2e3e8b07e6cd806488ace21865d18116',
   /** PDF resumes land here once produced; until then the CTA falls back to the Notion resume. */

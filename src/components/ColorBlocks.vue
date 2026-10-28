@@ -94,20 +94,20 @@ defineProps<{ variant: 'hero' | 'work' | 'contact' | 'about' }>()
 
 /* About: a circle on the right behind the story. */
 .blocks--about .b1 {
-  right: -10%;
-  top: 4%;
-  width: 36%;
+  right: -14%;
+  top: -16%;
+  width: 34%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--red-tint);
 }
 .blocks--about .b2 {
-  right: 20%;
-  top: 34%;
-  width: 14%;
+  right: 26%;
+  bottom: -6%;
+  width: 16%;
   aspect-ratio: 1;
   border-radius: var(--radius-card);
-  background: var(--gold-tint);
+  background: var(--blue-tint);
 }
 .blocks--about .b3 {
   display: none;

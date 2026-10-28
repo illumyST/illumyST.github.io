@@ -27,10 +27,24 @@ const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant
   <section class="story">
     <ColorBlocks variant="about" />
     <div class="container story-inner">
-      <SectionHead :eyebrow="t('about.eyebrow')" :title="t('about.title')" />
-      <div class="prose">
-        <p v-for="(p, i) in story" :key="i">{{ p }}</p>
+      <div class="story-text">
+        <SectionHead :eyebrow="t('about.eyebrow')" :title="t('about.title')" />
+        <div class="prose">
+          <p v-for="(p, i) in story" :key="i">{{ p }}</p>
+        </div>
       </div>
+      <figure class="portrait">
+        <img
+          :src="site.portrait"
+          :srcset="`${site.portraitSmall} 480w, ${site.portrait} 960w`"
+          sizes="(max-width: 720px) 200px, 300px"
+          :alt="t('hero.name')"
+          width="960"
+          height="960"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
     </div>
   </section>
 
@@ -115,6 +129,42 @@ section {
 }
 .story {
   padding-block: clamp(56px, 10vh, 112px) clamp(48px, 8vh, 88px);
+}
+.story-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px 56px;
+  align-items: start;
+}
+.story-text {
+  min-width: 0;
+}
+.portrait {
+  margin: 0;
+  width: clamp(200px, 26vw, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--gold-tint);
+  /* The ring is the gold tint, so the circle reads as one of the page's blocks rather than a photo frame. */
+  box-shadow: 0 0 0 10px var(--gold-tint);
+  justify-self: end;
+  margin-top: 36px;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 720px) {
+  .story-inner {
+    grid-template-columns: 1fr;
+  }
+  .portrait {
+    justify-self: start;
+    margin-top: 0;
+    order: -1;
+  }
 }
 .prose {
   display: grid;

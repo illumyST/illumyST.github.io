@@ -35,7 +35,8 @@ const accent = ['blue', 'red', 'gold']
   <!-- 1. Hero -->
   <section class="hero">
     <ColorBlocks variant="hero" />
-    <div class="container hero-inner">
+    <div class="container hero-grid">
+    <div class="hero-inner">
       <p class="eyebrow">{{ t('hero.eyebrow') }}</p>
       <h1 class="name">
         {{ t('hero.name') }}
@@ -58,6 +59,19 @@ const accent = ['blue', 'red', 'gold']
       <p class="meta">
         <span v-for="(m, i) in metaLine" :key="i">{{ m }}</span>
       </p>
+    </div>
+    <figure class="portrait">
+      <img
+        :src="site.portrait"
+        :srcset="`${site.portraitSmall} 480w, ${site.portrait} 960w`"
+        sizes="(max-width: 720px) 128px, 300px"
+        :alt="t('hero.name')"
+        width="960"
+        height="960"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </figure>
     </div>
   </section>
 
@@ -159,10 +173,46 @@ section {
 .hero {
   padding-block: clamp(56px, 12vh, 128px) clamp(48px, 8vh, 88px);
 }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px 48px;
+  align-items: start;
+}
 .hero-inner {
   display: grid;
   gap: 26px;
-  max-width: var(--content);
+  min-width: 0;
+}
+.hero-inner > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.portrait {
+  margin: 48px 0 0;
+  width: clamp(200px, 24vw, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--gold-tint);
+  box-shadow: 0 0 0 10px var(--gold-tint);
+  justify-self: end;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 720px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .portrait {
+    order: -1;
+    width: 128px;
+    margin: 0;
+    justify-self: start;
+  }
 }
 .name {
   font-size: clamp(2.8rem, 1.6rem + 4.5vw, 4.75rem);

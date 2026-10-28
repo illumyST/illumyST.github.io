@@ -29,9 +29,9 @@ defineProps<{ variant: 'hero' | 'work' | 'contact' | 'about' }>()
 
 /* Hero: a tall rounded block on the right, a circle and a half-circle leaning on it. */
 .blocks--hero .b1 {
-  right: -6%;
-  top: 8%;
-  width: 34%;
+  right: -8%;
+  top: 6%;
+  width: 36%;
   aspect-ratio: 3 / 4;
   border-radius: var(--radius-block);
   background: var(--blue-tint);

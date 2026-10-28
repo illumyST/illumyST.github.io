@@ -1,22 +1,23 @@
-/* Design tokens. One accent per section; blocks use the tinted versions. */
+/* Design tokens. One accent per section; blocks use the tinted versions.
+   Colors are light-dark() pairs: color-scheme picks the side, so the theme toggle only has to flip it. */
 :root {
-  --paper: #f8f5f0;
-  --paper-2: #fffdf9;
-  --ink: #30343b;
-  --quiet: #64686e;
-  --line: #d7d0c6;
+  --paper: light-dark(#f8f5f0, #1f2124);
+  --paper-2: light-dark(#fffdf9, #26292d);
+  --ink: light-dark(#30343b, #e8e3da);
+  --quiet: light-dark(#64686e, #a39d93);
+  --line: light-dark(#d7d0c6, #3a3d42);
 
-  --blue: #779db4;
-  --blue-ink: #476d85;
-  --blue-tint: #e9eff3;
+  --blue: light-dark(#779db4, #7fa6bd);
+  --blue-ink: light-dark(#476d85, #a9c6d6);
+  --blue-tint: light-dark(#e9eff3, #273039);
 
-  --red: #c97d79;
-  --red-ink: #99514e;
-  --red-tint: #f5e8e6;
+  --red: light-dark(#c97d79, #c98a86);
+  --red-ink: light-dark(#99514e, #e0a8a3);
+  --red-tint: light-dark(#f5e8e6, #382c2c);
 
-  --gold: #e4c18b;
-  --gold-ink: #9c7a3c;
-  --gold-tint: #f6eddc;
+  --gold: light-dark(#e4c18b, #d6b47e);
+  --gold-ink: light-dark(#9c7a3c, #e2c48f);
+  --gold-tint: light-dark(#f6eddc, #35302a);
 
   --grain: 0.05;
 
@@ -30,7 +31,8 @@
   --content: 960px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Declared on :root so the canvas, scrollbars and form controls follow the user's scheme. */
+  /* Declared on :root so the canvas, scrollbars and form controls follow the user's scheme;
+     the header toggle pins it with data-theme. */
   color-scheme: light dark;
   accent-color: var(--blue);
 }
@@ -43,22 +45,20 @@
   --font-body: 'Noto Sans JP', 'Noto Sans TC', 'Hiragino Sans', sans-serif;
 }
 
+/* A choice made with the header toggle overrides the system preference. */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* --grain is a number, so light-dark() cannot carry it. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #1f2124;
-    --paper-2: #26292d;
-    --ink: #e8e3da;
-    --quiet: #a39d93;
-    --line: #3a3d42;
-    --blue: #7fa6bd;
-    --blue-ink: #a9c6d6;
-    --blue-tint: #273039;
-    --red: #c98a86;
-    --red-ink: #e0a8a3;
-    --red-tint: #382c2c;
-    --gold: #d6b47e;
-    --gold-ink: #e2c48f;
-    --gold-tint: #35302a;
+  :root:not([data-theme='light']) {
     --grain: 0.07;
   }
+}
+:root[data-theme='dark'] {
+  --grain: 0.07;
 }

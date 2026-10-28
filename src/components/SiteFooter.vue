@@ -17,7 +17,7 @@ const year = new Date().getFullYear()
 .site-footer {
   border-top: 1px solid var(--line);
   padding-block: 22px max(40px, env(safe-area-inset-bottom, 0px));
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.1em;
   color: var(--quiet);
 }

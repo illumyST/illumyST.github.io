@@ -101,7 +101,7 @@ const about = computed(() => localePath(current.value, 'about'))
   color: var(--quiet);
   padding: 2px 7px;
   border-bottom: 1px solid transparent;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.1em;
 }
 .lang a[aria-current='true'] {

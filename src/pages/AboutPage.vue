@@ -167,7 +167,7 @@ section {
 }
 .place {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.04em;
 }
 .body {
@@ -181,11 +181,11 @@ section {
 }
 .org {
   color: var(--ink);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 .note {
   color: var(--quiet);
-  font-size: 0.82rem;
+  font-size: 0.9375rem;
   margin-top: -6px;
 }
 .items {
@@ -197,7 +197,7 @@ section {
 .items li {
   position: relative;
   padding-left: 18px;
-  font-size: 0.93rem;
+  font-size: 0.9375rem;
   line-height: 1.75;
 }
 .items li::before {
@@ -221,7 +221,7 @@ section {
   margin-top: 8px;
 }
 .tags li {
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.06em;
   padding: 2px 10px;
   border-radius: 999px;
@@ -248,7 +248,7 @@ section {
 }
 .group h3 {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--quiet);
@@ -260,7 +260,7 @@ section {
   gap: 6px;
 }
 .chips li {
-  font-size: 0.8rem;
+  font-size: 0.9375rem;
   padding: 3px 11px;
   border-radius: 999px;
   background: var(--paper-2);
@@ -285,7 +285,7 @@ section {
   font-weight: 600;
 }
 .lang-grid span {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   color: var(--quiet);
   line-height: 1.6;
 }
@@ -303,7 +303,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 28px;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
 }
 .links a {
   border-bottom: 1px solid var(--line);

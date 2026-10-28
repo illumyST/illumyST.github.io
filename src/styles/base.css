@@ -14,7 +14,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -98,7 +98,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--quiet);

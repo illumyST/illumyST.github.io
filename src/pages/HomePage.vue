@@ -217,10 +217,10 @@ section {
   font-size: clamp(1.8rem, 3.4vw, 2.4rem);
   font-weight: 600;
   line-height: 1.1;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 .stat span {
-  font-size: 0.85rem;
+  font-size: 0.9375rem;
   color: var(--quiet);
   line-height: 1.6;
 }
@@ -236,7 +236,7 @@ section {
   padding: 10px 22px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.06em;
   transition:
     background 0.2s,
@@ -259,7 +259,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 18px;
-  font-size: 0.8rem;
+  font-size: 0.9375rem;
   color: var(--quiet);
   letter-spacing: 0.04em;
 }
@@ -339,7 +339,7 @@ section {
   gap: 6px;
 }
 .tags li {
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.06em;
   padding: 2px 10px;
   border-radius: 999px;
@@ -359,12 +359,12 @@ section {
   line-height: 1.45;
 }
 .cases p {
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   color: var(--quiet);
   line-height: 1.75;
 }
 .more {
-  font-size: 0.8rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.06em;
   color: var(--red-ink);
   margin-top: auto;
@@ -390,13 +390,13 @@ section {
   font-family: var(--font-display);
   color: var(--red-ink);
   letter-spacing: 0.1em;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
 }
 .how-grid h3 {
   font-size: 1.1rem;
 }
 .how-grid p {
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   color: var(--quiet);
   line-height: 1.7;
 }
@@ -427,12 +427,12 @@ section {
   font-size: 1.1rem;
 }
 .side-grid p {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   color: var(--quiet);
   line-height: 1.7;
 }
 .side-grid .url {
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.04em;
   color: var(--blue-ink);
   margin-top: 6px;
@@ -471,7 +471,7 @@ section {
 }
 .year {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1rem;
   letter-spacing: 0.1em;
   color: var(--quiet);
 }
@@ -480,13 +480,13 @@ section {
   font-size: 1.05rem;
 }
 .role {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   color: var(--quiet);
 }
 .more-link {
   display: inline-block;
   margin-top: 28px;
-  font-size: 0.85rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.06em;
   color: var(--red-ink);
 }
@@ -508,7 +508,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 28px;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   margin-top: 6px;
 }
 .links a {

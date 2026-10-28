@@ -50,7 +50,7 @@ async function copy() {
   overflow-wrap: anywhere;
 }
 .btn {
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--quiet);

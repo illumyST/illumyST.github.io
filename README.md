@@ -11,20 +11,42 @@ pnpm build          # 型別檢查 + 靜態輸出到 dist/
 pnpm preview
 ```
 
+執行環境需 Node.js 22.18.0 以上（履歷腳本使用原生 TypeScript 支援）。
+
+## 履歷主檔（single source）
+
+網站、Notion 履歷、104 的內容都以 [`content/resume/zh-Hant.md`](content/resume/zh-Hant.md) 為準，包括經歷、成果數字、技能、學歷、語言、作品和聯絡方式。`en.md`、`ja.md` 是它的翻譯。
+
+更新流程：
+
+1. 手動修改 `zh-Hant.md`，並更新開頭的 `updated` 日期。
+2. 請 agent「同步履歷」：它會更新英日文翻譯和 Notion，流程寫在 [CLAUDE.md](CLAUDE.md)。
+3. push 到 `main`，網站自動部署。
+4. 104 從 `zh-Hant.md` 複製貼上，或請 agent 整理成 104 的欄位格式。
+
+`pnpm resume:check` 會檢查三語結構是否對得上，以及英日文的同步日期是否與中文版一致；不一致會回傳失敗。日期一致不代表翻譯內容已經過語意審查。build 時也會檢查結構，三語對不上時 build 會失敗。
+
 ## 結構
 
 ```
+content/
+  resume/         履歷主檔：zh-Hant.md（主檔）、en.md、ja.md
+  profile.ts      解析三份 md，合併成網站用的資料
+  format.ts       網站與腳本共用的格式化工具
+scripts/
+  resume-check.ts 檢查三語是否一致、翻譯是否已同步
 src/
-  locales/        三語內容，每個語系一個 JSON（文案都在這裡改）
-  site.ts         不隨語言變的事實：Email、連結、截圖路徑、PDF 路徑、案例錨點
+  locales/        網站介面與敘述文案（案例卡片、How I work 等），每個語系一個 JSON
+  profile.ts      在 build 時讀入履歷 md
+  site.ts         網站專用設定：網址、頭像、截圖、PDF 路徑、案例錨點
   router.ts       /、/about、/en、/en/about、/ja、/ja/about
   i18n.ts         語系清單、路徑前綴、瀏覽器語言偵測
   pages/          HomePage、AboutPage
-  components/     SiteHeader、SiteFooter、ColorBlocks、SectionHead、CopyEmail
+  components/     SiteHeader、SiteFooter、RecruiterDock、ColorBlocks、SectionHead、CopyEmail
+  composables/    useProfile、usePageHead、useTheme、useMessages
   styles/         tokens.css（配色、字體、圓角）、base.css
 public/
   CNAME           stoneisme.com
-  favicon.svg
 ```
 
 ## 路由與語系

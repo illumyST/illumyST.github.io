@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SiteHeader from '@/components/SiteHeader.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
+import RecruiterDock from '@/components/RecruiterDock.vue'
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import SiteFooter from '@/components/SiteFooter.vue'
     <RouterView />
   </main>
   <SiteFooter />
+  <RecruiterDock />
 </template>
 
 <style scoped>

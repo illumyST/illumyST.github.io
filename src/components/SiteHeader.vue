@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n'
 import { LOCALES, LOCALE_LABEL, type Locale } from '@/i18n'
 import { localePath } from '@/router'
 import { useTheme } from '@/composables/useTheme'
+import { site } from '@/site'
 
 const { t, locale } = useI18n()
 const { theme, toggle } = useTheme()
@@ -15,6 +16,7 @@ const current = computed(() => locale.value as Locale)
 const page = computed(() => (route.meta.page as 'home' | 'about') ?? 'home')
 const home = computed(() => localePath(current.value, 'home'))
 const about = computed(() => localePath(current.value, 'about'))
+const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
 
 function onLang(e: Event) {
   router.push(localePath((e.target as HTMLSelectElement).value as Locale, page.value))
@@ -24,9 +26,10 @@ function onLang(e: Event) {
 <template>
   <header class="site-header">
     <div class="container bar">
+      <!-- Literary Brand Seal & Name -->
       <RouterLink :to="home" class="brand">
-        <span class="brand-line" aria-hidden="true"></span>
-        <span>Stone Chen</span>
+        <img class="brand-vermilion" src="/favicon.ico" alt="" aria-hidden="true" width="24" height="24" />
+        <span class="brand-name">Stone Chen</span>
       </RouterLink>
 
       <nav class="nav" :aria-label="t('nav.home')">
@@ -36,28 +39,35 @@ function onLang(e: Event) {
         <RouterLink :to="`${home === '/' ? '' : home}/#contact`" class="talk">{{ t('nav.talk') }}</RouterLink>
       </nav>
 
-      <div class="lang">
-        <select :value="current" :aria-label="t('nav.lang')" @change="onLang">
-          <option v-for="l in LOCALES" :key="l" :value="l" :lang="l">{{ LOCALE_LABEL[l] }}</option>
-        </select>
-      </div>
+      <div class="header-actions">
+        <!-- Quiet Resume Link for HR -->
+        <a :href="cv" target="_blank" rel="noopener" class="header-resume-link">
+          <span>{{ t('hero.cta.cv') }}</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
 
-      <button
-        type="button"
-        class="theme"
-        :aria-label="theme === 'dark' ? t('nav.toLight') : t('nav.toDark')"
-        :title="theme === 'dark' ? t('nav.toLight') : t('nav.toDark')"
-        @click="toggle"
-      >
-        <!-- Sun in dark mode (go light), moon in light mode (go dark). -->
-        <svg v-if="theme === 'dark'" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
-        </svg>
-        <svg v-else viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
-        </svg>
-      </button>
+        <div class="lang">
+          <select :value="current" :aria-label="t('nav.lang')" @change="onLang">
+            <option v-for="l in LOCALES" :key="l" :value="l" :lang="l">{{ LOCALE_LABEL[l] }}</option>
+          </select>
+        </div>
+
+        <button
+          type="button"
+          class="theme"
+          :aria-label="theme === 'dark' ? t('nav.toLight') : t('nav.toDark')"
+          :title="theme === 'dark' ? t('nav.toLight') : t('nav.toDark')"
+          @click="toggle"
+        >
+          <svg v-if="theme === 'dark'" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+          </svg>
+          <svg v-else viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -66,97 +76,123 @@ function onLang(e: Event) {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: color-mix(in srgb, var(--paper) 86%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  /* Scroll-state query: the bar gains a hairline only once the header is actually stuck. */
-  container-type: scroll-state;
-  container-name: site-header;
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-subtle);
+  transition: border-color 0.2s, background-color 0.2s;
 }
-.bar {
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-@container site-header scroll-state(stuck: top) {
-  .bar {
-    border-bottom-color: var(--line);
-  }
-}
+
 .bar {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding-block: 18px;
-  font-size: 0.8125rem;
-  letter-spacing: 0.06em;
+  gap: 28px;
+  padding-block: 16px;
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
 }
+
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
+  gap: 4px;
   margin-right: auto;
 }
-.brand-line {
-  width: 28px;
-  height: 2px;
-  background: var(--blue);
+.brand-vermilion {
+  display: block;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 }
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
 .nav {
   display: flex;
+  align-items: center;
   gap: 22px;
 }
 .nav a {
   color: var(--quiet);
-  padding-block: 4px;
+  padding: 4px 0;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s var(--ease);
+  transition: color 0.2s var(--ease), border-color 0.2s;
 }
 .nav a:hover,
 .nav a.on {
   color: var(--ink);
+  border-bottom-color: var(--ink);
 }
 .nav .talk {
   color: var(--red-ink);
 }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.header-resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8125rem;
+  color: var(--quiet);
+  border: 1px solid var(--line);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s, border-color 0.2s;
+}
+.header-resume-link:hover {
+  color: var(--ink);
+  border-color: var(--quiet);
+}
+.header-resume-link .arrow {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+}
+
 .lang {
-  padding-left: 18px;
-  border-left: 1px solid var(--line);
+  padding-left: 12px;
+  border-left: 1px solid var(--line-subtle);
 }
 .lang select {
   font: inherit;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   color: var(--ink);
   background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 3px 6px;
+  border: 1px solid var(--line-subtle);
+  border-radius: 6px;
+  padding: 3px 8px;
   cursor: pointer;
 }
 .theme {
   display: inline-grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  margin-left: -12px;
+  width: 30px;
+  height: 30px;
   padding: 0;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 50%;
-  background: none;
   color: var(--quiet);
   cursor: pointer;
-  transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+  transition: color 0.2s, background-color 0.2s;
 }
 .theme:hover {
   color: var(--ink);
-  background: var(--line);
+  background: var(--paper-3);
 }
 .theme svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.5;
@@ -164,11 +200,14 @@ function onLang(e: Event) {
   stroke-linejoin: round;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 760px) {
+  .header-resume-link {
+    display: none;
+  }
   .bar {
     flex-wrap: wrap;
     gap: 10px 16px;
-    padding-block: 14px;
+    padding-block: 12px;
   }
   .brand {
     flex: 1 1 auto;
@@ -176,10 +215,12 @@ function onLang(e: Event) {
   .nav {
     order: 3;
     flex-basis: 100%;
-    gap: 18px;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
   .lang {
-    padding-left: 12px;
+    padding-left: 8px;
   }
 }
 </style>

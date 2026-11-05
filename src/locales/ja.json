@@ -3,19 +3,43 @@
     "title": "陳絲彤 Stone Chen｜フロントエンドエンジニア · テックリード",
     "description": "フロントエンドから始まり、プロダクト思考で要件を定め、今はチームを率いて速く届ける。国泰世華銀行CUBEと中山医AIセンターのフロントエンドエンジニア。"
   },
-  "nav": { "home": "ホーム", "work": "実績", "about": "自己紹介", "talk": "お問い合わせ", "lang": "言語", "toLight": "ライトモードに切り替え", "toDark": "ダークモードに切り替え" },
+  "nav": {
+    "home": "ホーム",
+    "work": "実績",
+    "about": "自己紹介",
+    "talk": "お問い合わせ",
+    "lang": "言語",
+    "toLight": "ライトモードに切り替え",
+    "toDark": "ダークモードに切り替え"
+  },
   "hero": {
     "eyebrow": "フロントエンドエンジニア · テックリード",
     "name": "陳 絲彤",
     "alt": "Stone Chen",
     "line": "フロントエンドから始まり、プロダクト思考で要件を定め、今はチームを率いて速く届ける。数百万人が毎日使うプロダクトと、それを支えるチームの仕組みをつくっています。",
     "stats": [
-      { "n": "340万", "label": "月間アクセス、CUBEネットバンク" },
-      { "n": "+50%", "label": "開発効率、AI活用開発と自動化の導入後" },
-      { "n": "1ヶ月", "label": "医療AIを要件から本番稼働まで" }
+      {
+        "n": "340万",
+        "label": "月間アクセス、CUBEネットバンク"
+      },
+      {
+        "n": "+50%",
+        "label": "開発効率、AI活用開発と自動化の導入後"
+      },
+      {
+        "n": "1ヶ月",
+        "label": "医療AIを要件から本番稼働まで"
+      }
     ],
-    "cta": { "work": "作品を見る", "cv": "履歴書" },
-    "meta": ["台湾中南部、海外駐在も可", "React · TypeScript · Vue 3", "TOEIC 935 · JLPT N1"]
+    "cta": {
+      "work": "作品を見る",
+      "cv": "履歴書"
+    },
+    "meta": [
+      "台湾中南部、海外駐在も可",
+      "React · TypeScript · Vue 3",
+      "TOEIC 935 · JLPT N1"
+    ]
   },
   "work": {
     "eyebrow": "Selected work",
@@ -24,19 +48,31 @@
     "items": [
       {
         "id": "cube",
-        "tags": ["FinTech", "React", "大規模トラフィック"],
+        "tags": [
+          "FinTech",
+          "React",
+          "大規模トラフィック"
+        ],
         "title": "400の機能の中で、最も収益を生む2つを安定させる。",
         "desc": "数百万人が使うネットバンクの投資信託・外貨モジュールを主導。アクセス数トップ10、収益の93%。銀行規制と毎月の安定リリースの中で、速度と品質を両立。"
       },
       {
         "id": "endoscopy",
-        "tags": ["医療AI", "TPM", "Vue 3"],
+        "tags": [
+          "医療AI",
+          "TPM",
+          "Vue 3"
+        ],
         "title": "医師の要望を、1ヶ月で本番稼働するシステムに。",
         "desc": "TPMとして臨床側・データアナリスト・エンジニアと要件を仕様に落とし込み、レポート作成時間を60%短縮。医師の1日の業務時間を約20%節約。"
       },
       {
         "id": "harness",
-        "tags": ["AI harness", "DevEx", "Context"],
+        "tags": [
+          "AI harness",
+          "DevEx",
+          "Context"
+        ],
         "title": "AIに安心して任せられるところまで、プロジェクトを整える。",
         "desc": "仕様先行の開発skill、Mock Server、CI自動チェック、n8nチームナレッジベース、Claude Design System。AIの成果物に照合できる仕様と、止められる検査がある状態に。開発効率+50%。"
       }
@@ -46,28 +82,61 @@
     "eyebrow": "How I work",
     "title": "画面の外でやっていること。",
     "items": [
-      { "title": "仕様先行", "desc": "仕様とデモを先に合意し、API仕様を先にフロントへ、Mock Serverで先行開発。" },
-      { "title": "5〜8名のチームを率いる", "desc": "デイリースタンドアップ、新人ハンドブック、コンポーネントライブラリとStorybook。" },
-      { "title": "AI活用開発", "desc": "AIをレビュー、実装、ナレッジベースに組み込む。コードを書かせるだけではなく。" },
-      { "title": "パフォーマンスと品質", "desc": "Web Vitals、Lighthouse、そしてオンコール運用で身についた慎重さ。" }
+      {
+        "title": "仕様先行",
+        "desc": "仕様とデモを先に合意し、API仕様を先にフロントへ、Mock Serverで先行開発。"
+      },
+      {
+        "title": "5〜8名のチームを率いる",
+        "desc": "デイリースタンドアップ、新人ハンドブック、コンポーネントライブラリとStorybook。"
+      },
+      {
+        "title": "AI活用開発",
+        "desc": "AIをレビュー、実装、ナレッジベースに組み込む。コードを書かせるだけではなく。"
+      },
+      {
+        "title": "パフォーマンスと品質",
+        "desc": "Web Vitals、Lighthouse、そしてオンコール運用で身についた慎重さ。"
+      }
     ]
   },
   "side": {
     "eyebrow": "Side projects",
     "title": "仕事の外でも、新しいものに触れています。",
     "items": [
-      { "name": "Train Monopoly", "desc": "台湾鉄道をテーマにしたモノポリー。GitHub Actionsで自動デプロイ。" },
-      { "name": "小さなツールと技術の実験", "desc": "各種小ツールと新技術の実験場。" },
-      { "name": "グルメブログ", "desc": "自作のグルメブログ。" }
+      {
+        "name": "Train Monopoly",
+        "desc": "台湾鉄道をテーマにしたモノポリー。GitHub Actionsで自動デプロイ。"
+      },
+      {
+        "name": "小さなツールと技術の実験",
+        "desc": "各種小ツールと新技術の実験場。"
+      },
+      {
+        "name": "グルメブログ",
+        "desc": "自作のグルメブログ。"
+      }
     ]
   },
   "timeline": {
     "eyebrow": "Path",
     "title": "広告学科から医療AIへ。",
     "items": [
-      { "year": "2017", "org": "国立政治大学", "role": "広告学科、日本語学科ダブルメジャー" },
-      { "year": "2023", "org": "国泰世華銀行", "role": "フロントエンドエンジニア、CUBE" },
-      { "year": "2026", "org": "中山医AIセンター", "role": "フロントエンド テックリード / TPM" }
+      {
+        "year": "2017",
+        "org": "国立政治大学",
+        "role": "広告学科、日本語学科ダブルメジャー"
+      },
+      {
+        "year": "2023",
+        "org": "国泰世華銀行",
+        "role": "フロントエンドエンジニア、CUBE"
+      },
+      {
+        "year": "2026",
+        "org": "中山医AIセンター",
+        "role": "フロントエンド テックリード / TPM"
+      }
     ],
     "more": "経歴の詳細"
   },
@@ -80,6 +149,23 @@
     "cv": "履歴書",
     "resumeEn": "履歴書（英語）",
     "resumeZh": "履歴書（中国語）"
+  },
+  "dock": {
+    "title": "採用・連絡ハブ",
+    "badge": "採用担当者様へ",
+    "status": "転職活動中 · 台湾中南部 / 海外 / リモート",
+    "resume": "オンライン履歴書",
+    "resumeZh": "中国語履歴書 (Notion)",
+    "resumeEn": "英語履歴書 (Notion)",
+    "copyEmail": "メールをコピー",
+    "emailCopied": "コピーしました！",
+    "sendEmail": "メールを送る",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "toggleOpen": "採用クイックパネルを開く",
+    "toggleClose": "閉じる",
+    "tab": "履歴書 · 連絡",
+    "contact": "連絡先"
   },
   "about": {
     "eyebrow": "About",
@@ -107,7 +193,14 @@
             "アジャイル導入：遅延機能のタスク再分割と優先度見直しで、2週間で主要機能2件の受け入れを完了。",
             "チームの開発フローを整備：仕様とデモの事前合意、DBスキーマとAPI仕様の先行確定、Mock Server、Storybook、デイリースタンドアップ、新人ハンドブック。"
           ],
-          "tags": ["Vue 3", "Nuxt", "TypeScript", "Web Components", "Storybook", "医療AI"]
+          "tags": [
+            "Vue 3",
+            "Nuxt",
+            "TypeScript",
+            "Web Components",
+            "Storybook",
+            "医療AI"
+          ]
         },
         {
           "id": "cube",
@@ -123,31 +216,100 @@
             "n8nで社内ナレッジベースを構築し、40名以上の他部門メンバーがフロントエンドの疑問を自己解決。月約2人日を削減。",
             "ROBO：アニメーション付き公式サイトをSEOとCore Web Vitalsを意識して再構築。CrUXでLCP −35%、FCP −40%、TTFB −55%。"
           ],
-          "tags": ["React", "TypeScript", "FinTech", "パフォーマンス", "AI活用開発", "Azure DevOps"]
+          "tags": [
+            "React",
+            "TypeScript",
+            "FinTech",
+            "パフォーマンス",
+            "AI活用開発",
+            "Azure DevOps"
+          ]
         }
-      ]
+      ],
+      "current": "現職"
     },
     "skills": {
       "eyebrow": "Skills",
       "title": "何を使ってつくるか。",
       "groups": [
-        { "name": "フレームワークと言語", "items": ["React 19", "Vue 3", "Nuxt", "Web Components", "TypeScript", "Effect.ts", "Jotai", "React Hook Form"] },
-        { "name": "品質とパフォーマンス", "items": ["Vitest", "Storybook", "Lighthouse", "Web Vitals", "Code Splitting", "SSG", "Orval (OpenAPI)"] },
-        { "name": "デリバリーとチーム", "items": ["Azure DevOps", "CI/CD", "GitHub Actions", "Mock Server", "Plop", "Scrum", "Figma"] },
-        { "name": "AIツール", "items": ["AIコードレビュー", "Figma to Code", "n8n", "Ollama", "Claude Design System", "LLM向けcontext文書"] }
+        {
+          "name": "フレームワークと言語",
+          "items": [
+            "React 19",
+            "Vue 3",
+            "Nuxt",
+            "Web Components",
+            "TypeScript",
+            "Effect.ts",
+            "Jotai",
+            "React Hook Form"
+          ]
+        },
+        {
+          "name": "品質とパフォーマンス",
+          "items": [
+            "Vitest",
+            "Storybook",
+            "Lighthouse",
+            "Web Vitals",
+            "Code Splitting",
+            "SSG",
+            "Orval (OpenAPI)"
+          ]
+        },
+        {
+          "name": "デリバリーとチーム",
+          "items": [
+            "Azure DevOps",
+            "CI/CD",
+            "GitHub Actions",
+            "Mock Server",
+            "Plop",
+            "Scrum",
+            "Figma"
+          ]
+        },
+        {
+          "name": "AIツール",
+          "items": [
+            "AIコードレビュー",
+            "Figma to Code",
+            "n8n",
+            "Ollama",
+            "Claude Design System",
+            "LLM向けcontext文書"
+          ]
+        }
       ]
     },
     "langs": {
       "eyebrow": "Education & languages",
       "title": "3つの言語で働く。",
       "items": [
-        { "name": "国立政治大学", "level": "広告学科卒、日本語学科ダブルメジャー · 2017〜2023" },
-        { "name": "中国語", "level": "ネイティブ" },
-        { "name": "英語", "level": "TOEIC 935 · ビジネスレベル" },
-        { "name": "日本語", "level": "JLPT N1 · ビジネスレベル" }
+        {
+          "name": "国立政治大学",
+          "level": "広告学科卒、日本語学科ダブルメジャー · 2017〜2023"
+        },
+        {
+          "name": "中国語",
+          "level": "ネイティブ"
+        },
+        {
+          "name": "英語",
+          "level": "TOEIC 935 · ビジネスレベル"
+        },
+        {
+          "name": "日本語",
+          "level": "JLPT N1 · ビジネスレベル"
+        }
       ]
     },
-    "links": { "eyebrow": "Links", "title": "連絡先。" }
+    "links": {
+      "eyebrow": "Links",
+      "title": "連絡先。"
+    }
   },
-  "footer": { "text": "陳絲彤 · Stone Chen" }
+  "footer": {
+    "text": "陳絲彤 · Stone Chen"
+  }
 }

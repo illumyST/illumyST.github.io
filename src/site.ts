@@ -17,8 +17,14 @@ export const site = {
     'https://stoneisme.com/project',
     'https://stoneisme.com/blog/foodie/',
   ],
+  /** Side-project thumbnails, 960x600, same order as sideProjects. Empty string hides the image. */
+  sideImages: [
+    '/images/side-train.webp',
+    '/images/side-playground.webp',
+    '/images/side-foodie.webp',
+  ],
   /** Which About-page job each home card scrolls to. */
   caseAnchor: { cube: 'cube', endoscopy: 'csmuh', harness: 'csmuh' } as Record<string, string>,
   /** Case screenshots, 1600x1000. Empty string shows a tinted placeholder block. */
-  caseImages: { cube: '', endoscopy: '', harness: '' } as Record<string, string>,
+  caseImages: { cube: '/images/case-cube.webp', endoscopy: '/images/case-endoscopy.webp', harness: '' } as Record<string, string>,
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ColorBlocks from '@/components/ColorBlocks.vue'
 import SectionHead from '@/components/SectionHead.vue'
@@ -28,134 +28,220 @@ const stops = useMessageList<Stop>('timeline.items', resolveFields)
 
 const about = computed(() => localePath(locale.value as Locale, 'about'))
 const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
-const accent = ['blue', 'red', 'gold']
+const roman = ['I', 'II', 'III', 'IV']
+const caseWash = ['red', 'blue', 'gold']
+
+const copied = ref(false)
+let copyTimer: ReturnType<typeof setTimeout> | undefined
+
+onUnmounted(() => clearTimeout(copyTimer))
+
+async function copyHeroEmail() {
+  try {
+    await navigator.clipboard.writeText(site.email)
+    copied.value = true
+    clearTimeout(copyTimer)
+    copyTimer = setTimeout(() => {
+      copied.value = false
+    }, 2000)
+  } catch {
+    window.location.href = `mailto:${site.email}`
+  }
+}
 </script>
 
 <template>
-  <!-- 1. Hero -->
+  <!-- 1. Hero Section (GRIS 水彩意象與日系文青扉頁) -->
   <section class="hero">
     <ColorBlocks variant="hero" />
     <div class="container hero-grid">
-    <div class="hero-inner">
-      <p class="eyebrow">{{ t('hero.eyebrow') }}</p>
-      <h1 class="name">
-        {{ t('hero.name') }}
-        <small>{{ t('hero.alt') }}</small>
-      </h1>
-      <p class="line">{{ t('hero.line') }}</p>
+      <div class="hero-inner">
+        <!-- 候選人狀態 (低調文青筆記風格) -->
+        <div class="status-line">
+          <p class="eyebrow">{{ t('hero.eyebrow') }}</p>
+          <span class="status-bracket">
+            〔 {{ t('dock.status') }} 〕
+          </span>
+        </div>
 
-      <ul class="stats">
-        <li v-for="(s, i) in stats" :key="i" :class="`stat stat--${accent[i]}`">
-          <strong>{{ s.n }}</strong>
-          <span>{{ s.label }}</span>
-        </li>
-      </ul>
+        <h1 class="name">
+          {{ t('hero.name') }}
+          <small>{{ t('hero.alt') }}</small>
+        </h1>
 
-      <div class="cta">
-        <a href="#work" class="btn btn--primary">{{ t('hero.cta.work') }}</a>
-        <a :href="cv" class="btn" target="_blank" rel="noopener">{{ t('hero.cta.cv') }}</a>
+        <p class="line">{{ t('hero.line') }}</p>
+
+        <!-- 關鍵實績數據 (Gris 風格典雅數字與細線刻度) -->
+        <div class="stats-spread">
+          <div v-for="(s, i) in stats" :key="i" class="stat-col" :class="`stat--${caseWash[i]}`">
+            <span class="stat-index">0{{ i + 1 }}</span>
+            <strong class="stat-num">{{ s.n }}</strong>
+            <span class="stat-text">{{ s.label }}</span>
+          </div>
+        </div>
+
+        <!-- HR 快速調閱行動列 (乾淨紙質書籤風按鈕) -->
+        <div class="cta-row">
+          <a href="#work" class="btn btn--solid">
+            <span>{{ t('hero.cta.work') }}</span>
+            <span class="arrow-down" aria-hidden="true">↓</span>
+          </a>
+          <a :href="site.resumeZh" target="_blank" rel="noopener" class="btn btn--outline">
+            <span>{{ t('dock.resumeZh') }} ↗</span>
+          </a>
+          <a :href="site.resumeEn" target="_blank" rel="noopener" class="btn btn--outline">
+            <span>{{ t('dock.resumeEn') }} ↗</span>
+          </a>
+          <button type="button" class="btn btn--copy" :aria-label="t('dock.copyEmail')" @click="copyHeroEmail">
+            <span class="copy-swap">
+              <span :class="{ hide: copied }">{{ site.email }}</span>
+              <span :class="{ hide: !copied }">{{ t('dock.emailCopied') }}</span>
+            </span>
+          </button>
+        </div>
+
+        <span class="visually-hidden" role="status">{{ copied ? t('dock.emailCopied') : '' }}</span>
+
+        <!-- ATS 快篩關鍵字條 (細緻分隔符號) -->
+        <div class="meta-strip">
+          <span v-for="(m, i) in metaLine" :key="i" class="meta-item">
+            <span v-if="i > 0" class="meta-dot" aria-hidden="true">/</span>
+            <span>{{ m }}</span>
+          </span>
+        </div>
       </div>
 
-      <p class="meta">
-        <span v-for="(m, i) in metaLine" :key="i">{{ m }}</span>
-      </p>
-    </div>
-    <figure class="portrait">
-      <img
-        :src="site.portrait"
-        :srcset="`${site.portraitSmall} 480w, ${site.portrait} 960w`"
-        sizes="(max-width: 720px) 128px, 300px"
-        :alt="t('hero.name')"
-        width="960"
-        height="960"
-        fetchpriority="high"
-        decoding="async"
-      />
-    </figure>
+      <!-- 人像水彩光暈輪廓 -->
+      <div class="portrait-container">
+        <figure class="portrait">
+          <img
+            :src="site.portrait"
+            :srcset="`${site.portraitSmall} 480w, ${site.portrait} 960w`"
+            sizes="(max-width: 720px) 140px, 280px"
+            :alt="t('hero.name')"
+            width="960"
+            height="960"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- 2. Selected work -->
+  <!-- 2. Selected Work (作品集 · GRIS 各章節水彩意象卡片) -->
   <section id="work" class="work">
     <ColorBlocks variant="work" />
     <div class="container">
       <SectionHead :eyebrow="t('work.eyebrow')" :title="t('work.title')" />
       <ul class="cases">
-        <li v-for="(c, i) in cases" :key="c.id" :class="`case case--${accent[i]}`">
-          <RouterLink :to="`${about}#${site.caseAnchor[c.id]}`" class="case-link">
-            <figure class="shot">
+        <li v-for="(c, i) in cases" :key="c.id" :class="`case case--${caseWash[i]}`">
+          <RouterLink :to="`${about}#${site.caseAnchor[c.id]}`" class="case-card">
+            <!-- 水彩暈染插畫框 (無假圖表，純粹紙質水彩與極簡版式) -->
+            <div class="case-artwork">
               <img v-if="site.caseImages[c.id]" :src="site.caseImages[c.id]" :alt="c.title" loading="lazy" width="1600" height="1000" />
-              <span v-else class="shot-placeholder" aria-hidden="true"></span>
-            </figure>
-            <ul class="tags">
-              <li v-for="tag in c.tags" :key="tag">{{ tag }}</li>
-            </ul>
-            <h3>{{ c.title }}</h3>
-            <p>{{ c.desc }}</p>
-            <span class="more">{{ t('work.more') }} →</span>
+              <div v-else class="watercolor-frame" :class="`frame--${c.id}`">
+                <div class="frame-content">
+                  <span class="frame-roman">Case 0{{ i + 1 }}</span>
+                  <span class="frame-tagline">{{ c.tags[0] }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 卡片內文 (文青排版，字距與行距舒適) -->
+            <div class="case-info">
+              <div class="case-tags">
+                <span v-for="tag in c.tags" :key="tag" class="tag-bracket">〔 {{ tag }} 〕</span>
+              </div>
+              <h3 class="case-heading">{{ c.title }}</h3>
+              <p class="case-summary">{{ c.desc }}</p>
+              <div class="case-action">
+                <span>{{ t('work.more') }}</span>
+                <span class="action-arrow">→</span>
+              </div>
+            </div>
           </RouterLink>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- 3. How I work -->
+  <!-- 3. How I work (畫面之外的事 · 雜誌書頁排版) -->
   <section class="how">
     <div class="container">
       <SectionHead :eyebrow="t('how.eyebrow')" :title="t('how.title')" />
-      <ol class="how-grid">
-        <li v-for="(h, i) in how" :key="i">
-          <em>0{{ i + 1 }}</em>
-          <h3>{{ h.title }}</h3>
-          <p>{{ h.desc }}</p>
-        </li>
-      </ol>
+      <div class="how-grid">
+        <article v-for="(h, i) in how" :key="i" class="how-item">
+          <span class="roman-index">{{ roman[i] }}.</span>
+          <div class="how-content">
+            <h3>{{ h.title }}</h3>
+            <p>{{ h.desc }}</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- 4. Side projects -->
+  <!-- 4. Side projects (創作小品) -->
   <section class="side">
     <div class="container">
       <SectionHead :eyebrow="t('side.eyebrow')" :title="t('side.title')" />
       <ul class="side-grid">
-        <li v-for="s in side" :key="s.url">
-          <a :href="s.url" target="_blank" rel="noopener">
-            <h3>{{ s.name }}</h3>
+        <li v-for="(s, i) in side" :key="s.url">
+          <a :href="s.url" target="_blank" rel="noopener" class="side-item">
+            <div v-if="site.sideImages[i]" class="side-thumb">
+              <img :src="site.sideImages[i]" alt="" loading="lazy" width="960" height="600" />
+            </div>
+            <div class="side-title-row">
+              <h3>{{ s.name }}</h3>
+              <span class="side-arrow">↗</span>
+            </div>
             <p>{{ s.desc }}</p>
-            <span class="url">{{ s.url.replace('https://', '') }}</span>
+            <span class="side-url">{{ s.url.replace('https://', '') }}</span>
           </a>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- 5. Path -->
+  <!-- 5. Path (年譜軌跡) -->
   <section class="path">
     <div class="container">
       <SectionHead :eyebrow="t('timeline.eyebrow')" :title="t('timeline.title')" />
-      <ol class="stops">
-        <li v-for="(s, i) in stops" :key="s.year" :class="{ now: i === stops.length - 1 }">
-          <span class="year">{{ s.year }}</span>
-          <strong>{{ s.org }}</strong>
-          <span class="role">{{ s.role }}</span>
+      <ol class="chronology">
+        <li v-for="(s, i) in stops" :key="s.year" :class="{ now: i === stops.length - 1 }" class="chrono-item">
+          <div class="chrono-year">{{ s.year }}</div>
+          <div class="chrono-body">
+            <strong>{{ s.org }}</strong>
+            <span class="chrono-role">{{ s.role }}</span>
+          </div>
         </li>
       </ol>
-      <RouterLink :to="about" class="more-link">{{ t('timeline.more') }} →</RouterLink>
+      <div class="timeline-more">
+        <RouterLink :to="about" class="editorial-link">
+          <span>{{ t('timeline.more') }}</span>
+          <span aria-hidden="true">→</span>
+        </RouterLink>
+      </div>
     </div>
   </section>
 
-  <!-- 6. Contact -->
+  <!-- 6. Contact (結尾水彩墨色) -->
   <section id="contact" class="contact">
     <ColorBlocks variant="contact" />
     <div class="container contact-inner">
       <SectionHead :eyebrow="t('contact.eyebrow')" :title="t('contact.title')" />
       <p class="lead">{{ t('contact.lead') }}</p>
-      <CopyEmail :email="site.email" />
-      <ul class="links">
-        <li><a :href="site.linkedin" target="_blank" rel="noopener">LinkedIn <span>{{ site.linkedinLabel }}</span></a></li>
-        <li><a :href="site.github" target="_blank" rel="noopener">GitHub <span>{{ site.githubLabel }}</span></a></li>
-        <li><a :href="cv" target="_blank" rel="noopener">{{ t('contact.cv') }}</a></li>
-      </ul>
+      <div class="contact-copy-wrap">
+        <CopyEmail :email="site.email" />
+      </div>
+      <div class="links-row">
+        <a :href="site.linkedin" target="_blank" rel="noopener" class="contact-link">LinkedIn <span>{{ site.linkedinLabel }}</span> ↗</a>
+        <span class="dot-sep">·</span>
+        <a :href="site.github" target="_blank" rel="noopener" class="contact-link">GitHub <span>{{ site.githubLabel }}</span> ↗</a>
+        <span class="dot-sep">·</span>
+        <a :href="cv" target="_blank" rel="noopener" class="contact-link contact-link--highlight">{{ t('contact.cv') }} ↗</a>
+      </div>
     </div>
   </section>
 </template>
@@ -169,383 +255,485 @@ section {
   z-index: 1;
 }
 
-/* Hero */
+/* 1. Hero Section */
 .hero {
-  padding-block: clamp(56px, 12vh, 128px) clamp(48px, 8vh, 88px);
+  padding-block: clamp(48px, 9vh, 92px) clamp(44px, 7vh, 80px);
 }
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 32px 48px;
-  align-items: start;
+  gap: 40px 60px;
+  align-items: center;
 }
 .hero-inner {
   display: grid;
   gap: 26px;
   min-width: 0;
 }
-.hero-inner > * {
-  min-width: 0;
-  max-width: 100%;
+
+.status-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
 }
-.portrait {
-  margin: 48px 0 0;
-  width: clamp(200px, 24vw, 300px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--gold-tint);
-  box-shadow: 0 0 0 10px var(--gold-tint);
-  justify-self: end;
+.status-bracket {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  color: var(--quiet);
 }
-.portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-@media (max-width: 720px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-  .portrait {
-    order: -1;
-    width: 128px;
-    margin: 0;
-    justify-self: start;
-  }
-}
+
 .name {
-  font-size: clamp(2.8rem, 1.6rem + 4.5vw, 4.75rem);
-  line-height: 1.1;
+  font-size: clamp(2.8rem, 1.8rem + 3.8vw, 4.5rem);
+  line-height: 1.15;
   letter-spacing: -0.01em;
   font-weight: 500;
 }
 .name small {
   display: block;
-  font-family: var(--font-body);
+  font-family: var(--font-serif);
+  font-style: italic;
   font-weight: 400;
-  font-size: 0.3em;
-  letter-spacing: 0.16em;
+  font-size: 0.38em;
+  letter-spacing: 0.08em;
   color: var(--quiet);
-  margin-top: 16px;
+  margin-top: 10px;
 }
 .line {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 0.9rem + 1.1vw, 1.55rem);
-  line-height: 1.6;
-  max-width: 32ch;
+  font-size: clamp(1.15rem, 0.95rem + 0.8vw, 1.45rem);
+  line-height: 1.8;
+  max-width: 36ch;
+  color: var(--ink);
 }
-.stats {
-  width: 100%;
+
+/* Stats Spread (日系書頁版式) */
+.stats-spread {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px 32px;
+  gap: 24px;
+  padding-block: 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   max-width: 720px;
-  margin-top: 10px;
 }
-.stat {
-  border-top: 3px solid var(--blue);
-  padding-top: 12px;
-  display: grid;
+.stat-col {
+  display: flex;
+  flex-direction: column;
   gap: 4px;
 }
-.stat--red {
-  border-color: var(--red);
+.stat-index {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--quiet);
 }
-.stat--gold {
-  border-color: var(--gold);
-}
-.stat strong {
+.stat-num {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.4rem);
+  font-size: clamp(1.8rem, 1.4rem + 1.2vw, 2.3rem);
   font-weight: 600;
   line-height: 1.1;
-  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
-.stat span {
-  font-size: 0.9375rem;
+.stat-text {
+  font-size: 0.84rem;
   color: var(--quiet);
   line-height: 1.6;
 }
-.cta {
+
+/* CTA Row (文青紙質微邊框按鈕) */
+.cta-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
-  margin-top: 6px;
 }
 .btn {
   display: inline-flex;
   align-items: center;
-  padding: 10px 22px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  font-size: 0.9375rem;
-  letter-spacing: 0.06em;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
   transition:
-    background 0.2s,
+    background-color 0.2s,
     border-color 0.2s,
-    translate 0.3s var(--ease);
-  @media (prefers-reduced-motion: reduce) {
-    transition-duration: 0s;
-  }
+    color 0.2s;
 }
-.btn:hover {
-  translate: 0 -2px;
-  border-color: var(--blue);
-}
-.btn--primary {
+.btn--solid {
   background: var(--ink);
   color: var(--paper);
+  border: 1px solid var(--ink);
+}
+.btn--solid:hover {
+  background: color-mix(in srgb, var(--ink) 80%, transparent);
+}
+.arrow-down {
+  font-family: var(--font-serif);
+}
+.btn--outline {
+  background: var(--paper-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.btn--outline:hover {
   border-color: var(--ink);
 }
-.btn--primary:hover {
-  border-color: var(--ink);
-}
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  font-size: 0.9375rem;
+.btn--copy {
   color: var(--quiet);
-  letter-spacing: 0.04em;
+  border: 1px dashed var(--line);
+  font-size: 0.8125rem;
+  padding: 7px 14px;
 }
-.meta span + span::before {
-  content: '·';
-  margin-right: 12px;
-  color: var(--gold-ink);
+.copy-swap {
+  display: inline-grid;
+}
+.copy-swap > span {
+  grid-area: 1 / 1;
+  text-align: center;
+  white-space: nowrap;
+}
+.copy-swap > .hide {
+  visibility: hidden;
+}
+.btn--copy:hover {
+  border-color: var(--quiet);
+  color: var(--ink);
 }
 
-/* Shared section rhythm */
+/* Meta Strip */
+.meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--quiet);
+  letter-spacing: 0.02em;
+}
+.meta-dot {
+  color: var(--line);
+  margin-right: 8px;
+}
+
+/* Portrait */
+.portrait-container {
+  justify-self: end;
+  position: relative;
+}
+.portrait {
+  margin: 0;
+  width: clamp(200px, 24vw, 270px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--paper-3);
+  padding: 4px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px -6px rgba(35, 38, 45, 0.08);
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .portrait-container {
+    order: -1;
+    justify-self: start;
+  }
+  .portrait {
+    width: 120px;
+  }
+}
+
+/* Section Spacing */
 .work,
 .how,
 .side,
 .path {
-  padding-block: clamp(56px, 9vh, 104px);
-}
-.how,
-.side,
-.path {
+  padding-block: clamp(56px, 9vh, 96px);
   border-top: 1px solid var(--line);
 }
 
-/* Cases */
+/* 2. Selected Work (GRIS 水彩意象卡片) */
 .cases {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px 28px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 32px;
 }
-.case-link {
-  display: grid;
-  gap: 12px;
+.case-card {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-}
-.shot {
-  margin: 0 0 6px;
   border-radius: var(--radius-card);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
+  transition:
+    border-color 0.25s,
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+.case-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--quiet);
+  box-shadow: var(--shadow-hover);
+}
+
+.case-artwork {
+  width: 100%;
   aspect-ratio: 16 / 10;
-  background: var(--blue-tint);
-  transition: translate 0.4s var(--ease);
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
+  border-bottom: 1px solid var(--line-subtle);
+  overflow: hidden;
+  background: var(--paper);
 }
-.case--red .shot {
-  background: var(--red-tint);
-}
-.case--gold .shot {
-  background: var(--gold-tint);
-}
-.case-link:hover .shot {
-  translate: 0 -4px;
-}
-.shot img {
+.case-artwork img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.shot-placeholder {
-  display: block;
+
+/* 水彩框背景 (GRIS 篇章感) */
+.watercolor-frame {
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--blue) 28%, transparent) 0 18%, transparent 19%),
-    radial-gradient(circle at 30% 75%, color-mix(in srgb, var(--gold) 30%, transparent) 0 14%, transparent 15%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-.case--red .shot-placeholder {
-  background:
-    radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--red) 26%, transparent) 0 16%, transparent 17%),
-    radial-gradient(circle at 72% 70%, color-mix(in srgb, var(--blue) 24%, transparent) 0 20%, transparent 21%);
+.frame--cube {
+  background: radial-gradient(circle at 60% 40%, var(--red-tint) 0%, color-mix(in srgb, var(--red) 18%, transparent) 60%, var(--paper) 100%);
 }
-.case--gold .shot-placeholder {
-  background:
-    radial-gradient(circle at 60% 40%, color-mix(in srgb, var(--gold) 34%, transparent) 0 22%, transparent 23%),
-    radial-gradient(circle at 22% 70%, color-mix(in srgb, var(--red) 22%, transparent) 0 12%, transparent 13%);
+.frame--endoscopy {
+  background: radial-gradient(circle at 40% 60%, var(--blue-tint) 0%, color-mix(in srgb, var(--blue) 18%, transparent) 60%, var(--paper) 100%);
 }
-.tags {
+.frame--harness {
+  background: radial-gradient(circle at 50% 40%, var(--gold-tint) 0%, color-mix(in srgb, var(--gold) 20%, transparent) 60%, var(--paper) 100%);
+}
+
+.frame-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.frame-roman {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  opacity: 0.8;
+}
+.frame-tagline {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: var(--quiet);
+  text-transform: uppercase;
+}
+
+.case-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.case-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
-.tags li {
-  font-size: 0.8125rem;
-  letter-spacing: 0.06em;
-  padding: 2px 10px;
-  border-radius: 999px;
-  background: var(--blue-tint);
-  color: var(--blue-ink);
+.tag-bracket {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--quiet);
+  letter-spacing: 0.04em;
 }
-.case--red .tags li {
-  background: var(--red-tint);
-  color: var(--red-ink);
-}
-.case--gold .tags li {
-  background: var(--gold-tint);
-  color: var(--gold-ink);
-}
-.cases h3 {
-  font-size: 1.2rem;
+.case-heading {
+  font-size: 1.25rem;
   line-height: 1.45;
+  font-weight: 500;
+  color: var(--ink);
 }
-.cases p {
-  font-size: 0.9375rem;
+.case-summary {
+  font-size: 0.92rem;
   color: var(--quiet);
   line-height: 1.75;
 }
-.more {
-  font-size: 0.9375rem;
-  letter-spacing: 0.06em;
-  color: var(--red-ink);
+.case-action {
   margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+.action-arrow {
+  transition: transform 0.2s var(--ease);
+}
+.case-card:hover .action-arrow {
+  transform: translateX(4px);
 }
 
-/* How I work */
+/* 3. How I work (雜誌書頁式排版) */
 .how-grid {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 28px 32px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
 }
-.how-grid li {
-  display: grid;
-  gap: 8px;
-  padding-top: 14px;
+.how-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
 }
-.how-grid em {
-  font-style: normal;
-  font-family: var(--font-display);
-  color: var(--red-ink);
-  letter-spacing: 0.1em;
-  font-size: 0.9375rem;
-}
-.how-grid h3 {
-  font-size: 1.1rem;
-}
-.how-grid p {
-  font-size: 0.9375rem;
+.roman-index {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
   color: var(--quiet);
-  line-height: 1.7;
+}
+.how-content h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.how-content p {
+  font-size: 0.9rem;
+  color: var(--quiet);
+  line-height: 1.75;
 }
 
-/* Side projects */
+/* 4. Side Projects */
 .side-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
-.side-grid a {
-  display: grid;
-  gap: 6px;
-  padding: 22px 24px;
+.side-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
   border-radius: var(--radius-card);
   background: var(--paper-2);
   border: 1px solid var(--line);
   height: 100%;
-  transition:
-    translate 0.3s var(--ease),
-    border-color 0.2s;
-  @media (prefers-reduced-motion: reduce) {
-    transition: border-color 0.2s;
-  }
+  transition: border-color 0.2s;
 }
-.side-grid a:hover {
-  translate: 0 -3px;
-  border-color: var(--gold);
+.side-item:hover {
+  border-color: var(--quiet);
 }
-.side-grid h3 {
+.side-thumb {
+  margin: -24px -24px 8px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-subtle);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--paper);
+}
+.side-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.side-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.side-title-row h3 {
   font-size: 1.1rem;
+  font-weight: 500;
 }
-.side-grid p {
-  font-size: 0.9375rem;
+.side-arrow {
+  color: var(--quiet);
+  font-family: var(--font-serif);
+}
+.side-item p {
+  font-size: 0.9rem;
   color: var(--quiet);
   line-height: 1.7;
 }
-.side-grid .url {
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+.side-url {
+  font-size: 0.78rem;
   color: var(--blue-ink);
-  margin-top: 6px;
-  overflow-wrap: anywhere;
+  margin-top: auto;
+  padding-top: 6px;
 }
 
-/* Path */
-.stops {
+/* 5. Chronology (年譜) */
+.chronology {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
 }
-.stops li {
-  position: relative;
-  padding: 26px 20px 0 0;
-  border-top: 2px solid var(--line);
-  display: grid;
-  gap: 2px;
+.chrono-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
-.stops li::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--blue);
+.chrono-year {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink);
 }
-.stops li.now::before {
-  background: var(--red);
-  border-color: var(--red);
-}
-.year {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  color: var(--quiet);
-}
-.stops strong {
-  font-weight: 500;
+.chrono-body strong {
+  display: block;
   font-size: 1.05rem;
+  font-weight: 500;
 }
-.role {
-  font-size: 0.9375rem;
+.chrono-role {
+  font-size: 0.88rem;
   color: var(--quiet);
 }
-.more-link {
-  display: inline-block;
+.timeline-more {
   margin-top: 28px;
-  font-size: 0.9375rem;
-  letter-spacing: 0.06em;
-  color: var(--red-ink);
+  display: flex;
+  justify-content: flex-end;
+}
+.editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+.editorial-link:hover {
+  border-bottom-color: var(--ink);
 }
 
-/* Contact */
+/* 6. Contact */
 .contact {
-  padding-block: clamp(64px, 10vh, 112px) clamp(56px, 8vh, 96px);
+  padding-block: clamp(64px, 10vh, 108px) clamp(56px, 8vh, 92px);
   margin-top: 24px;
 }
 .contact-inner {
@@ -555,23 +743,35 @@ section {
 .lead {
   max-width: 48ch;
   color: var(--quiet);
+  font-size: 1.05rem;
+  line-height: 1.8;
 }
-.links {
+.contact-copy-wrap {
+  margin-top: 4px;
+}
+.links-row {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px 28px;
-  font-size: 0.9375rem;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--quiet);
   margin-top: 6px;
 }
-.links a {
+.contact-link {
+  color: var(--ink);
   border-bottom: 1px solid var(--line);
-  padding-bottom: 2px;
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
 }
-.links a:hover {
-  border-color: var(--blue);
+.contact-link:hover {
+  border-bottom-color: var(--ink);
 }
-.links span {
-  color: var(--quiet);
-  margin-left: 6px;
+.contact-link--highlight {
+  color: var(--red-ink);
+  border-bottom-color: var(--red);
+}
+.dot-sep {
+  color: var(--line);
 }
 </style>

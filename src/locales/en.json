@@ -3,19 +3,43 @@
     "title": "Stone Chen, Frontend Engineer · Tech Lead",
     "description": "Frontend engineer turned product-minded tech lead. CUBE online banking at Cathay United Bank, now medical AI at the CSMUH AI Center."
   },
-  "nav": { "home": "Home", "work": "Work", "about": "About", "talk": "Let's talk", "lang": "Language", "toLight": "Switch to light mode", "toDark": "Switch to dark mode" },
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "talk": "Let's talk",
+    "lang": "Language",
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
   "hero": {
     "eyebrow": "Frontend Engineer · Tech Lead",
     "name": "Stone Chen",
     "alt": "陳絲彤",
     "line": "Frontend engineer turned product-minded tech lead. I build products a million people use every day, shape what gets built, and lead the team that ships it faster.",
     "stats": [
-      { "n": "3.4M", "label": "monthly visits, CUBE online banking" },
-      { "n": "+50%", "label": "dev efficiency after AI-assisted development and automation" },
-      { "n": "1 month", "label": "from requirements to go-live, medical AI" }
+      {
+        "n": "3.4M",
+        "label": "monthly visits, CUBE online banking"
+      },
+      {
+        "n": "+50%",
+        "label": "dev efficiency after AI-assisted development and automation"
+      },
+      {
+        "n": "1 month",
+        "label": "from requirements to go-live, medical AI"
+      }
     ],
-    "cta": { "work": "View work", "cv": "Download CV" },
-    "meta": ["Central/Southern Taiwan, open to overseas posting", "React · TypeScript · Vue 3", "TOEIC 935 · JLPT N1"]
+    "cta": {
+      "work": "View work",
+      "cv": "Download CV"
+    },
+    "meta": [
+      "Central/Southern Taiwan, open to overseas posting",
+      "React · TypeScript · Vue 3",
+      "TOEIC 935 · JLPT N1"
+    ]
   },
   "work": {
     "eyebrow": "Selected work",
@@ -24,19 +48,31 @@
     "items": [
       {
         "id": "cube",
-        "tags": ["FinTech", "React", "High traffic"],
+        "tags": [
+          "FinTech",
+          "React",
+          "High traffic"
+        ],
         "title": "Of 400 features, keeping the two that earn the most rock-solid.",
         "desc": "Led the fund and FX modules of a million-user online bank: top 10 by traffic, 93% of revenue. Shipped every month under banking regulation without trading speed for quality."
       },
       {
         "id": "endoscopy",
-        "tags": ["Medical AI", "TPM", "Vue 3"],
+        "tags": [
+          "Medical AI",
+          "TPM",
+          "Vue 3"
+        ],
         "title": "Turning what physicians asked for into a system live within a month.",
         "desc": "As TPM, translated clinical needs into specs with clinicians, data analysts and engineers. Report time down 60%; physicians save about 20% of their day."
       },
       {
         "id": "harness",
-        "tags": ["AI harness", "DevEx", "Context"],
+        "tags": [
+          "AI harness",
+          "DevEx",
+          "Context"
+        ],
         "title": "Getting a codebase to the point where AI can safely take the wheel.",
         "desc": "Spec-first development skill, mock server, CI checks, an n8n team knowledge base and a Claude Design System: what AI writes has a spec to match and a gate to pass. Dev efficiency +50%."
       }
@@ -46,28 +82,61 @@
     "eyebrow": "How I work",
     "title": "What happens off-screen.",
     "items": [
-      { "title": "Spec first", "desc": "Spec and demo agreed before build, API contracts before frontend, mock server before backend." },
-      { "title": "Leading a team of 5–8", "desc": "Standups, an onboarding handbook, a component library and Storybook so new joiners ship in week one." },
-      { "title": "AI-assisted development", "desc": "AI in review, layout and the knowledge base, not just in writing code." },
-      { "title": "Performance and quality", "desc": "Web Vitals, Lighthouse, and the caution you learn from being on call." }
+      {
+        "title": "Spec first",
+        "desc": "Spec and demo agreed before build, API contracts before frontend, mock server before backend."
+      },
+      {
+        "title": "Leading a team of 5–8",
+        "desc": "Standups, an onboarding handbook, a component library and Storybook so new joiners ship in week one."
+      },
+      {
+        "title": "AI-assisted development",
+        "desc": "AI in review, layout and the knowledge base, not just in writing code."
+      },
+      {
+        "title": "Performance and quality",
+        "desc": "Web Vitals, Lighthouse, and the caution you learn from being on call."
+      }
     ]
   },
   "side": {
     "eyebrow": "Side projects",
     "title": "Still trying new things after hours.",
     "items": [
-      { "name": "Train Monopoly", "desc": "A Taiwan-railway take on Monopoly, deployed with GitHub Actions." },
-      { "name": "Tools and experiments", "desc": "Small utilities and a playground for new tech." },
-      { "name": "Food blog", "desc": "A self-built blog about eating out." }
+      {
+        "name": "Train Monopoly",
+        "desc": "A Taiwan-railway take on Monopoly, deployed with GitHub Actions."
+      },
+      {
+        "name": "Tools and experiments",
+        "desc": "Small utilities and a playground for new tech."
+      },
+      {
+        "name": "Food blog",
+        "desc": "A self-built blog about eating out."
+      }
     ]
   },
   "timeline": {
     "eyebrow": "Path",
     "title": "From advertising to medical AI.",
     "items": [
-      { "year": "2017", "org": "National Chengchi University", "role": "Advertising, double major in Japanese" },
-      { "year": "2023", "org": "Cathay United Bank", "role": "Frontend Engineer, CUBE online banking" },
-      { "year": "2026", "org": "CSMUH AI Center", "role": "Frontend Tech Lead / TPM" }
+      {
+        "year": "2017",
+        "org": "National Chengchi University",
+        "role": "Advertising, double major in Japanese"
+      },
+      {
+        "year": "2023",
+        "org": "Cathay United Bank",
+        "role": "Frontend Engineer, CUBE online banking"
+      },
+      {
+        "year": "2026",
+        "org": "CSMUH AI Center",
+        "role": "Frontend Tech Lead / TPM"
+      }
     ],
     "more": "Full experience"
   },
@@ -80,6 +149,23 @@
     "cv": "Download CV",
     "resumeEn": "Resume (EN)",
     "resumeZh": "Resume (中文)"
+  },
+  "dock": {
+    "title": "Recruiter Hub",
+    "badge": "For HR",
+    "status": "Available for interviews · Taiwan / Abroad",
+    "resume": "Resumes",
+    "resumeZh": "Chinese Resume (Notion)",
+    "resumeEn": "English Resume (Notion)",
+    "copyEmail": "Copy Email",
+    "emailCopied": "Copied!",
+    "sendEmail": "Send Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "toggleOpen": "Open Recruiter Hub",
+    "toggleClose": "Collapse Hub",
+    "tab": "CV & Contact",
+    "contact": "Contact"
   },
   "about": {
     "eyebrow": "About",
@@ -107,7 +193,14 @@
             "Introduced agile practice: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.",
             "Set up the team workflow: spec and demo before build, DB schema and API contracts first, mock server, Storybook, daily standups and an onboarding handbook."
           ],
-          "tags": ["Vue 3", "Nuxt", "TypeScript", "Web Components", "Storybook", "Medical AI"]
+          "tags": [
+            "Vue 3",
+            "Nuxt",
+            "TypeScript",
+            "Web Components",
+            "Storybook",
+            "Medical AI"
+          ]
         },
         {
           "id": "cube",
@@ -123,31 +216,100 @@
             "Built an internal n8n knowledge base so 40+ cross-team members answer frontend questions themselves, saving about 2 person-days a month.",
             "ROBO: rebuilt the animated marketing site for SEO and Core Web Vitals; LCP −35%, FCP −40%, TTFB −55% in CrUX."
           ],
-          "tags": ["React", "TypeScript", "FinTech", "Performance", "AI-assisted dev", "Azure DevOps"]
+          "tags": [
+            "React",
+            "TypeScript",
+            "FinTech",
+            "Performance",
+            "AI-assisted dev",
+            "Azure DevOps"
+          ]
         }
-      ]
+      ],
+      "current": "Current"
     },
     "skills": {
       "eyebrow": "Skills",
       "title": "What I build with.",
       "groups": [
-        { "name": "Frameworks and languages", "items": ["React 19", "Vue 3", "Nuxt", "Web Components", "TypeScript", "Effect.ts", "Jotai", "React Hook Form"] },
-        { "name": "Quality and performance", "items": ["Vitest", "Storybook", "Lighthouse", "Web Vitals", "Code splitting", "SSG", "Orval (OpenAPI)"] },
-        { "name": "Delivery and team", "items": ["Azure DevOps", "CI/CD", "GitHub Actions", "Mock server", "Plop", "Scrum", "Figma"] },
-        { "name": "AI tooling", "items": ["AI code review", "Figma to Code", "n8n", "Ollama", "Claude Design System", "LLM context docs"] }
+        {
+          "name": "Frameworks and languages",
+          "items": [
+            "React 19",
+            "Vue 3",
+            "Nuxt",
+            "Web Components",
+            "TypeScript",
+            "Effect.ts",
+            "Jotai",
+            "React Hook Form"
+          ]
+        },
+        {
+          "name": "Quality and performance",
+          "items": [
+            "Vitest",
+            "Storybook",
+            "Lighthouse",
+            "Web Vitals",
+            "Code splitting",
+            "SSG",
+            "Orval (OpenAPI)"
+          ]
+        },
+        {
+          "name": "Delivery and team",
+          "items": [
+            "Azure DevOps",
+            "CI/CD",
+            "GitHub Actions",
+            "Mock server",
+            "Plop",
+            "Scrum",
+            "Figma"
+          ]
+        },
+        {
+          "name": "AI tooling",
+          "items": [
+            "AI code review",
+            "Figma to Code",
+            "n8n",
+            "Ollama",
+            "Claude Design System",
+            "LLM context docs"
+          ]
+        }
       ]
     },
     "langs": {
       "eyebrow": "Education & languages",
       "title": "Working in three languages.",
       "items": [
-        { "name": "National Chengchi University", "level": "BA Advertising, double major in Japanese · 2017–2023" },
-        { "name": "Mandarin Chinese", "level": "Native" },
-        { "name": "English", "level": "TOEIC 935 · professional working proficiency" },
-        { "name": "Japanese", "level": "JLPT N1 · business level" }
+        {
+          "name": "National Chengchi University",
+          "level": "BA Advertising, double major in Japanese · 2017–2023"
+        },
+        {
+          "name": "Mandarin Chinese",
+          "level": "Native"
+        },
+        {
+          "name": "English",
+          "level": "TOEIC 935 · professional working proficiency"
+        },
+        {
+          "name": "Japanese",
+          "level": "JLPT N1 · business level"
+        }
       ]
     },
-    "links": { "eyebrow": "Links", "title": "Where to find me." }
+    "links": {
+      "eyebrow": "Links",
+      "title": "Where to find me."
+    }
   },
-  "footer": { "text": "Stone Chen · 陳絲彤" }
+  "footer": {
+    "text": "Stone Chen · 陳絲彤"
+  }
 }

@@ -1,51 +1,71 @@
-/* Design tokens. One accent per section; blocks use the tinted versions.
-   Colors are light-dark() pairs: color-scheme picks the side, so the theme toggle only has to flip it. */
+/* GRIS Watercolor & Japanese Literary (日系文青) Design Tokens
+   Inspired by the art of Conrad Roset in "GRIS" (Nomada Studio)
+   and Japanese modern editorial / zakka design aesthetics. */
 :root {
-  --paper: light-dark(#f8f5f0, #1f2124);
-  --paper-2: light-dark(#fffdf9, #26292d);
-  --ink: light-dark(#30343b, #e8e3da);
-  --quiet: light-dark(#64686e, #a39d93);
-  --line: light-dark(#d7d0c6, #3a3d42);
+  /* Heavy watercolor cold-press paper & sumi ink */
+  --paper: light-dark(#f7f4ed, #1a1d22);
+  --paper-2: light-dark(#fdfbf7, #22262d);
+  --paper-3: light-dark(#f0ece3, #2a2e36);
+  --ink: light-dark(#2c2f36, #e7e3d9);
+  --quiet: light-dark(#6b707b, #9ca2ad);
+  --line: light-dark(#e0dbd1, #363b44);
+  --line-subtle: light-dark(#ebe7df, #2d323b);
 
-  --blue: light-dark(#779db4, #7fa6bd);
-  --blue-ink: light-dark(#476d85, #a9c6d6);
-  --blue-tint: light-dark(#e9eff3, #273039);
+  /* Chapter 1: Dusty Rose / Carmine Watercolor Wash (GRIS Red) */
+  --red: light-dark(#c26e68, #d4847e);
+  --red-ink: light-dark(#8e3c36, #f0a8a3);
+  --red-tint: light-dark(#f7eeec, #322424);
 
-  --red: light-dark(#c97d79, #c98a86);
-  --red-ink: light-dark(#99514e, #e0a8a3);
-  --red-tint: light-dark(#f5e8e6, #382c2c);
+  /* Chapter 2: Twilight Lapis / Watercolor Indigo Wash (GRIS Blue) */
+  --blue: light-dark(#597d95, #7a9eb6);
+  --blue-ink: light-dark(#32536b, #a8c8dc);
+  --blue-tint: light-dark(#edf3f7, #222c34);
 
-  --gold: light-dark(#e4c18b, #d6b47e);
-  --gold-ink: light-dark(#9c7a3c, #e2c48f);
-  --gold-tint: light-dark(#f6eddc, #35302a);
+  /* Chapter 3: Lichen / Pale Jade Watercolor Wash (GRIS Green) */
+  --green: light-dark(#5f8775, #7fa895);
+  --green-ink: light-dark(#385e4d, #a9d0bd);
+  --green-tint: light-dark(#eef4f0, #222f28);
 
-  --grain: 0.05;
+  /* Chapter 4: Sunlit Ochre / Amber Watercolor Wash (GRIS Gold) */
+  --gold: light-dark(#cca162, #dfb77b);
+  --gold-ink: light-dark(#896227, #edd29e);
+  --gold-tint: light-dark(#f8f3e7, #342d21);
 
-  --font-display: 'Noto Serif TC', 'Cormorant Garamond', 'Zen Old Mincho', 'PingFang TC', 'Hiragino Mincho ProN', serif;
-  --font-body: 'Noto Sans TC', 'Noto Sans JP', 'PingFang TC', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif;
+  /* Tactile Watercolor Paper Grain Overlay */
+  --grain: 0.06;
+
+  /* Typography: Zen Old Mincho & Cormorant Garamond for literary Japanese elegance */
+  --font-display: 'Zen Old Mincho', 'Noto Serif TC', 'Cormorant Garamond', 'Hiragino Mincho ProN', serif;
+  --font-body: 'Noto Sans TC', 'Noto Sans JP', 'PingFang TC', 'Hiragino Sans', -apple-system, sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Zen Old Mincho', Georgia, serif;
 
   --measure: 64ch;
-  --radius-block: 40px;
-  --radius-card: 24px;
-  --gutter: max(20px, env(safe-area-inset-left, 0px));
-  --content: 960px;
+  --radius-block: 32px;
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --gutter: max(24px, env(safe-area-inset-left, 0px));
+  --content: 980px;
+
+  /* Subtle, delicate paper elevation */
+  --shadow-sm: 0 1px 3px rgba(35, 38, 45, 0.04), 0 1px 2px rgba(35, 38, 45, 0.02);
+  --shadow-card: 0 4px 20px -2px rgba(35, 38, 45, 0.05);
+  --shadow-hover: 0 12px 30px -4px rgba(35, 38, 45, 0.08);
+  --shadow-dock: -4px 0 24px rgba(25, 28, 35, 0.08), 0 2px 8px rgba(25, 28, 35, 0.04);
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Declared on :root so the canvas, scrollbars and form controls follow the user's scheme;
-     the header toggle pins it with data-theme. */
+
   color-scheme: light dark;
   accent-color: var(--blue);
 }
 
 :root[lang='en'] {
-  --font-display: 'Cormorant Garamond', 'Noto Serif TC', 'Zen Old Mincho', Georgia, serif;
+  --font-display: 'Cormorant Garamond', 'Zen Old Mincho', 'Noto Serif TC', Georgia, serif;
 }
 :root[lang='ja'] {
-  --font-display: 'Zen Old Mincho', 'Noto Serif JP', 'Noto Serif TC', 'Hiragino Mincho ProN', serif;
+  --font-display: 'Zen Old Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
   --font-body: 'Noto Sans JP', 'Noto Sans TC', 'Hiragino Sans', sans-serif;
 }
 
-/* A choice made with the header toggle overrides the system preference. */
 :root[data-theme='light'] {
   color-scheme: light;
 }
@@ -53,12 +73,11 @@
   color-scheme: dark;
 }
 
-/* --grain is a number, so light-dark() cannot carry it. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --grain: 0.07;
+    --grain: 0.08;
   }
 }
 :root[data-theme='dark'] {
-  --grain: 0.07;
+  --grain: 0.08;
 }

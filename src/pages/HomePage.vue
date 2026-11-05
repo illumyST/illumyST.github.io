@@ -6,28 +6,39 @@ import SectionHead from '@/components/SectionHead.vue'
 import CopyEmail from '@/components/CopyEmail.vue'
 import { usePageHead } from '@/composables/usePageHead'
 import { useMessageList, resolveFields } from '@/composables/useMessages'
+import { useProfile } from '@/composables/useProfile'
+import { forChannel } from '@content/format.ts'
 import { localePath } from '@/router'
-import { site } from '@/site'
+import { site, resumeUrl } from '@/site'
 import type { Locale } from '@/i18n'
 
 const { t, locale } = useI18n()
+const { profile, tr } = useProfile()
 usePageHead('home')
 
-type Stat = { n: string; label: string }
 type Case = { id: string; tags: string[]; title: string; desc: string }
 type Item = { title: string; desc: string }
-type Side = { name: string; desc: string }
-type Stop = { year: string; org: string; role: string }
 
-const stats = useMessageList<Stat>('hero.stats', resolveFields)
-const metaLine = useMessageList<string>('hero.meta', (m, rt) => rt(m))
+const stats = computed(() => profile.highlights.map((h) => ({ n: tr(h.value), label: tr(h.label) })))
+const metaLine = computed(() => [
+  tr(profile.location),
+  profile.stack.join(' · '),
+  profile.languages.flatMap((x) => (x.cert ? [x.cert] : [])).join(' · '),
+])
 const cases = useMessageList<Case>('work.items', resolveFields)
 const how = useMessageList<Item>('how.items', resolveFields)
-const side = useMessageList<Side & { url: string }>('side.items', (raw, rt, i) => ({ ...resolveFields<Side>(raw, rt), url: site.sideProjects[i] }))
-const stops = useMessageList<Stop>('timeline.items', resolveFields)
+const side = computed(() =>
+  forChannel(profile.projects, 'site').map((p) => ({ url: p.url, image: p.image, name: tr(p.name), desc: tr(p.desc) })),
+)
+/** 首頁年表：有簡稱的學歷與經歷，依開始時間排序。 */
+const stops = computed(() =>
+  [...profile.education, ...forChannel(profile.experience, 'site')]
+    .flatMap((x) => (x.short ? [{ start: x.start, year: x.start.slice(0, 4), org: tr(x.short.org), role: tr(x.short.role) }] : []))
+    .sort((a, b) => a.start.localeCompare(b.start)),
+)
 
 const about = computed(() => localePath(locale.value as Locale, 'about'))
-const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
+const cv = computed(() => resumeUrl(locale.value))
 const roman = ['I', 'II', 'III', 'IV']
 const caseWash = ['red', 'blue', 'gold']
 
@@ -58,18 +69,18 @@ async function copyHeroEmail() {
       <div class="hero-inner">
         <!-- 候選人狀態 (低調文青筆記風格) -->
         <div class="status-line">
-          <p class="eyebrow">{{ t('hero.eyebrow') }}</p>
+          <p class="eyebrow">{{ tr(profile.headline) }}</p>
           <span class="status-bracket">
             〔 {{ t('dock.status') }} 〕
           </span>
         </div>
 
         <h1 class="name">
-          {{ t('hero.name') }}
-          <small>{{ t('hero.alt') }}</small>
+          {{ tr(profile.name) }}
+          <small>{{ tr(profile.altName) }}</small>
         </h1>
 
-        <p class="line">{{ t('hero.line') }}</p>
+        <p class="line">{{ tr(profile.summary) }}</p>
 
         <!-- 關鍵實績數據 (Gris 風格典雅數字與細線刻度) -->
         <div class="stats-spread">
@@ -118,7 +129,7 @@ async function copyHeroEmail() {
             :src="site.portrait"
             :srcset="`${site.portraitSmall} 480w, ${site.portrait} 960w`"
             sizes="(max-width: 720px) 140px, 280px"
-            :alt="t('hero.name')"
+            :alt="tr(profile.name)"
             width="960"
             height="960"
             fetchpriority="high"
@@ -187,10 +198,10 @@ async function copyHeroEmail() {
     <div class="container">
       <SectionHead :eyebrow="t('side.eyebrow')" :title="t('side.title')" />
       <ul class="side-grid">
-        <li v-for="(s, i) in side" :key="s.url">
+        <li v-for="s in side" :key="s.url">
           <a :href="s.url" target="_blank" rel="noopener" class="side-item">
-            <div v-if="site.sideImages[i]" class="side-thumb">
-              <img :src="site.sideImages[i]" alt="" loading="lazy" width="960" height="600" />
+            <div v-if="s.image" class="side-thumb">
+              <img :src="s.image" alt="" loading="lazy" width="960" height="600" />
             </div>
             <div class="side-title-row">
               <h3>{{ s.name }}</h3>

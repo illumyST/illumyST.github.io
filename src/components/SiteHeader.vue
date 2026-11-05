@@ -5,7 +5,8 @@ import { useI18n } from 'vue-i18n'
 import { LOCALES, LOCALE_LABEL, type Locale } from '@/i18n'
 import { localePath } from '@/router'
 import { useTheme } from '@/composables/useTheme'
-import { site } from '@/site'
+import { site, resumeUrl } from '@/site'
+import { profile } from '@/profile'
 
 const { t, locale } = useI18n()
 const { theme, toggle } = useTheme()
@@ -16,7 +17,7 @@ const current = computed(() => locale.value as Locale)
 const page = computed(() => (route.meta.page as 'home' | 'about') ?? 'home')
 const home = computed(() => localePath(current.value, 'home'))
 const about = computed(() => localePath(current.value, 'about'))
-const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
+const cv = computed(() => resumeUrl(locale.value))
 
 function onLang(e: Event) {
   router.push(localePath((e.target as HTMLSelectElement).value as Locale, page.value))
@@ -29,7 +30,7 @@ function onLang(e: Event) {
       <!-- Literary Brand Seal & Name -->
       <RouterLink :to="home" class="brand">
         <img class="brand-vermilion" src="/favicon.ico" alt="" aria-hidden="true" width="24" height="24" />
-        <span class="brand-name">Stone Chen</span>
+        <span class="brand-name">{{ profile.name.en }}</span>
       </RouterLink>
 
       <nav class="nav" :aria-label="t('nav.home')">

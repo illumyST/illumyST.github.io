@@ -5,21 +5,37 @@ import ColorBlocks from '@/components/ColorBlocks.vue'
 import SectionHead from '@/components/SectionHead.vue'
 import CopyEmail from '@/components/CopyEmail.vue'
 import { usePageHead } from '@/composables/usePageHead'
-import { useMessageList, resolveFields } from '@/composables/useMessages'
-import { site } from '@/site'
+import { useProfile } from '@/composables/useProfile'
+import { forChannel, period } from '@content/format.ts'
+import { site, resumeUrl } from '@/site'
 
 const { t, locale } = useI18n()
+const { profile, l, tr } = useProfile()
 usePageHead('about')
 
-type Job = { id: string; time: string; title: string; org: string; note: string; place: string; items: string[]; tags: string[] }
-type Group = { name: string; items: string[] }
-type Lang = { name: string; level: string }
-
-const story = useMessageList<string>('about.story', (m, rt) => rt(m))
-const jobs = useMessageList<Job>('about.exp.jobs', resolveFields)
-const groups = useMessageList<Group>('about.skills.groups', resolveFields)
-const langs = useMessageList<Lang>('about.langs.items', resolveFields)
-const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
+const story = computed(() => profile.bio.map(tr))
+const jobs = computed(() =>
+  forChannel(profile.experience, 'site').map((j) => ({
+    id: j.id,
+    current: j.end === null,
+    time: period(j.start, j.end, l.value),
+    title: tr(j.title),
+    org: tr(j.org),
+    note: j.note ? tr(j.note) : '',
+    place: tr(j.place),
+    items: j.items.map(tr),
+    tags: j.tags.map(tr),
+  })),
+)
+const groups = computed(() => forChannel(profile.skills, 'site').map((g) => ({ name: tr(g.name), items: g.items.map(tr) })))
+const langs = computed(() => [
+  ...profile.education.map((e) => ({
+    name: tr(e.school),
+    level: `${tr(e.degree)} · ${period(e.start, e.end, l.value, l.value === 'ja' ? '〜' : '–')}`,
+  })),
+  ...profile.languages.map((x) => ({ name: tr(x.name), level: x.cert ? `${x.cert} · ${tr(x.level)}` : tr(x.level) })),
+])
+const cv = computed(() => resumeUrl(locale.value))
 
 const kanjiNumbers = ['一', '二', '三', '四']
 </script>
@@ -41,7 +57,7 @@ const kanjiNumbers = ['一', '二', '三', '四']
             :src="site.portrait"
             :srcset="`${site.portraitSmall} 480w, ${site.portrait} 960w`"
             sizes="(max-width: 720px) 140px, 260px"
-            :alt="t('hero.name')"
+            :alt="tr(profile.name)"
             width="960"
             height="960"
             fetchpriority="high"
@@ -57,11 +73,11 @@ const kanjiNumbers = ['一', '二', '三', '四']
     <div class="container">
       <SectionHead :eyebrow="t('about.exp.eyebrow')" :title="t('about.exp.title')" />
       <ol class="job-list">
-        <li v-for="(j, i) in jobs" :key="j.id" :id="j.id" class="job-entry" :class="{ current: i === 0 }">
+        <li v-for="j in jobs" :key="j.id" :id="j.id" class="job-entry" :class="{ current: j.current }">
           <div class="job-meta">
             <span class="job-period">{{ j.time }}</span>
             <span class="job-place">〔 {{ j.place }} 〕</span>
-            <span v-if="i === 0" class="current-tag">{{ t('about.exp.current') }}</span>
+            <span v-if="j.current" class="current-tag">{{ t('about.exp.current') }}</span>
           </div>
 
           <div class="job-main">

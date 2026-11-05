@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { site } from '@/site'
+import { site, resumeUrl } from '@/site'
+import { profile } from '@/profile'
 
 const { t, locale } = useI18n()
 const isOpen = ref(false)
@@ -9,7 +10,7 @@ const copied = ref(false)
 const trigger = ref<HTMLButtonElement>()
 let copyTimer: ReturnType<typeof setTimeout> | undefined
 
-const cv = computed(() => site.cvPdf[locale.value] || (locale.value === 'zh-Hant' ? site.resumeZh : site.resumeEn))
+const cv = computed(() => resumeUrl(locale.value))
 
 async function copyEmail() {
   try {
@@ -60,7 +61,7 @@ function toggle() {
         <div class="card-head">
           <div class="head-title">
             <span class="head-seal">印</span>
-            <span class="head-name">Stone Chen</span>
+            <span class="head-name">{{ profile.name.en }}</span>
           </div>
           <button type="button" class="close-btn" :aria-label="t('dock.toggleClose')" @click="close">×</button>
         </div>

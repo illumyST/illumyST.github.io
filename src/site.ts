@@ -1,30 +1,22 @@
-/** Facts that do not change with language. Edit here, not in the locale files. */
+import { profile } from '@/profile'
+
+/**
+ * 網站專用設定；聯絡方式、經歷、技能與作品存放於 content/resume/*.md。
+ */
 export const site = {
   url: 'https://stoneisme.com',
-  email: 'stonechen.fe@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/chenstone/',
-  linkedinLabel: 'in/chenstone',
-  github: 'https://github.com/illumyST',
-  githubLabel: '@illumyST',
+  ...profile.contact,
   portrait: '/images/portrait.webp',
   portraitSmall: '/images/portrait-480.webp',
-  resumeEn: 'https://chen-stone.notion.site/Stone-Chen-Resume-283e8b07e6cd80258647fe61889323ca',
-  resumeZh: 'https://chen-stone.notion.site/Stone-Chen-2e3e8b07e6cd806488ace21865d18116',
-  /** PDF resumes land here once produced; until then the CTA falls back to the Notion resume. */
+  /** 產出 PDF 後填入路徑；尚未提供時連到 Notion 履歷。 */
   cvPdf: { en: '', ja: '', 'zh-Hant': '' } as Record<string, string>,
-  sideProjects: [
-    'https://stoneisme.com/train_monopoly/',
-    'https://stoneisme.com/project',
-    'https://stoneisme.com/blog/foodie/',
-  ],
-  /** Side-project thumbnails, 960x600, same order as sideProjects. Empty string hides the image. */
-  sideImages: [
-    '/images/side-train.webp',
-    '/images/side-playground.webp',
-    '/images/side-foodie.webp',
-  ],
-  /** Which About-page job each home card scrolls to. */
+  /** 首頁案例卡片對應的 About 經歷錨點。 */
   caseAnchor: { cube: 'cube', endoscopy: 'csmuh', harness: 'csmuh' } as Record<string, string>,
-  /** Case screenshots, 1600x1000. Empty string shows a tinted placeholder block. */
+  /** 案例截圖為 1600x1000；空字串顯示色塊。 */
   caseImages: { cube: '/images/case-cube.webp', endoscopy: '/images/case-endoscopy.webp', harness: '' } as Record<string, string>,
+}
+
+/** 依語系取得履歷連結：優先使用 PDF，否則使用 Notion。 */
+export function resumeUrl(locale: string): string {
+  return site.cvPdf[locale] || (locale === 'zh-Hant' ? site.resumeZh : site.resumeEn)
 }

@@ -14,32 +14,10 @@
   },
   "hero": {
     "eyebrow": "Frontend Engineer · Tech Lead",
-    "name": "Stone Chen",
-    "alt": "陳絲彤",
-    "line": "Frontend engineer turned product-minded tech lead. I build products a million people use every day, shape what gets built, and lead the team that ships it faster.",
-    "stats": [
-      {
-        "n": "3.4M",
-        "label": "monthly visits, CUBE online banking"
-      },
-      {
-        "n": "+50%",
-        "label": "dev efficiency after AI-assisted development and automation"
-      },
-      {
-        "n": "1 month",
-        "label": "from requirements to go-live, medical AI"
-      }
-    ],
     "cta": {
       "work": "View work",
       "cv": "Download CV"
-    },
-    "meta": [
-      "Central/Southern Taiwan, open to overseas posting",
-      "React · TypeScript · Vue 3",
-      "TOEIC 935 · JLPT N1"
-    ]
+    }
   },
   "work": {
     "eyebrow": "Selected work",
@@ -74,7 +52,7 @@
           "Context"
         ],
         "title": "Getting a codebase to the point where AI can safely take the wheel.",
-        "desc": "Spec-first development skill, mock server, CI checks, an n8n team knowledge base and a Claude Design System: what AI writes has a spec to match and a gate to pass. Dev efficiency +50%."
+        "desc": "aic-fe-infra, shared frontend dev infrastructure: PR checks, automated upgrades and AI agent rules and skills maintained in one place and rolled out by a version bump. Plus a spec-first development skill, mock server, an n8n team knowledge base and a Claude Design System: what AI writes has a spec to match and a gate to pass."
       }
     ]
   },
@@ -102,42 +80,11 @@
   },
   "side": {
     "eyebrow": "Side projects",
-    "title": "Still trying new things after hours.",
-    "items": [
-      {
-        "name": "Train Monopoly",
-        "desc": "A Taiwan-railway take on Monopoly, deployed with GitHub Actions."
-      },
-      {
-        "name": "Tools and experiments",
-        "desc": "Small utilities and a playground for new tech."
-      },
-      {
-        "name": "Food blog",
-        "desc": "A self-built blog about eating out."
-      }
-    ]
+    "title": "Still trying new things after hours."
   },
   "timeline": {
     "eyebrow": "Path",
     "title": "From advertising to medical AI.",
-    "items": [
-      {
-        "year": "2017",
-        "org": "National Chengchi University",
-        "role": "Advertising, double major in Japanese"
-      },
-      {
-        "year": "2023",
-        "org": "Cathay United Bank",
-        "role": "Frontend Engineer, CUBE online banking"
-      },
-      {
-        "year": "2026",
-        "org": "CSMUH AI Center",
-        "role": "Frontend Tech Lead / TPM"
-      }
-    ],
     "more": "Full experience"
   },
   "contact": {
@@ -170,146 +117,22 @@
   "about": {
     "eyebrow": "About",
     "title": "From advertising to medical AI.",
-    "story": [
-      "I studied advertising at National Chengchi University with a double major in Japanese. An introductory programming course in my second year, which I finished first in class, was the first time I felt the satisfaction of solving a real problem with code, and I never left. Advertising gave me a habit I still use: start from the user, not the system.",
-      "My first engineering job was at Cathay United Bank, on CUBE online banking. In a regulated, quality-first environment I grew from implementing requirements into an engineer who evaluates feasibility with product managers and drives projects to delivery, and I started putting AI into the team's workflow.",
-      "In 2026 I moved to Taichung and joined the AI Center of Chung Shan Medical University Hospital, employed by Futago Talents, a hospital-backed startup, leading the frontend team as tech lead and TPM to build AI products for clinicians."
-    ],
     "exp": {
       "eyebrow": "Experience",
       "title": "From frontend engineer to the tech lead who runs the team.",
-      "jobs": [
-        {
-          "id": "csmuh",
-          "time": "2026.07 — now",
-          "title": "Frontend Tech Lead / TPM",
-          "org": "AI Center, Chung Shan Medical University Hospital",
-          "note": "Employed by Futago Talents, a hospital-backed startup",
-          "place": "Taichung",
-          "items": [
-            "TPM for the NTUH Beihu Branch endoscopy AI voice-to-record system: turned clinical needs into specs and tasks with clinicians, data analysts and engineers; live within one month of intake, report time −60%, about 20% of physicians' day saved.",
-            "Audited five frontend projects and planned their consolidation; built a Web Components library shared across projects via CDN.",
-            "Leading the frontend modernization of 醫點家, a national-award-winning Django platform, starting with a file explorer for AI-parsed results.",
-            "Introduced agile practice: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.",
-            "Set up the team workflow: spec and demo before build, DB schema and API contracts first, mock server, Storybook, daily standups and an onboarding handbook."
-          ],
-          "tags": [
-            "Vue 3",
-            "Nuxt",
-            "TypeScript",
-            "Web Components",
-            "Storybook",
-            "Medical AI"
-          ]
-        },
-        {
-          "id": "cube",
-          "time": "2023.09 — 2026.07",
-          "title": "Frontend Engineer",
-          "org": "Cathay United Bank",
-          "note": "",
-          "place": "Taipei",
-          "items": [
-            "CUBE online banking: built and maintained features on a platform with 400+ features and 3.4M+ monthly visits; led the fund and foreign-currency modules (top 10 by traffic, 93% of revenue).",
-            "On-call operations with Grafana monitoring and incident handling.",
-            "Introduced AI-assisted code review (about 90% less review time), Figma-to-code, and automation for regression tests, deployments and scaffolding; dev efficiency +50%.",
-            "Built an internal n8n knowledge base so 40+ cross-team members answer frontend questions themselves, saving about 2 person-days a month.",
-            "ROBO: rebuilt the animated marketing site for SEO and Core Web Vitals; LCP −35%, FCP −40%, TTFB −55% in CrUX."
-          ],
-          "tags": [
-            "React",
-            "TypeScript",
-            "FinTech",
-            "Performance",
-            "AI-assisted dev",
-            "Azure DevOps"
-          ]
-        }
-      ],
       "current": "Current"
     },
     "skills": {
       "eyebrow": "Skills",
-      "title": "What I build with.",
-      "groups": [
-        {
-          "name": "Frameworks and languages",
-          "items": [
-            "React 19",
-            "Vue 3",
-            "Nuxt",
-            "Web Components",
-            "TypeScript",
-            "Effect.ts",
-            "Jotai",
-            "React Hook Form"
-          ]
-        },
-        {
-          "name": "Quality and performance",
-          "items": [
-            "Vitest",
-            "Storybook",
-            "Lighthouse",
-            "Web Vitals",
-            "Code splitting",
-            "SSG",
-            "Orval (OpenAPI)"
-          ]
-        },
-        {
-          "name": "Delivery and team",
-          "items": [
-            "Azure DevOps",
-            "CI/CD",
-            "GitHub Actions",
-            "Mock server",
-            "Plop",
-            "Scrum",
-            "Figma"
-          ]
-        },
-        {
-          "name": "AI tooling",
-          "items": [
-            "AI code review",
-            "Figma to Code",
-            "n8n",
-            "Ollama",
-            "Claude Design System",
-            "LLM context docs"
-          ]
-        }
-      ]
+      "title": "What I build with."
     },
     "langs": {
       "eyebrow": "Education & languages",
-      "title": "Working in three languages.",
-      "items": [
-        {
-          "name": "National Chengchi University",
-          "level": "BA Advertising, double major in Japanese · 2017–2023"
-        },
-        {
-          "name": "Mandarin Chinese",
-          "level": "Native"
-        },
-        {
-          "name": "English",
-          "level": "TOEIC 935 · professional working proficiency"
-        },
-        {
-          "name": "Japanese",
-          "level": "JLPT N1 · business level"
-        }
-      ]
+      "title": "Working in three languages."
     },
     "links": {
       "eyebrow": "Links",
       "title": "Where to find me."
     }
-  },
-  "footer": {
-    "text": "Stone Chen · 陳絲彤"
   }
 }

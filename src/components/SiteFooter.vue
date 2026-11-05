@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+import { useProfile } from '@/composables/useProfile'
+const { profile, tr } = useProfile()
 const year = new Date().getFullYear()
 </script>
 
 <template>
   <footer class="site-footer">
     <div class="container row">
-      <span>{{ t('footer.text') }}</span>
+      <span>{{ tr(profile.name) }} · {{ tr(profile.altName) }}</span>
       <span>{{ year }}</span>
     </div>
   </footer>

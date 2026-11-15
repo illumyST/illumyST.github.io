@@ -69,8 +69,8 @@
         "desc": "站會、新人手冊、元件庫與 Storybook，讓新人一週內能交付。"
       },
       {
-        "title": "AI 輔助開發",
-        "desc": "把 AI 放進 review、切版、知識庫，不是只拿來寫 code。"
+        "title": "AI harness",
+        "desc": "把規範、Skill 和 PR 檢查整理成團隊共用的基礎建設，讓 AI 在每個專案都照同一套標準做事。"
       },
       {
         "title": "效能與品質",

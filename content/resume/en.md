@@ -1,5 +1,5 @@
 ---
-synced: 2026-11-05
+synced: 2026-11-16
 ---
 
 <!-- English translation of zh-Hant.md, kept in sync by an agent. Keep every {#id}, and the same number of items in each list. -->
@@ -14,19 +14,23 @@ Frontend Engineer · Tech Lead
 
 ## Summary {#summary}
 
-Frontend engineer turned product-minded tech lead. I build products a million people use every day, shape what gets built, and lead the team that ships it faster.
+From frontend development and product requirements to leading teams that ship faster. Hands-on experience with high-traffic financial products and medical AI products, fluent in React, Vue 3 and TypeScript, and the builder of my team's AI development infrastructure.
 
 ## Location {#location}
 
-Central/Southern Taiwan, open to overseas posting
+Anywhere in Taiwan or overseas
 
 ## About {#bio}
 
-I studied advertising at National Chengchi University with a double major in Japanese. An introductory programming course in my second year, which I finished first in class, was the first time I felt the satisfaction of solving a real problem with code, and I never left. Advertising gave me a habit I still use: start from the user, not the system.
+I graduated from National Chengchi University with a double major in Advertising and Japanese. Studying across marketing, design, and language taught me to approach problems from the perspective of users and the product. In my sophomore year, I finished an introductory programming course at the top of my class and experienced, for the first time, the satisfaction of solving real problems with code. That led me to commit to software development and become a frontend engineer.
 
-My first engineering job was at Cathay United Bank, on CUBE online banking. In a regulated, quality-first environment I grew from implementing requirements into an engineer who evaluates feasibility with product managers and drives projects to delivery, and I started putting AI into the team's workflow.
+Over nearly three years at Cathay United Bank, I worked on the CUBE online banking platform and led the fund and foreign currency modules, serving more than 3.4 million visits per month. In a highly regulated environment with strict quality requirements, I grew from implementing requirements to evaluating feasibility with product managers from a frontend perspective and driving projects to delivery.
 
-In 2026 I moved to Taichung and joined the AI Center of Chung Shan Medical University Hospital, employed by Futago Talents, a hospital-backed startup, leading the frontend team as tech lead and TPM to build AI products for clinicians.
+In 2026, I joined Futago Talents, a hospital-funded startup, and was assigned to the AI Center at Chung Shan Medical University Hospital as Frontend Tech Lead and TPM. I translate requirements between clinicians, data analysts, and engineers, and brought an AI voice-based endoscopy reporting system to production within one month of receiving the requirements. I also re-scoped delayed features and delivered two major features to acceptance within two weeks.
+
+Beyond feature delivery, I have kept deepening how I apply AI: from using it to speed up my own development, to bringing it into a single part of the team's workflow at Cathay (for example, an n8n-based knowledge base), to building the team's AI development infrastructure at Chung Shan, turning AI from a personal tool into the way the whole team works.
+
+Looking back on my path from a cross-disciplinary background to tech lead, I believe that not limiting myself is the key to growth. I aim to stay adaptable, keep building depth in my expertise, and be a teammate who makes products more stable and workflows smoother.
 
 ## Highlights {#highlights}
 
@@ -41,16 +45,17 @@ In 2026 I moved to Taichung and joined the AI Center of Chung Shan Medical Unive
 - Location：Taichung
 - Note：Employed by Futago Talents, a hospital-backed startup
 - Timeline：CSMUH AI Center｜Frontend Tech Lead / TPM
-- Tags：Vue 3, Nuxt, TypeScript, Web Components, Storybook, Medical AI
+- Tags：Vue 3, Nuxt, TypeScript, Web Components, Storybook, AI Agent, Medical AI
 
 #### Highlights {#items}
 
 - TPM for the NTUH Beihu Branch endoscopy AI voice-to-record system: turned clinical needs into specs and tasks with clinicians, data analysts and engineers; live within one month of intake, report time −60%, about 20% of physicians' day saved.
 - Audited five frontend projects and planned their consolidation; built a Web Components library shared across projects via CDN.
 - Leading the frontend modernization of 醫點家, a national-award-winning Django platform, starting with a file explorer for AI-parsed results.
-- Introduced agile practice: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.
-- Set up the team workflow: spec and demo before build, DB schema and API contracts first, mock server, Storybook, daily standups and an onboarding handbook.
-- Built aic-fe-infra, shared dev infrastructure for all frontend projects: one PR check, Dependabot upgrades and shared AI agent rules and skills, changed in one place and rolled out by a version bump; adopting or upgrading takes one sentence to an AI agent.
+- Generated types from OpenAPI specs with Orval to integrate RESTful APIs and speed up frontend–backend collaboration.
+- Introduced agile practice: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks; made project progress and tasks visible to everyone.
+- Leading a team of four engineers; set up the team workflow: spec and demo before build, DB schema and API contracts first, mock server, Storybook, daily standups and an onboarding handbook.
+- Built aic-fe-infra, shared dev infrastructure for all frontend projects: unified AI agent rules and skills keep output consistent across projects for Claude Code, Codex and Copilot; PR checks and Dependabot upgrades are likewise changed in one place and rolled out by a version bump.
 
 #### Resume only {#details}
 
@@ -66,7 +71,7 @@ In 2026 I moved to Taichung and joined the AI Center of Chung Shan Medical Unive
 
 #### Highlights {#items}
 
-- CUBE online banking: built and maintained features on a platform with 400+ features and 3.4M+ monthly visits; led the fund and foreign-currency modules (top 10 by traffic, 93% of revenue).
+- CUBE online banking: built and maintained features on a platform with 400+ features, 3.4M+ monthly visits and annual revenue in the hundreds of millions of NT dollars; led the fund and foreign-currency modules (top 10 by traffic, 93% of revenue).
 - On-call operations with Grafana monitoring and incident handling.
 - Introduced AI-assisted code review (about 90% less review time), Figma-to-code, and automation for regression tests, deployments and scaffolding; dev efficiency +50%.
 - Built an internal n8n knowledge base so 40+ cross-team members answer frontend questions themselves, saving about 2 person-days a month.
@@ -111,7 +116,7 @@ In 2026 I moved to Taichung and joined the AI Center of Chung Shan Medical Unive
 ### Frameworks and languages {#frameworks}
 
 - Items：React 19, Vue 3, Nuxt, Web Components, TypeScript, Effect.ts, Jotai, React Hook Form
-- Resume only：JavaScript (ES6+), HTML5, CSS3, SCSS, Yup, i18n, Day.js, Chart.js, three.js
+- Resume only：JavaScript (ES6+), HTML5, CSS3, SCSS, Yup, i18n, Day.js, Chart.js, three.js, RESTful API
 
 ### Quality and performance {#quality}
 
@@ -120,13 +125,13 @@ In 2026 I moved to Taichung and joined the AI Center of Chung Shan Medical Unive
 
 ### Delivery and team {#delivery}
 
-- Items：Azure DevOps, CI/CD, GitHub Actions, Mock server, Plop, Scrum, Figma
+- Items：Vite, Azure DevOps, CI/CD, GitHub Actions, Mock server, Plop, Scrum, Figma
 - Resume only：Git
 
 ### AI tooling {#ai}
 
-- Items：AI code review, Figma to Code, n8n, Ollama, Claude Design System, LLM context docs
-- Resume only：GitHub Copilot
+- Items：Claude Code, Codex, AI agent skills, AI code review, Figma to Code, n8n, Claude Design System, LLM context docs, Discord bot second brain
+- Resume only：GitHub Copilot, Ollama
 
 ### UI and design {#design}
 
@@ -148,7 +153,11 @@ A self-built blog about eating out.
 
 ### StarsBlooming {#starsblooming}
 
-An immersive e-commerce site for my handmade dried-flower accessory brand, using SVG animation and parallax scrolling for depth and engagement.
+An e-commerce site for my handmade dried-flower accessory brand, from visual design to deployment, using SVG animation and parallax scrolling for depth and engagement.
+
+### Personal website {#personal-site}
+
+One resume source drives the website, Notion and 104; an AI agent keeps the Chinese, English and Japanese versions in sync, with structural checks to keep them consistent. Includes my portfolio and a playground of small tools.
 
 ## Volunteering {#volunteer}
 

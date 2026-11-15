@@ -1,10 +1,10 @@
 ---
-updated: 2026-11-05
+updated: 2026-11-16
 email: stonechen.fe@gmail.com
 linkedin: https://www.linkedin.com/in/chenstone/
 linkedinLabel: in/chenstone
 github: https://github.com/illumyST
-githubLabel: @illumyST
+githubLabel: illumyST
 resumeZh: https://chen-stone.notion.site/Stone-Chen-2e3e8b07e6cd806488ace21865d18116
 resumeEn: https://chen-stone.notion.site/Stone-Chen-Resume-283e8b07e6cd80258647fe61889323ca
 stack: React, TypeScript, Vue 3
@@ -31,19 +31,23 @@ stack: React, TypeScript, Vue 3
 
 ## 一句話介紹 {#summary}
 
-從前端開發，到用產品思維定義需求，再到帶領團隊加速交付：做百萬用戶每天使用的產品，也把 AI 帶進團隊的工作方式。
+從前端開發、產品需求定義，到帶領團隊加速交付。有大流量金融產品與醫療 AI 產品實戰經驗，熟悉 React、Vue 3、TypeScript，也為團隊建立 AI 開發基礎建設。
 
 ## 地點 {#location}
 
-中南部，可接受海外派駐
+全台、海外皆可
 
 ## 自我介紹 {#bio}
 
-我在政大讀廣告，雙主修日文。大二的程式設計課以第一名修畢，第一次體會到用程式解決問題的成就感，從此走上工程這條路。廣告系留給我的是從使用者、而不是從系統出發的習慣。
+我畢業於國立政治大學，主修廣告與日文。橫跨行銷、設計與語言的學習，讓我習慣從使用者與產品的角度思考問題。大二修習程式設計概論時以第一名修畢，第一次體會到用程式解決問題的成就感，從此投入技術學習，轉職成為前端工程師。
 
-第一份工程師工作在國泰世華，做 CUBE 網路銀行。在高度法規與品質要求的環境裡，我從需求的實作者，成長為能以前端專業和 PM 討論可行性、推進專案落地的工程師，也開始把 AI 放進團隊的工作流程。
+在國泰世華的近三年，我參與 CUBE 網路銀行開發，主導基金與外幣模組，支撐每月超過 340 萬次的訪問。在高度法規與品質要求的環境中，我從需求的實作者，成長為能以前端專業與 PM 討論可行性、推進專案落地的工程師。
 
-2026 年到台中，加入中山醫學大學附設醫院 AI 中心（任職於醫院注資的新創賦拓智能股份有限公司），以技術負責人兼 TPM 的身分帶領前端團隊，為臨床端打造 AI 產品。
+2026 年，我加入中山醫的 AI 中心，擔任前端技術負責人兼 TPM。我在臨床端、資料分析師與工程團隊之間轉譯需求，讓腸胃鏡 AI 語音病歷系統在需求接收後一個月內上線；也針對延宕的功能重新拆解任務，兩週內完成兩項重大功能驗收。
+
+除了需求開發，我也持續深化 AI 應用：從一開始用 AI 加速自己的開發，到在國泰把 AI 帶進團隊的單一環節（例如以 n8n 建立知識庫），再到在中山醫建置團隊的 AI 開發基礎建設，讓 AI 從個人工具變成整個團隊的工作方式。
+
+回顧自己的學習與工作歷程，從跨領域背景到技術負責人，我始終相信「不設限」是成長的關鍵。我期許自己能如名字中的「絲」一般，具備高度適應力，在變動中持續累積專業厚度，並在團隊中成為能讓產品更穩定、流程更順暢的工程師。
 
 ## 關鍵數字 {#highlights}
 
@@ -59,16 +63,17 @@ stack: React, TypeScript, Vue 3
 - 地點：台中
 - 備註：任職於賦拓智能股份有限公司（醫院注資新創）
 - 年表：中山醫 AI 中心｜前端技術負責人 / TPM
-- 標籤：Vue 3, Nuxt, TypeScript, Web Components, Storybook, 醫療 AI
+- 標籤：Vue 3, Nuxt, TypeScript, Web Components, Storybook, AI Agent, 醫療 AI
 
 #### 重點 {#items}
 
 - 台大醫院北護分院腸胃鏡 AI 語音病歷系統 TPM：與臨床端、資料分析師及工程團隊將醫療需求轉為規格與任務，需求接收後一個月內上線；報告產出時間縮短 60%，醫師每日省下近 20% 工時。
 - 梳理近 5 個前端專案並規劃技術收斂；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。
 - 主導國科會金獎平台「醫點家」前端現代化，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管。
-- 導入敏捷：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收。
-- 建立團隊開發流程：規格與 demo 先對齊、DB schema 與 API spec 先行、Mock Server、Storybook、每日站會與新人手冊。
-- 建立前端共用開發基礎建設 aic-fe-infra：統一各專案的 PR 檢查、Dependabot 自動升版與 AI Agent 規範／Skill，一處修改、各專案升版即生效；對 AI 說一句話就能導入或升級。
+- 以 Orval 從 OpenAPI 規格自動產生型別，串接 RESTful API，加速前後端協作。
+- 導入敏捷：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收；建立專案進度與任務透明化機制。
+- 帶領 4 人工程師團隊，建立團隊開發流程：規格與 demo 先對齊、DB schema 與 API spec 先行、Mock Server、Storybook、每日站會與新人手冊。
+- 建立前端共用開發基礎建設 aic-fe-infra：統一團隊的 AI Agent 規範與 Skill，讓 Claude Code、Codex、Copilot 跨專案維持一致的產出品質；PR 檢查與 Dependabot 自動升版也一處修改、各專案升版即生效。
 
 #### 履歷限定 {#details}
 
@@ -85,7 +90,7 @@ stack: React, TypeScript, Vue 3
 
 #### 重點 {#items}
 
-- CUBE 網路銀行：在 400 多項功能、每月 340 萬次以上訪問的平台上開發與優化功能，主導基金與外幣模組（流量前 10，營收佔 93%）。
+- CUBE 網路銀行：在 400 多項功能、每月 340 萬次以上訪問、年度營收達數億元規模的平台上開發與優化功能，主導基金與外幣模組（流量前 10，營收佔 93%）。
 - 值班維運：以 Grafana 監控分析並處理線上問題。
 - 導入 AI 輔助 code review（審查時間降低約 90%）、Figma to Code，以及回歸測試、部署與程式碼樣板的自動化，開發效率提升 50%。
 - 以 n8n 建立內部知識庫，讓 40 多位跨部門成員自行解決前端問題，每月省下約 2 人天。
@@ -133,7 +138,7 @@ stack: React, TypeScript, Vue 3
 ### 框架與語言 {#frameworks}
 
 - 項目：React 19, Vue 3, Nuxt, Web Components, TypeScript, Effect.ts, Jotai, React Hook Form
-- 履歷限定：JavaScript (ES6+), HTML5, CSS3, SCSS, Yup, i18n, Day.js, Chart.js, three.js
+- 履歷限定：JavaScript (ES6+), HTML5, CSS3, SCSS, Yup, i18n, Day.js, Chart.js, three.js, RESTful API
 
 ### 品質與效能 {#quality}
 
@@ -142,13 +147,13 @@ stack: React, TypeScript, Vue 3
 
 ### 交付與團隊 {#delivery}
 
-- 項目：Azure DevOps, CI/CD, GitHub Actions, Mock Server, Plop, Scrum, Figma
+- 項目：Vite, Azure DevOps, CI/CD, GitHub Actions, Mock Server, Plop, Scrum, Figma
 - 履歷限定：Git
 
 ### AI 工具 {#ai}
 
-- 項目：AI code review, Figma to Code, n8n, Ollama, Claude Design System, LLM context 文件
-- 履歷限定：GitHub Copilot
+- 項目：Claude Code, Codex, AI Agent Skill, AI code review, Figma to Code, n8n, Claude Design System, LLM context 文件, Discord Bot 第二大腦
+- 履歷限定：GitHub Copilot, Ollama
 
 ### 設計與樣式 {#design}
 
@@ -185,7 +190,14 @@ stack: React, TypeScript, Vue 3
 - 網址：https://illumyst.github.io/StarsBlooming_personalProject/pages/index.html
 - 管道：notion, 104
 
-為自己的手工乾燥花飾品品牌打造的沉浸式電商網站，以 SVG 動畫與視差滾動增加頁面層次與互動感。
+為自己的手工乾燥花飾品品牌，從視覺設計到開發部署一手包辦，以 SVG 動畫與視差滾動增加頁面層次與互動感。
+
+### 個人網站 {#personal-site}
+
+- 網址：https://stoneisme.com
+- 管道：notion, 104
+
+以單一履歷主檔驅動網站、Notion 與 104，中、英、日三語由 AI Agent 同步並以結構驗證確保一致；收錄作品集與小工具實驗場。
 
 ## 志工 {#volunteer}
 

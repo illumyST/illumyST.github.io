@@ -68,15 +68,16 @@ stack: React, TypeScript, Vue 3
 #### 重點 {#items}
 
 - 台大醫院北護分院腸胃鏡 AI 語音病歷系統 TPM：與臨床端、資料分析師及工程團隊將醫療需求轉為規格與任務，需求接收後一個月內上線；報告產出時間縮短 60%，醫師每日省下近 20% 工時。
-- 梳理近 5 個前端專案並規劃技術收斂；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。
-- 主導國科會金獎平台「醫點家」前端現代化，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管。
-- 以 Orval 從 OpenAPI 規格自動產生型別，串接 RESTful API，加速前後端協作。
-- 導入敏捷：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收；建立專案進度與任務透明化機制。
-- 帶領 4 人工程師團隊，建立團隊開發流程：規格與 demo 先對齊、DB schema 與 API spec 先行、Mock Server、Storybook、每日站會與新人手冊。
+- 帶領 4 人工程師團隊，導入敏捷與規格先行的流程：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收。
 - 建立前端共用開發基礎建設 aic-fe-infra：統一團隊的 AI Agent 規範與 Skill，讓 Claude Code、Codex、Copilot 跨專案維持一致的產出品質；PR 檢查與 Dependabot 自動升版也一處修改、各專案升版即生效。
+- 主導國科會金獎平台「醫點家」前端現代化，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。
 
 #### 履歷限定 {#details}
 
+- 梳理近 5 個前端專案並規劃技術收斂。
+- 以 Orval 從 OpenAPI 規格自動產生型別，串接 RESTful API，加速前後端協作。
+- 建立專案進度與任務透明化機制。
+- 團隊開發流程：規格與 demo 先對齊、DB schema 與 API spec 先行、Mock Server、Storybook、每日站會與新人手冊。
 - aic-fe-infra CI：以 reusable workflow 與 composite action 統一 PR 檢查（安裝、check、build），Dependabot 每週把 minor／patch 升級併成單一 PR。
 - aic-fe-infra Agent 設定：以 .agents/ 為唯一來源，同步腳本合併共用與專案規範，產出 Claude Code、Codex、GitHub Copilot 各自的指令檔與 Skill（review-and-ship、record-adr、modern-web-guidance）。
 - 撰寫 setup-fe-infra Skill 與可重複執行的 init 腳本，導入或升級時不覆蓋專案自訂設定；另做 Linear 開單 Skill，一次開出需求的規劃、開發、驗收單子架構。
@@ -91,13 +92,13 @@ stack: React, TypeScript, Vue 3
 #### 重點 {#items}
 
 - CUBE 網路銀行：在 400 多項功能、每月 340 萬次以上訪問、年度營收達數億元規模的平台上開發與優化功能，主導基金與外幣模組（流量前 10，營收佔 93%）。
-- 值班維運：以 Grafana 監控分析並處理線上問題。
-- 導入 AI 輔助 code review（審查時間降低約 90%）、Figma to Code，以及回歸測試、部署與程式碼樣板的自動化，開發效率提升 50%。
 - 以 n8n 建立內部知識庫，讓 40 多位跨部門成員自行解決前端問題，每月省下約 2 人天。
 - ROBO：重建具動畫效果的官網並優化 SEO 與 Core Web Vitals；CrUX 顯示 LCP −35%、FCP −40%、TTFB −55%。
 
 #### 履歷限定 {#details}
 
+- 值班維運：以 Grafana 監控分析並處理線上問題。
+- 導入 AI 輔助 code review（審查時間降低約 90%）、Figma to Code，以及回歸測試、部署與程式碼樣板的自動化，開發效率提升 50%。
 - 國外債券 O2O：提升協作與元件重用，支撐長尾用戶的營收成長。
 - 基金庫存：開發共用元件（凍頂表格、導覽、分頁、Skeleton），並優化大量資料的渲染效能。
 - 外幣定存：處理複雜的表單驗證與顯示邏輯。

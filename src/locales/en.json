@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Stone Chen, Frontend Engineer · Tech Lead",
-    "description": "Frontend engineer turned product-minded tech lead. CUBE online banking at Cathay United Bank, now medical AI at the CSMUH AI Center."
+    "description": "From frontend development and product requirements to leading teams that ship faster. Hands-on experience with high-traffic financial products and medical AI products, fluent in React, Vue 3 and TypeScript, and the builder of my team's AI development infrastructure."
   },
   "nav": {
     "home": "Home",
@@ -65,7 +65,7 @@
         "desc": "Spec and demo agreed before build, API contracts before frontend, mock server before backend."
       },
       {
-        "title": "Leading a team of 5–8",
+        "title": "Leading a team of four",
         "desc": "Standups, an onboarding handbook, a component library and Storybook so new joiners ship in week one."
       },
       {
@@ -90,7 +90,7 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Say hello.",
-    "lead": "Looking for frontend or full-stack roles, in central or southern Taiwan or abroad.",
+    "lead": "Looking for frontend or full-stack roles, anywhere in Taiwan or abroad.",
     "copy": "copy",
     "copied": "Copied",
     "cv": "Download CV",
@@ -100,7 +100,7 @@
   "dock": {
     "title": "Recruiter Hub",
     "badge": "For HR",
-    "status": "Available for interviews · Taiwan / Abroad",
+    "status": "Available for interviews · Taiwan / Abroad / Remote",
     "resume": "Resumes",
     "resumeZh": "Chinese Resume (Notion)",
     "resumeEn": "English Resume (Notion)",

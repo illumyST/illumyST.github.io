@@ -50,15 +50,16 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 #### Highlights {#items}
 
 - TPM for the NTUH Beihu Branch endoscopy AI voice-to-record system: turned clinical needs into specs and tasks with clinicians, data analysts and engineers; live within one month of intake, report time −60%, about 20% of physicians' day saved.
-- Audited five frontend projects and planned their consolidation; built a Web Components library shared across projects via CDN.
-- Leading the frontend modernization of 醫點家, a national-award-winning Django platform, starting with a file explorer for AI-parsed results.
-- Generated types from OpenAPI specs with Orval to integrate RESTful APIs and speed up frontend–backend collaboration.
-- Introduced agile practice: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks; made project progress and tasks visible to everyone.
-- Leading a team of four engineers; set up the team workflow: spec and demo before build, DB schema and API contracts first, mock server, Storybook, daily standups and an onboarding handbook.
+- Leading a team of four engineers with agile and spec-first practices: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.
 - Built aic-fe-infra, shared dev infrastructure for all frontend projects: unified AI agent rules and skills keep output consistent across projects for Claude Code, Codex and Copilot; PR checks and Dependabot upgrades are likewise changed in one place and rolled out by a version bump.
+- Leading the frontend modernization of 醫點家, a national-award-winning Django platform, starting with a file explorer for AI-parsed results; built a Web Components library shared across projects via CDN.
 
 #### Resume only {#details}
 
+- Audited five frontend projects and planned their consolidation.
+- Generated types from OpenAPI specs with Orval to integrate RESTful APIs and speed up frontend–backend collaboration.
+- Made project progress and tasks visible to everyone.
+- Team workflow: spec and demo before build, DB schema and API contracts first, mock server, Storybook, daily standups and an onboarding handbook.
 - aic-fe-infra CI: a reusable workflow and composite action give every project the same PR check (install, check, build); Dependabot batches weekly minor and patch upgrades into one PR.
 - aic-fe-infra agent config: .agents/ is the single source; a sync script merges shared and project rules into instruction files and skills for Claude Code, Codex and GitHub Copilot (review-and-ship, record-adr, modern-web-guidance).
 - Wrote the setup-fe-infra skill and an idempotent init script that never overwrites project settings, plus a Linear skill that opens the full planning, development and acceptance ticket tree for a new requirement.
@@ -72,13 +73,13 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 #### Highlights {#items}
 
 - CUBE online banking: built and maintained features on a platform with 400+ features, 3.4M+ monthly visits and annual revenue in the hundreds of millions of NT dollars; led the fund and foreign-currency modules (top 10 by traffic, 93% of revenue).
-- On-call operations with Grafana monitoring and incident handling.
-- Introduced AI-assisted code review (about 90% less review time), Figma-to-code, and automation for regression tests, deployments and scaffolding; dev efficiency +50%.
 - Built an internal n8n knowledge base so 40+ cross-team members answer frontend questions themselves, saving about 2 person-days a month.
 - ROBO: rebuilt the animated marketing site for SEO and Core Web Vitals; LCP −35%, FCP −40%, TTFB −55% in CrUX.
 
 #### Resume only {#details}
 
+- On-call operations with Grafana monitoring and incident handling.
+- Introduced AI-assisted code review (about 90% less review time), Figma-to-code, and automation for regression tests, deployments and scaffolding; dev efficiency +50%.
 - Bond purchase O2O: improved collaboration and component reuse, supporting revenue growth from long-tail users.
 - Fund inventory: built shared components (sticky-header tables, tour, pagination, skeleton) and optimized rendering of large data sets.
 - Foreign-currency time deposit: handled complex form validation and display logic.

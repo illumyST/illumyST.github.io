@@ -7,9 +7,10 @@ import { localePath } from '@/router'
 import { useTheme } from '@/composables/useTheme'
 import { site, resumeUrl } from '@/site'
 import { profile } from '@/profile'
+import { track } from '@/analytics'
 
 const { t, locale } = useI18n()
-const { theme, toggle } = useTheme()
+const { theme, toggle: toggleTheme } = useTheme()
 const route = useRoute()
 const router = useRouter()
 
@@ -20,12 +21,19 @@ const about = computed(() => localePath(current.value, 'about'))
 const cv = computed(() => resumeUrl(locale.value))
 
 function onLang(e: Event) {
-  router.push(localePath((e.target as HTMLSelectElement).value as Locale, page.value))
+  const next = (e.target as HTMLSelectElement).value as Locale
+  track('lang_switch', { target: next, location: 'header' })
+  router.push(localePath(next, page.value))
+}
+
+function toggle() {
+  toggleTheme()
+  track('theme_toggle', { target: theme.value, location: 'header' })
 }
 </script>
 
 <template>
-  <header class="site-header">
+  <header class="site-header" data-track-location="header">
     <div class="container bar">
       <!-- Literary Brand Seal & Name -->
       <RouterLink :to="home" class="brand">
@@ -37,12 +45,12 @@ function onLang(e: Event) {
         <RouterLink :to="home" :class="{ on: page === 'home' }">{{ t('nav.home') }}</RouterLink>
         <RouterLink :to="`${home === '/' ? '' : home}/#work`">{{ t('nav.work') }}</RouterLink>
         <RouterLink :to="about" :class="{ on: page === 'about' }">{{ t('nav.about') }}</RouterLink>
-        <RouterLink :to="`${home === '/' ? '' : home}/#contact`" class="talk">{{ t('nav.talk') }}</RouterLink>
+        <RouterLink :to="`${home === '/' ? '' : home}/#contact`" class="talk" data-track="cta_click" data-track-target="contact">{{ t('nav.talk') }}</RouterLink>
       </nav>
 
       <div class="header-actions">
         <!-- Quiet Resume Link for HR -->
-        <a :href="cv" target="_blank" rel="noopener" class="header-resume-link">
+        <a :href="cv" target="_blank" rel="noopener" class="header-resume-link" data-track="resume_click" data-track-target="cv">
           <span>{{ t('hero.cta.cv') }}</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>

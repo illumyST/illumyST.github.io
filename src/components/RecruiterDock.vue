@@ -3,6 +3,7 @@ import { ref, computed, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { site, resumeUrl } from '@/site'
 import { profile } from '@/profile'
+import { track } from '@/analytics'
 
 const { t, locale } = useI18n()
 const isOpen = ref(false)
@@ -34,6 +35,7 @@ function close() {
 
 function toggle() {
   isOpen.value = !isOpen.value
+  if (isOpen.value) track('dock_open', { location: 'dock' })
 }
 </script>
 
@@ -57,7 +59,7 @@ function toggle() {
 
     <!-- Expanded Bookmark Panel (文青藏書票 / 索引卡風格) -->
     <transition name="bookmark-slide">
-      <div v-show="isOpen" id="recruiter-panel" class="bookmark-card" :inert="!isOpen">
+      <div v-show="isOpen" id="recruiter-panel" class="bookmark-card" :inert="!isOpen" data-track-location="dock">
         <div class="card-head">
           <div class="head-title">
             <span class="head-seal">印</span>
@@ -76,15 +78,15 @@ function toggle() {
         <div class="section-block">
           <span class="section-label">{{ t('dock.resume') }}</span>
           <div class="link-list">
-            <a :href="site.resumeZh" target="_blank" rel="noopener" class="paper-link">
+            <a :href="site.resumeZh" target="_blank" rel="noopener" class="paper-link" data-track="resume_click" data-track-target="zh">
               <span>{{ t('dock.resumeZh') }}</span>
               <span class="ext-arrow">↗</span>
             </a>
-            <a :href="site.resumeEn" target="_blank" rel="noopener" class="paper-link">
+            <a :href="site.resumeEn" target="_blank" rel="noopener" class="paper-link" data-track="resume_click" data-track-target="en">
               <span>{{ t('dock.resumeEn') }}</span>
               <span class="ext-arrow">↗</span>
             </a>
-            <a v-if="site.cvPdf[locale]" :href="cv" target="_blank" rel="noopener" class="paper-link paper-link--quiet">
+            <a v-if="site.cvPdf[locale]" :href="cv" target="_blank" rel="noopener" class="paper-link paper-link--quiet" data-track="resume_click" data-track-target="cv">
               <span>{{ t('hero.cta.cv') }}</span>
               <span class="ext-arrow">↗</span>
             </a>
@@ -95,16 +97,16 @@ function toggle() {
 
         <div class="section-block">
           <span class="section-label">{{ t('dock.contact') }}</span>
-          <button type="button" class="copy-box" @click="copyEmail">
+          <button type="button" class="copy-box" data-track="email_copy" @click="copyEmail">
             <span class="copy-email">{{ site.email }}</span>
             <span class="copy-tag" :class="{ done: copied }">{{ copied ? t('dock.emailCopied') : t('dock.copyEmail') }}</span>
           </button>
         </div>
 
         <div class="footer-links">
-          <a :href="site.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a :href="site.linkedin" target="_blank" rel="noopener" data-track="social_click" data-track-target="linkedin">LinkedIn ↗</a>
           <span class="sep">·</span>
-          <a :href="site.github" target="_blank" rel="noopener">GitHub ↗</a>
+          <a :href="site.github" target="_blank" rel="noopener" data-track="social_click" data-track-target="github">GitHub ↗</a>
         </div>
       </div>
     </transition>
@@ -112,20 +114,20 @@ function toggle() {
     <span class="visually-hidden" role="status">{{ copied ? t('dock.emailCopied') : '' }}</span>
 
     <!-- Mobile Bookmark Pill (手機端極簡膠囊) -->
-    <nav class="mobile-pill-bar" :aria-label="t('dock.title')">
-      <a :href="cv" target="_blank" rel="noopener" class="mobile-link">
+    <nav class="mobile-pill-bar" :aria-label="t('dock.title')" data-track-location="dock_mobile">
+      <a :href="cv" target="_blank" rel="noopener" class="mobile-link" data-track="resume_click" data-track-target="cv">
         <span>{{ t('hero.cta.cv') }} ↗</span>
       </a>
       <span class="mobile-sep">|</span>
-      <button type="button" class="mobile-link" @click="copyEmail">
+      <button type="button" class="mobile-link" data-track="email_copy" @click="copyEmail">
         <span>{{ copied ? t('dock.emailCopied') : t('dock.copyEmail') }}</span>
       </button>
       <span class="mobile-sep">|</span>
-      <a :href="site.linkedin" target="_blank" rel="noopener" class="mobile-link">
+      <a :href="site.linkedin" target="_blank" rel="noopener" class="mobile-link" data-track="social_click" data-track-target="linkedin">
         <span>LinkedIn</span>
       </a>
       <span class="mobile-sep">|</span>
-      <a href="#contact" class="mobile-link mobile-link--accent">
+      <a href="#contact" class="mobile-link mobile-link--accent" data-track="cta_click" data-track-target="contact">
         <span>{{ t('dock.contact') }}</span>
       </a>
     </nav>

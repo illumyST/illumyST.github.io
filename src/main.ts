@@ -2,6 +2,7 @@ import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
 import { routes } from './router'
 import { createAppI18n, detectLocale, LOCALE_PREFIX, type Locale } from './i18n'
+import { initAnalytics } from './analytics'
 import './styles/tokens.css'
 import './styles/base.css'
 
@@ -33,6 +34,8 @@ export const createApp = ViteSSG(
         }
       }
     })
+
+    if (isClient) initAnalytics()
 
     // First visit at the root with no remembered choice: send the visitor to their browser's language.
     if (isClient && !initialState.redirected) {

@@ -28,8 +28,8 @@ async function copy() {
 
 <template>
   <span class="copy-email">
-    <a id="contact-email" class="addr" :href="`mailto:${email}`">{{ email }}</a>
-    <button type="button" class="btn" :aria-live="'polite'" @click="copy">
+    <a id="contact-email" class="addr" :href="`mailto:${email}`" data-track="email_click">{{ email }}</a>
+    <button type="button" class="btn" :aria-live="'polite'" data-track="email_copy" @click="copy">
       {{ done ? t('contact.copied') : t('contact.copy') }}
     </button>
   </span>

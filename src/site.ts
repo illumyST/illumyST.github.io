@@ -5,6 +5,8 @@ import { profile } from '@/profile'
  */
 export const site = {
   url: 'https://stoneisme.com',
+  /** GA4 評估 ID（G- 開頭，公開值）；空字串時不載入追蹤。 */
+  gaId: 'G-HLYRSELLMF',
   ...profile.contact,
   portrait: '/images/portrait.webp',
   portraitSmall: '/images/portrait-480.webp',

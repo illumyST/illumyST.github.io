@@ -63,7 +63,7 @@ async function copyHeroEmail() {
 
 <template>
   <!-- 1. Hero Section (GRIS 水彩意象與日系文青扉頁) -->
-  <section class="hero">
+  <section class="hero" data-track-location="hero">
     <ColorBlocks variant="hero" />
     <div class="container hero-grid">
       <div class="hero-inner">
@@ -93,17 +93,17 @@ async function copyHeroEmail() {
 
         <!-- HR 快速調閱行動列 (乾淨紙質書籤風按鈕) -->
         <div class="cta-row">
-          <a href="#work" class="btn btn--solid">
+          <a href="#work" class="btn btn--solid" data-track="cta_click" data-track-target="work">
             <span>{{ t('hero.cta.work') }}</span>
             <span class="arrow-down" aria-hidden="true">↓</span>
           </a>
-          <a :href="site.resumeZh" target="_blank" rel="noopener" class="btn btn--outline">
+          <a :href="site.resumeZh" target="_blank" rel="noopener" class="btn btn--outline" data-track="resume_click" data-track-target="zh">
             <span>{{ t('dock.resumeZh') }} ↗</span>
           </a>
-          <a :href="site.resumeEn" target="_blank" rel="noopener" class="btn btn--outline">
+          <a :href="site.resumeEn" target="_blank" rel="noopener" class="btn btn--outline" data-track="resume_click" data-track-target="en">
             <span>{{ t('dock.resumeEn') }} ↗</span>
           </a>
-          <button type="button" class="btn btn--copy" :aria-label="t('dock.copyEmail')" @click="copyHeroEmail">
+          <button type="button" class="btn btn--copy" :aria-label="t('dock.copyEmail')" data-track="email_copy" @click="copyHeroEmail">
             <span class="copy-swap">
               <span :class="{ hide: copied }">{{ site.email }}</span>
               <span :class="{ hide: !copied }">{{ t('dock.emailCopied') }}</span>
@@ -141,13 +141,13 @@ async function copyHeroEmail() {
   </section>
 
   <!-- 2. Selected Work (作品集 · GRIS 各章節水彩意象卡片) -->
-  <section id="work" class="work">
+  <section id="work" class="work" data-track-location="work">
     <ColorBlocks variant="work" />
     <div class="container">
       <SectionHead :eyebrow="t('work.eyebrow')" :title="t('work.title')" />
       <ul class="cases">
         <li v-for="(c, i) in cases" :key="c.id" :class="`case case--${caseWash[i]}`">
-          <RouterLink :to="`${about}#${site.caseAnchor[c.id]}`" class="case-card">
+          <RouterLink :to="`${about}#${site.caseAnchor[c.id]}`" class="case-card" data-track="case_click" :data-track-target="c.id">
             <!-- 水彩暈染插畫框 (無假圖表，純粹紙質水彩與極簡版式) -->
             <div class="case-artwork">
               <img v-if="site.caseImages[c.id]" :src="site.caseImages[c.id]" :alt="c.title" loading="lazy" width="1600" height="1000" />
@@ -194,12 +194,12 @@ async function copyHeroEmail() {
   </section>
 
   <!-- 4. Side projects (創作小品) -->
-  <section class="side">
+  <section class="side" data-track-location="side">
     <div class="container">
       <SectionHead :eyebrow="t('side.eyebrow')" :title="t('side.title')" />
       <ul class="side-grid">
         <li v-for="s in side" :key="s.url">
-          <a :href="s.url" target="_blank" rel="noopener" class="side-item">
+          <a :href="s.url" target="_blank" rel="noopener" class="side-item" data-track="project_click" :data-track-target="s.url.replace('https://', '')">
             <div v-if="s.image" class="side-thumb">
               <img :src="s.image" alt="" loading="lazy" width="960" height="600" />
             </div>
@@ -216,7 +216,7 @@ async function copyHeroEmail() {
   </section>
 
   <!-- 5. Path (年譜軌跡) -->
-  <section class="path">
+  <section class="path" data-track-location="timeline">
     <div class="container">
       <SectionHead :eyebrow="t('timeline.eyebrow')" :title="t('timeline.title')" />
       <ol class="chronology">
@@ -229,7 +229,7 @@ async function copyHeroEmail() {
         </li>
       </ol>
       <div class="timeline-more">
-        <RouterLink :to="about" class="editorial-link">
+        <RouterLink :to="about" class="editorial-link" data-track="cta_click" data-track-target="about">
           <span>{{ t('timeline.more') }}</span>
           <span aria-hidden="true">→</span>
         </RouterLink>
@@ -238,7 +238,7 @@ async function copyHeroEmail() {
   </section>
 
   <!-- 6. Contact (結尾水彩墨色) -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact" data-track-location="contact">
     <ColorBlocks variant="contact" />
     <div class="container contact-inner">
       <SectionHead :eyebrow="t('contact.eyebrow')" :title="t('contact.title')" />
@@ -247,11 +247,11 @@ async function copyHeroEmail() {
         <CopyEmail :email="site.email" />
       </div>
       <div class="links-row">
-        <a :href="site.linkedin" target="_blank" rel="noopener" class="contact-link">LinkedIn <span>{{ site.linkedinLabel }}</span> ↗</a>
+        <a :href="site.linkedin" target="_blank" rel="noopener" class="contact-link" data-track="social_click" data-track-target="linkedin">LinkedIn <span>{{ site.linkedinLabel }}</span> ↗</a>
         <span class="dot-sep">·</span>
-        <a :href="site.github" target="_blank" rel="noopener" class="contact-link">GitHub <span>{{ site.githubLabel }}</span> ↗</a>
+        <a :href="site.github" target="_blank" rel="noopener" class="contact-link" data-track="social_click" data-track-target="github">GitHub <span>{{ site.githubLabel }}</span> ↗</a>
         <span class="dot-sep">·</span>
-        <a :href="cv" target="_blank" rel="noopener" class="contact-link contact-link--highlight">{{ t('contact.cv') }} ↗</a>
+        <a :href="cv" target="_blank" rel="noopener" class="contact-link contact-link--highlight" data-track="resume_click" data-track-target="cv">{{ t('contact.cv') }} ↗</a>
       </div>
     </div>
   </section>

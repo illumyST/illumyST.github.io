@@ -137,7 +137,7 @@ const kanjiNumbers = ['一', '二', '三', '四']
   </section>
 
   <!-- 5. Links & Contact -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact" data-track-location="contact">
     <ColorBlocks variant="contact" />
     <div class="container contact-inner">
       <SectionHead :eyebrow="t('about.links.eyebrow')" :title="t('about.links.title')" />
@@ -145,15 +145,15 @@ const kanjiNumbers = ['一', '二', '三', '四']
         <CopyEmail :email="site.email" />
       </div>
       <div class="links-row">
-        <a :href="site.linkedin" target="_blank" rel="noopener" class="contact-link">LinkedIn <span>{{ site.linkedinLabel }}</span> ↗</a>
+        <a :href="site.linkedin" target="_blank" rel="noopener" class="contact-link" data-track="social_click" data-track-target="linkedin">LinkedIn <span>{{ site.linkedinLabel }}</span> ↗</a>
         <span class="dot-sep">·</span>
-        <a :href="site.github" target="_blank" rel="noopener" class="contact-link">GitHub <span>{{ site.githubLabel }}</span> ↗</a>
+        <a :href="site.github" target="_blank" rel="noopener" class="contact-link" data-track="social_click" data-track-target="github">GitHub <span>{{ site.githubLabel }}</span> ↗</a>
         <span class="dot-sep">·</span>
-        <a :href="site.resumeZh" target="_blank" rel="noopener" class="contact-link contact-link--highlight">{{ t('contact.resumeZh') }} ↗</a>
+        <a :href="site.resumeZh" target="_blank" rel="noopener" class="contact-link contact-link--highlight" data-track="resume_click" data-track-target="zh">{{ t('contact.resumeZh') }} ↗</a>
         <span class="dot-sep">·</span>
-        <a :href="site.resumeEn" target="_blank" rel="noopener" class="contact-link contact-link--highlight">{{ t('contact.resumeEn') }} ↗</a>
+        <a :href="site.resumeEn" target="_blank" rel="noopener" class="contact-link contact-link--highlight" data-track="resume_click" data-track-target="en">{{ t('contact.resumeEn') }} ↗</a>
         <span class="dot-sep">·</span>
-        <a :href="cv" target="_blank" rel="noopener" class="contact-link">{{ t('contact.cv') }} ↗</a>
+        <a :href="cv" target="_blank" rel="noopener" class="contact-link" data-track="resume_click" data-track-target="cv">{{ t('contact.cv') }} ↗</a>
       </div>
     </div>
   </section>

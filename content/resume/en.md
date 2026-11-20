@@ -1,5 +1,5 @@
 ---
-synced: 2026-11-16
+synced: 2026-11-20
 ---
 
 <!-- English translation of zh-Hant.md, kept in sync by an agent. Keep every {#id}, and the same number of items in each list. -->
@@ -52,7 +52,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 - TPM for the NTUH Beihu Branch endoscopy AI voice-to-record system: turned clinical needs into specs and tasks with clinicians, data analysts and engineers; live within one month of intake, report time −60%, about 20% of physicians' day saved.
 - Leading a team of four engineers with agile and spec-first practices: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.
 - Built aic-fe-infra, shared dev infrastructure for all frontend projects: unified AI agent rules and skills keep output consistent across projects for Claude Code, Codex and Copilot; PR checks and Dependabot upgrades are likewise changed in one place and rolled out by a version bump.
-- Leading the frontend modernization of 醫點家, a national-award-winning Django platform, starting with a file explorer for AI-parsed results; built a Web Components library shared across projects via CDN.
+- Leading the frontend modernization of MedAssist Hub (醫點家), a national-award-winning Django platform, starting with a file explorer for AI-parsed results; built a Web Components library shared across projects via CDN.
 
 #### Resume only {#details}
 
@@ -80,6 +80,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 
 - On-call operations with Grafana monitoring and incident handling.
 - Introduced AI-assisted code review (about 90% less review time), Figma-to-code, and automation for regression tests, deployments and scaffolding; dev efficiency +50%.
+- Automated operational workflows and CI/CD with scripts, cutting a 3-hour manual deployment to 2 minutes.
 - Bond purchase O2O: improved collaboration and component reuse, supporting revenue growth from long-tail users.
 - Fund inventory: built shared components (sticky-header tables, tour, pagination, skeleton) and optimized rendering of large data sets.
 - Foreign-currency time deposit: handled complex form validation and display logic.

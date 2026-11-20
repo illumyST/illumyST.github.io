@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-16
+updated: 2026-11-20
 email: stonechen.fe@gmail.com
 linkedin: https://www.linkedin.com/in/chenstone/
 linkedinLabel: in/chenstone
@@ -99,6 +99,7 @@ stack: React, TypeScript, Vue 3
 
 - 值班維運：以 Grafana 監控分析並處理線上問題。
 - 導入 AI 輔助 code review（審查時間降低約 90%）、Figma to Code，以及回歸測試、部署與程式碼樣板的自動化，開發效率提升 50%。
+- 以腳本自動化維運流程與 CI/CD，將 3 小時的手動部署縮短為 2 分鐘。
 - 國外債券 O2O：提升協作與元件重用，支撐長尾用戶的營收成長。
 - 基金庫存：開發共用元件（凍頂表格、導覽、分頁、Skeleton），並優化大量資料的渲染效能。
 - 外幣定存：處理複雜的表單驗證與顯示邏輯。

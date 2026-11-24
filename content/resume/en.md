@@ -1,5 +1,5 @@
 ---
-synced: 2026-11-20
+synced: 2026-11-24
 ---
 
 <!-- English translation of zh-Hant.md, kept in sync by an agent. Keep every {#id}, and the same number of items in each list. -->
@@ -26,7 +26,7 @@ I graduated from National Chengchi University with a double major in Advertising
 
 Over nearly three years at Cathay United Bank, I worked on the CUBE online banking platform and led the fund and foreign currency modules, serving more than 3.4 million visits per month. In a highly regulated environment with strict quality requirements, I grew from implementing requirements to evaluating feasibility with product managers from a frontend perspective and driving projects to delivery.
 
-In 2026, I joined Futago Talents, a hospital-funded startup, and was assigned to the AI Center at Chung Shan Medical University Hospital as Frontend Tech Lead and TPM. I translate requirements between clinicians, data analysts, and engineers, and brought an AI voice-based endoscopy reporting system to production within one month of receiving the requirements. I also re-scoped delayed features and delivered two major features to acceptance within two weeks.
+In 2026, I joined Futago Talents, a hospital-funded startup, and was assigned to the AI Center at Chung Shan Medical University Hospital as Frontend Tech Lead and TPM. I translate requirements between clinicians, data analysts, and engineers, and brought an AI voice-based endoscopy reporting system to production within one month of receiving the requirements. I also re-scoped delayed features and delivered two major features to acceptance within two weeks. With AI-assisted development, I also work on backend APIs and service deployment on Kubernetes, extending toward full-stack.
 
 Beyond feature delivery, I have kept deepening how I apply AI: from using it to speed up my own development, to bringing it into a single part of the team's workflow at Cathay (for example, an n8n-based knowledge base), to building the team's AI development infrastructure at Chung Shan, turning AI from a personal tool into the way the whole team works.
 
@@ -53,6 +53,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 - Leading a team of four engineers with agile and spec-first practices: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.
 - Built aic-fe-infra, shared dev infrastructure for all frontend projects: unified AI agent rules and skills keep output consistent across projects for Claude Code, Codex and Copilot; PR checks and Dependabot upgrades are likewise changed in one place and rolled out by a version bump.
 - Leading the frontend modernization of MedAssist Hub (醫點家), a national-award-winning Django platform, starting with a file explorer for AI-parsed results; built a Web Components library shared across projects via CDN.
+- Extending into full-stack work with AI-assisted development: develop backend APIs with NestJS and Java, deploy and operate services on Kubernetes, and manage IAM.
 
 #### Resume only {#details}
 
@@ -79,7 +80,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 #### Resume only {#details}
 
 - On-call operations with Grafana monitoring and incident handling.
-- Introduced AI-assisted code review (about 90% less review time), Figma-to-code, and automation for regression tests, deployments and scaffolding; dev efficiency +50%.
+- Introduced Figma-to-code and automation for deployments and scaffolding; dev efficiency +50%.
 - Automated operational workflows and CI/CD with scripts, cutting a 3-hour manual deployment to 2 minutes.
 - Bond purchase O2O: improved collaboration and component reuse, supporting revenue growth from long-tail users.
 - Fund inventory: built shared components (sticky-header tables, tour, pagination, skeleton) and optimized rendering of large data sets.
@@ -120,6 +121,10 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 - Items：React 19, Vue 3, Nuxt, Web Components, TypeScript, Effect.ts, Jotai, React Hook Form
 - Resume only：JavaScript (ES6+), HTML5, CSS3, SCSS, Yup, i18n, Day.js, Chart.js, three.js, RESTful API
 
+### Backend and deployment {#backend}
+
+- Items：NestJS, Java, Kubernetes, IAM
+
 ### Quality and performance {#quality}
 
 - Items：Vitest, Storybook, Lighthouse, Web Vitals, Code splitting, SSG, Orval (OpenAPI)
@@ -132,7 +137,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 
 ### AI tooling {#ai}
 
-- Items：Claude Code, Codex, AI agent skills, AI code review, Figma to Code, n8n, Claude Design System, LLM context docs, Discord bot second brain
+- Items：Claude Code, Codex, AI agent skills, Figma to Code, n8n, Claude Design System, LLM context docs, Discord bot second brain
 - Resume only：GitHub Copilot, Ollama
 
 ### UI and design {#design}

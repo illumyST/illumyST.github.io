@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-20
+updated: 2026-11-24
 email: stonechen.fe@gmail.com
 linkedin: https://www.linkedin.com/in/chenstone/
 linkedinLabel: in/chenstone
@@ -43,7 +43,7 @@ stack: React, TypeScript, Vue 3
 
 在國泰世華的近三年，我參與 CUBE 網路銀行開發，主導基金與外幣模組，支撐每月超過 340 萬次的訪問。在高度法規與品質要求的環境中，我從需求的實作者，成長為能以前端專業與 PM 討論可行性、推進專案落地的工程師。
 
-2026 年，我加入中山醫的 AI 中心，擔任前端技術負責人兼 TPM。我在臨床端、資料分析師與工程團隊之間轉譯需求，讓腸胃鏡 AI 語音病歷系統在需求接收後一個月內上線；也針對延宕的功能重新拆解任務，兩週內完成兩項重大功能驗收。
+2026 年，我加入中山醫的 AI 中心，擔任前端技術負責人兼 TPM。我在臨床端、資料分析師與工程團隊之間轉譯需求，讓腸胃鏡 AI 語音病歷系統在需求接收後一個月內上線；也針對延宕的功能重新拆解任務，兩週內完成兩項重大功能驗收。我也運用 AI 參與後端 API 開發與 Kubernetes 服務部署，持續往全端發展。
 
 除了需求開發，我也持續深化 AI 應用：從一開始用 AI 加速自己的開發，到在國泰把 AI 帶進團隊的單一環節（例如以 n8n 建立知識庫），再到在中山醫建置團隊的 AI 開發基礎建設，讓 AI 從個人工具變成整個團隊的工作方式。
 
@@ -71,6 +71,7 @@ stack: React, TypeScript, Vue 3
 - 帶領 4 人工程師團隊，導入敏捷與規格先行的流程：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收。
 - 建立前端共用開發基礎建設 aic-fe-infra：統一團隊的 AI Agent 規範與 Skill，讓 Claude Code、Codex、Copilot 跨專案維持一致的產出品質；PR 檢查與 Dependabot 自動升版也一處修改、各專案升版即生效。
 - 主導國科會金獎平台「醫點家」前端現代化，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。
+- 運用 AI 參與後端開發與部署，持續往全端發展：以 NestJS 與 Java 開發後端 API，負責 Kubernetes 上的服務部署與維運，以及 IAM 管理。
 
 #### 履歷限定 {#details}
 
@@ -98,7 +99,7 @@ stack: React, TypeScript, Vue 3
 #### 履歷限定 {#details}
 
 - 值班維運：以 Grafana 監控分析並處理線上問題。
-- 導入 AI 輔助 code review（審查時間降低約 90%）、Figma to Code，以及回歸測試、部署與程式碼樣板的自動化，開發效率提升 50%。
+- 導入 Figma to Code，以及部署與程式碼樣板的自動化，開發效率提升 50%。
 - 以腳本自動化維運流程與 CI/CD，將 3 小時的手動部署縮短為 2 分鐘。
 - 國外債券 O2O：提升協作與元件重用，支撐長尾用戶的營收成長。
 - 基金庫存：開發共用元件（凍頂表格、導覽、分頁、Skeleton），並優化大量資料的渲染效能。
@@ -142,6 +143,10 @@ stack: React, TypeScript, Vue 3
 - 項目：React 19, Vue 3, Nuxt, Web Components, TypeScript, Effect.ts, Jotai, React Hook Form
 - 履歷限定：JavaScript (ES6+), HTML5, CSS3, SCSS, Yup, i18n, Day.js, Chart.js, three.js, RESTful API
 
+### 後端與部署 {#backend}
+
+- 項目：NestJS, Java, Kubernetes, IAM
+
 ### 品質與效能 {#quality}
 
 - 項目：Vitest, Storybook, Lighthouse, Web Vitals, Code Splitting, SSG, Orval (OpenAPI)
@@ -154,7 +159,7 @@ stack: React, TypeScript, Vue 3
 
 ### AI 工具 {#ai}
 
-- 項目：Claude Code, Codex, AI Agent Skill, AI code review, Figma to Code, n8n, Claude Design System, LLM context 文件, Discord Bot 第二大腦
+- 項目：Claude Code, Codex, AI Agent Skill, Figma to Code, n8n, Claude Design System, LLM context 文件, Discord Bot 第二大腦
 - 履歷限定：GitHub Copilot, Ollama
 
 ### 設計與樣式 {#design}

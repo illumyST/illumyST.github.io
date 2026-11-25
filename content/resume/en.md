@@ -1,5 +1,5 @@
 ---
-synced: 2026-11-24
+synced: 2026-11-25
 ---
 
 <!-- English translation of zh-Hant.md, kept in sync by an agent. Keep every {#id}, and the same number of items in each list. -->
@@ -53,7 +53,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 - Leading a team of four engineers with agile and spec-first practices: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.
 - Built aic-fe-infra, shared dev infrastructure for all frontend projects: unified AI agent rules and skills keep output consistent across projects for Claude Code, Codex and Copilot; PR checks and Dependabot upgrades are likewise changed in one place and rolled out by a version bump.
 - Leading the frontend modernization of MedAssist Hub (醫點家), a national-award-winning Django platform, starting with a file explorer for AI-parsed results; built a Web Components library shared across projects via CDN.
-- Extending into full-stack work with AI-assisted development: develop backend APIs with NestJS and Java, deploy and operate services on Kubernetes, and manage IAM.
+- Extending into full-stack work with AI-assisted development: develop backend APIs with NestJS and Java, implement OAuth2 sign-in integration and token validation, deploy and operate services on Kubernetes, and manage IAM.
 
 #### Resume only {#details}
 
@@ -81,7 +81,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 
 - On-call operations with Grafana monitoring and incident handling.
 - Introduced Figma-to-code and automation for deployments and scaffolding; dev efficiency +50%.
-- Automated operational workflows and CI/CD with scripts, cutting a 3-hour manual deployment to 2 minutes.
+- Automated operational workflows and CI/CD with Node.js scripts, cutting a 3-hour manual deployment to 2 minutes.
 - Bond purchase O2O: improved collaboration and component reuse, supporting revenue growth from long-tail users.
 - Fund inventory: built shared components (sticky-header tables, tour, pagination, skeleton) and optimized rendering of large data sets.
 - Foreign-currency time deposit: handled complex form validation and display logic.
@@ -123,7 +123,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 
 ### Backend and deployment {#backend}
 
-- Items：NestJS, Java, Kubernetes, IAM
+- Items：NestJS, Java, Node.js, OAuth2, Kubernetes, IAM
 
 ### Quality and performance {#quality}
 

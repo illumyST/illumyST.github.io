@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-24
+updated: 2026-11-25
 email: stonechen.fe@gmail.com
 linkedin: https://www.linkedin.com/in/chenstone/
 linkedinLabel: in/chenstone
@@ -71,7 +71,7 @@ stack: React, TypeScript, Vue 3
 - 帶領 4 人工程師團隊，導入敏捷與規格先行的流程：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收。
 - 建立前端共用開發基礎建設 aic-fe-infra：統一團隊的 AI Agent 規範與 Skill，讓 Claude Code、Codex、Copilot 跨專案維持一致的產出品質；PR 檢查與 Dependabot 自動升版也一處修改、各專案升版即生效。
 - 主導國科會金獎平台「醫點家」前端現代化，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。
-- 運用 AI 參與後端開發與部署，持續往全端發展：以 NestJS 與 Java 開發後端 API，負責 Kubernetes 上的服務部署與維運，以及 IAM 管理。
+- 運用 AI 參與後端開發與部署，持續往全端發展：以 NestJS 與 Java 開發後端 API，實作 OAuth2 登入串接與 token 驗證，負責 Kubernetes 上的服務部署與維運，以及 IAM 管理。
 
 #### 履歷限定 {#details}
 
@@ -100,7 +100,7 @@ stack: React, TypeScript, Vue 3
 
 - 值班維運：以 Grafana 監控分析並處理線上問題。
 - 導入 Figma to Code，以及部署與程式碼樣板的自動化，開發效率提升 50%。
-- 以腳本自動化維運流程與 CI/CD，將 3 小時的手動部署縮短為 2 分鐘。
+- 以 Node.js 腳本自動化維運流程與 CI/CD，將 3 小時的手動部署縮短為 2 分鐘。
 - 國外債券 O2O：提升協作與元件重用，支撐長尾用戶的營收成長。
 - 基金庫存：開發共用元件（凍頂表格、導覽、分頁、Skeleton），並優化大量資料的渲染效能。
 - 外幣定存：處理複雜的表單驗證與顯示邏輯。
@@ -145,7 +145,7 @@ stack: React, TypeScript, Vue 3
 
 ### 後端與部署 {#backend}
 
-- 項目：NestJS, Java, Kubernetes, IAM
+- 項目：NestJS, Java, Node.js, OAuth2, Kubernetes, IAM
 
 ### 品質與效能 {#quality}
 

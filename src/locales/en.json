@@ -20,7 +20,6 @@
     }
   },
   "work": {
-    "eyebrow": "Selected work",
     "title": "Three projects that show how I work.",
     "more": "View case",
     "items": [
@@ -57,7 +56,6 @@
     ]
   },
   "how": {
-    "eyebrow": "How I work",
     "title": "What happens off-screen.",
     "items": [
       {
@@ -79,16 +77,13 @@
     ]
   },
   "side": {
-    "eyebrow": "Side projects",
     "title": "Still trying new things after hours."
   },
   "timeline": {
-    "eyebrow": "Path",
     "title": "From advertising to medical AI.",
     "more": "Full experience"
   },
   "contact": {
-    "eyebrow": "Contact",
     "title": "Say hello.",
     "lead": "Looking for frontend or full-stack roles, anywhere in Taiwan or abroad.",
     "copy": "copy",
@@ -99,7 +94,6 @@
   },
   "dock": {
     "title": "Recruiter Hub",
-    "badge": "For HR",
     "status": "Currently employed, open to interviews · Taiwan / Abroad / Remote",
     "resume": "Resumes",
     "resumeZh": "Chinese Resume (Notion)",
@@ -118,20 +112,16 @@
     "eyebrow": "About",
     "title": "From advertising to medical AI.",
     "exp": {
-      "eyebrow": "Experience",
       "title": "From frontend engineer to the tech lead who runs the team.",
       "current": "Current"
     },
     "skills": {
-      "eyebrow": "Skills",
       "title": "What I build with."
     },
     "langs": {
-      "eyebrow": "Education & languages",
       "title": "Working in three languages."
     },
     "links": {
-      "eyebrow": "Links",
       "title": "Where to find me."
     }
   }

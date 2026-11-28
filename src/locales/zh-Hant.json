@@ -20,7 +20,6 @@
     }
   },
   "work": {
-    "eyebrow": "Selected work",
     "title": "這三個專案代表我怎麼做事。",
     "more": "看案例",
     "items": [
@@ -57,7 +56,6 @@
     ]
   },
   "how": {
-    "eyebrow": "How I work",
     "title": "畫面之外的事。",
     "items": [
       {
@@ -79,16 +77,13 @@
     ]
   },
   "side": {
-    "eyebrow": "Side projects",
     "title": "下班後也在碰新東西。"
   },
   "timeline": {
-    "eyebrow": "Path",
     "title": "從廣告系走到醫療 AI。",
     "more": "完整經歷"
   },
   "contact": {
-    "eyebrow": "Contact",
     "title": "說聲哈囉。",
     "lead": "正在尋找前端或全端的機會，全台或海外皆可。",
     "copy": "複製",
@@ -99,7 +94,6 @@
   },
   "dock": {
     "title": "招募快速通道",
-    "badge": "HR 快捷",
     "status": "現職可面談 · 全台 / 海外 / 遠端",
     "resume": "線上履歷",
     "resumeZh": "中文履歷 (Notion)",
@@ -118,20 +112,16 @@
     "eyebrow": "About",
     "title": "從廣告系走到醫療 AI。",
     "exp": {
-      "eyebrow": "Experience",
       "title": "從前端工程師，到帶團隊的技術負責人。",
       "current": "現職"
     },
     "skills": {
-      "eyebrow": "Skills",
       "title": "我用什麼把事情做出來。"
     },
     "langs": {
-      "eyebrow": "Education & languages",
       "title": "三種語言工作。"
     },
     "links": {
-      "eyebrow": "Links",
       "title": "找得到我的地方。"
     }
   }

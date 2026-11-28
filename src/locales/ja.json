@@ -20,7 +20,6 @@
     }
   },
   "work": {
-    "eyebrow": "Selected work",
     "title": "この3つの案件が、私の仕事のやり方です。",
     "more": "事例を見る",
     "items": [
@@ -57,7 +56,6 @@
     ]
   },
   "how": {
-    "eyebrow": "How I work",
     "title": "画面の外でやっていること。",
     "items": [
       {
@@ -79,16 +77,13 @@
     ]
   },
   "side": {
-    "eyebrow": "Side projects",
     "title": "仕事の外でも、新しいものに触れています。"
   },
   "timeline": {
-    "eyebrow": "Path",
     "title": "広告学科から医療AIへ。",
     "more": "経歴の詳細"
   },
   "contact": {
-    "eyebrow": "Contact",
     "title": "お気軽にどうぞ。",
     "lead": "フロントエンドまたはフルスタックのポジションを探しています。台湾全土、海外も可。",
     "copy": "コピー",
@@ -99,7 +94,6 @@
   },
   "dock": {
     "title": "採用・連絡ハブ",
-    "badge": "採用担当者様へ",
     "status": "在職中・面接可 · 台湾全土 / 海外 / リモート",
     "resume": "オンライン履歴書",
     "resumeZh": "中国語履歴書 (Notion)",
@@ -118,20 +112,16 @@
     "eyebrow": "About",
     "title": "広告学科から医療AIへ。",
     "exp": {
-      "eyebrow": "Experience",
       "title": "フロントエンドエンジニアから、チームを率いるテックリードへ。",
       "current": "現職"
     },
     "skills": {
-      "eyebrow": "Skills",
       "title": "何を使ってつくるか。"
     },
     "langs": {
-      "eyebrow": "Education & languages",
       "title": "3つの言語で働く。"
     },
     "links": {
-      "eyebrow": "Links",
       "title": "連絡先。"
     }
   }

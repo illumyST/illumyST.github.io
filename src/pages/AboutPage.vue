@@ -46,7 +46,7 @@ const kanjiNumbers = ['一', '二', '三', '四']
     <ColorBlocks variant="about" />
     <div class="container story-inner">
       <div class="story-text">
-        <SectionHead :eyebrow="t('about.eyebrow')" :title="t('about.title')" />
+        <SectionHead :title="t('about.title')" />
         <div class="prose">
           <p v-for="(p, i) in story" :key="i">{{ p }}</p>
         </div>
@@ -71,7 +71,7 @@ const kanjiNumbers = ['一', '二', '三', '四']
   <!-- 2. Experience (年譜履歷 · 日系書籍年表排版) -->
   <section class="exp">
     <div class="container">
-      <SectionHead :eyebrow="t('about.exp.eyebrow')" :title="t('about.exp.title')" />
+      <SectionHead :title="t('about.exp.title')" />
       <ol class="job-list">
         <li v-for="j in jobs" :key="j.id" :id="j.id" class="job-entry" :class="{ current: j.current }">
           <div class="job-meta">
@@ -108,7 +108,7 @@ const kanjiNumbers = ['一', '二', '三', '四']
   <!-- 3. Skills (技能目錄 · 日系文青章節排版) -->
   <section class="skills">
     <div class="container">
-      <SectionHead :eyebrow="t('about.skills.eyebrow')" :title="t('about.skills.title')" />
+      <SectionHead :title="t('about.skills.title')" />
       <div class="skills-index">
         <article v-for="(g, i) in groups" :key="g.name" class="skill-category">
           <header class="category-header">
@@ -126,7 +126,7 @@ const kanjiNumbers = ['一', '二', '三', '四']
   <!-- 4. Education & Languages (學歷與語文) -->
   <section class="langs">
     <div class="container">
-      <SectionHead :eyebrow="t('about.langs.eyebrow')" :title="t('about.langs.title')" />
+      <SectionHead :title="t('about.langs.title')" />
       <div class="lang-strip">
         <div v-for="l in langs" :key="l.name" class="lang-unit">
           <strong class="lang-name">{{ l.name }}</strong>
@@ -140,7 +140,7 @@ const kanjiNumbers = ['一', '二', '三', '四']
   <section id="contact" class="contact" data-track-location="contact">
     <ColorBlocks variant="contact" />
     <div class="container contact-inner">
-      <SectionHead :eyebrow="t('about.links.eyebrow')" :title="t('about.links.title')" />
+      <SectionHead :title="t('about.links.title')" />
       <div class="contact-copy-wrap">
         <CopyEmail :email="site.email" />
       </div>

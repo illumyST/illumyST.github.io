@@ -1,10 +1,9 @@
 <script setup lang="ts">
-defineProps<{ eyebrow: string; title: string; id?: string }>()
+defineProps<{ title: string; id?: string }>()
 </script>
 
 <template>
   <header class="head">
-    <p class="eyebrow">{{ eyebrow }}</p>
     <h2 :id="id" class="title">{{ title }}</h2>
   </header>
 </template>

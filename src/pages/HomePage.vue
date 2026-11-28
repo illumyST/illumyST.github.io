@@ -144,7 +144,7 @@ async function copyHeroEmail() {
   <section id="work" class="work" data-track-location="work">
     <ColorBlocks variant="work" />
     <div class="container">
-      <SectionHead :eyebrow="t('work.eyebrow')" :title="t('work.title')" />
+      <SectionHead :title="t('work.title')" />
       <ul class="cases">
         <li v-for="(c, i) in cases" :key="c.id" :class="`case case--${caseWash[i]}`">
           <RouterLink :to="`${about}#${site.caseAnchor[c.id]}`" class="case-card" data-track="case_click" :data-track-target="c.id">
@@ -180,7 +180,7 @@ async function copyHeroEmail() {
   <!-- 3. How I work (畫面之外的事 · 雜誌書頁排版) -->
   <section class="how">
     <div class="container">
-      <SectionHead :eyebrow="t('how.eyebrow')" :title="t('how.title')" />
+      <SectionHead :title="t('how.title')" />
       <div class="how-grid">
         <article v-for="(h, i) in how" :key="i" class="how-item">
           <span class="roman-index">{{ roman[i] }}.</span>
@@ -196,7 +196,7 @@ async function copyHeroEmail() {
   <!-- 4. Side projects (創作小品) -->
   <section class="side" data-track-location="side">
     <div class="container">
-      <SectionHead :eyebrow="t('side.eyebrow')" :title="t('side.title')" />
+      <SectionHead :title="t('side.title')" />
       <ul class="side-grid">
         <li v-for="s in side" :key="s.url">
           <a :href="s.url" target="_blank" rel="noopener" class="side-item" data-track="project_click" :data-track-target="s.url.replace('https://', '')">
@@ -218,7 +218,7 @@ async function copyHeroEmail() {
   <!-- 5. Path (年譜軌跡) -->
   <section class="path" data-track-location="timeline">
     <div class="container">
-      <SectionHead :eyebrow="t('timeline.eyebrow')" :title="t('timeline.title')" />
+      <SectionHead :title="t('timeline.title')" />
       <ol class="chronology">
         <li v-for="(s, i) in stops" :key="s.year" :class="{ now: i === stops.length - 1 }" class="chrono-item">
           <div class="chrono-year">{{ s.year }}</div>
@@ -241,7 +241,7 @@ async function copyHeroEmail() {
   <section id="contact" class="contact" data-track-location="contact">
     <ColorBlocks variant="contact" />
     <div class="container contact-inner">
-      <SectionHead :eyebrow="t('contact.eyebrow')" :title="t('contact.title')" />
+      <SectionHead :title="t('contact.title')" />
       <p class="lead">{{ t('contact.lead') }}</p>
       <div class="contact-copy-wrap">
         <CopyEmail :email="site.email" />

@@ -52,7 +52,7 @@
           "Context"
         ],
         "title": "Getting a codebase to the point where AI can safely take the wheel.",
-        "desc": "aic-fe-infra, shared frontend dev infrastructure: PR checks, automated upgrades and AI agent rules and skills maintained in one place and rolled out by a version bump. Plus a spec-first development skill, mock server, an n8n team knowledge base and a Claude Design System: what AI writes has a spec to match and a gate to pass."
+        "desc": "Built aic-fe-infra, shared frontend infrastructure that keeps PR checks, automated upgrades and AI agent rules and skills in one place. Each project picks up changes with a version bump. With a spec-first workflow, what AI writes has a spec to match and a check to pass."
       }
     ]
   },

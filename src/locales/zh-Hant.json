@@ -52,7 +52,7 @@
           "Context"
         ],
         "title": "把專案整理到 AI 能放心上手的程度。",
-        "desc": "aic-fe-infra 前端共用開發基礎建設：PR 檢查、自動升版、AI Agent 規範與 Skill 一處維護，各專案升版即生效。再加上規格先行的開發 skill、Mock Server、n8n 團隊知識庫、Claude Design System：AI 寫出來的東西有規格可對、有檢核可擋。"
+        "desc": "建立前端共用開發基礎建設 aic-fe-infra，PR 檢查、自動升版、AI Agent 規範與 Skill 都在同一處維護，各專案升版即生效。搭配規格先行的開發流程，AI 寫出來的東西有規格可對、有檢核可擋。"
       }
     ]
   },

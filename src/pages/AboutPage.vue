@@ -36,8 +36,6 @@ const langs = computed(() => [
   ...profile.languages.map((x) => ({ name: tr(x.name), level: x.cert ? `${x.cert} · ${tr(x.level)}` : tr(x.level) })),
 ])
 const cv = computed(() => resumeUrl(locale.value))
-
-const kanjiNumbers = ['一', '二', '三', '四']
 </script>
 
 <template>
@@ -110,11 +108,8 @@ const kanjiNumbers = ['一', '二', '三', '四']
     <div class="container">
       <SectionHead :title="t('about.skills.title')" />
       <div class="skills-index">
-        <article v-for="(g, i) in groups" :key="g.name" class="skill-category">
-          <header class="category-header">
-            <span class="kanji-index">{{ kanjiNumbers[i] || '・' }}</span>
-            <h3>{{ g.name }}</h3>
-          </header>
+        <article v-for="g in groups" :key="g.name" class="skill-category">
+          <h3 class="category-name">{{ g.name }}</h3>
           <ul class="chips">
             <li v-for="x in g.items" :key="x">{{ x }}</li>
           </ul>
@@ -370,17 +365,7 @@ section {
   padding-top: 14px;
   border-top: 1px solid var(--line);
 }
-.category-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-.kanji-index {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  color: var(--quiet);
-}
-.category-header h3 {
+.category-name {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 500;

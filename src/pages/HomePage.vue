@@ -39,7 +39,6 @@ const stops = computed(() =>
 
 const about = computed(() => localePath(locale.value as Locale, 'about'))
 const cv = computed(() => resumeUrl(locale.value))
-const roman = ['I', 'II', 'III', 'IV']
 const caseWash = ['red', 'blue', 'gold']
 
 const copied = ref(false)
@@ -85,7 +84,6 @@ async function copyHeroEmail() {
         <!-- 關鍵實績數據 (Gris 風格典雅數字與細線刻度) -->
         <div class="stats-spread">
           <div v-for="(s, i) in stats" :key="i" class="stat-col" :class="`stat--${caseWash[i]}`">
-            <span class="stat-index">0{{ i + 1 }}</span>
             <strong class="stat-num">{{ s.n }}</strong>
             <span class="stat-text">{{ s.label }}</span>
           </div>
@@ -152,10 +150,7 @@ async function copyHeroEmail() {
             <div class="case-artwork">
               <img v-if="site.caseImages[c.id]" :src="site.caseImages[c.id]" :alt="c.title" loading="lazy" width="1600" height="1000" />
               <div v-else class="watercolor-frame" :class="`frame--${c.id}`">
-                <div class="frame-content">
-                  <span class="frame-roman">Case 0{{ i + 1 }}</span>
-                  <span class="frame-tagline">{{ c.tags[0] }}</span>
-                </div>
+                <span class="frame-tagline">{{ c.tags[0] }}</span>
               </div>
             </div>
 
@@ -183,11 +178,8 @@ async function copyHeroEmail() {
       <SectionHead :title="t('how.title')" />
       <div class="how-grid">
         <article v-for="(h, i) in how" :key="i" class="how-item">
-          <span class="roman-index">{{ roman[i] }}.</span>
-          <div class="how-content">
-            <h3>{{ h.title }}</h3>
-            <p>{{ h.desc }}</p>
-          </div>
+          <h3>{{ h.title }}</h3>
+          <p>{{ h.desc }}</p>
         </article>
       </div>
     </div>
@@ -333,12 +325,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-.stat-index {
-  font-family: var(--font-serif);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--quiet);
 }
 .stat-num {
   font-family: var(--font-display);
@@ -534,20 +520,6 @@ section {
   background: radial-gradient(circle at 50% 40%, var(--gold-tint) 0%, color-mix(in srgb, var(--gold) 20%, transparent) 60%, var(--paper) 100%);
 }
 
-.frame-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-.frame-roman {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-style: italic;
-  letter-spacing: 0.12em;
-  color: var(--ink);
-  opacity: 0.8;
-}
 .frame-tagline {
   font-family: var(--font-display);
   font-size: 0.78rem;
@@ -609,24 +581,15 @@ section {
   gap: 32px;
 }
 .how-item {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
 }
-.roman-index {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-style: italic;
-  color: var(--quiet);
-}
-.how-content h3 {
+.how-item h3 {
   font-size: 1.15rem;
   font-weight: 500;
   margin-bottom: 6px;
 }
-.how-content p {
+.how-item p {
   font-size: 0.9rem;
   color: var(--quiet);
   line-height: 1.75;

@@ -161,10 +161,7 @@ async function copyHeroEmail() {
               </div>
               <h3 class="case-heading">{{ c.title }}</h3>
               <p class="case-summary">{{ c.desc }}</p>
-              <div class="case-action">
-                <span>{{ t('work.more') }}</span>
-                <span class="action-arrow">→</span>
-              </div>
+              <p class="case-action">{{ t('work.more') }}</p>
             </div>
           </RouterLink>
         </li>
@@ -222,8 +219,7 @@ async function copyHeroEmail() {
       </ol>
       <div class="timeline-more">
         <RouterLink :to="about" class="editorial-link" data-track="cta_click" data-track-target="about">
-          <span>{{ t('timeline.more') }}</span>
-          <span aria-hidden="true">→</span>
+          {{ t('timeline.more') }}
         </RouterLink>
       </div>
     </div>
@@ -560,18 +556,9 @@ section {
 .case-action {
   margin-top: auto;
   padding-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
   font-size: 0.85rem;
   color: var(--ink);
   font-family: var(--font-display);
-}
-.action-arrow {
-  transition: transform 0.2s var(--ease);
-}
-.case-card:hover .action-arrow {
-  transform: translateX(4px);
 }
 
 /* 3. How I work (雜誌書頁式排版) */
@@ -692,9 +679,6 @@ section {
   justify-content: flex-end;
 }
 .editorial-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   font-size: 0.9rem;
   color: var(--ink);
   border-bottom: 1px solid var(--line);

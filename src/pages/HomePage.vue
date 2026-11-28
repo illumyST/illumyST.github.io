@@ -95,12 +95,6 @@ async function copyHeroEmail() {
             <span>{{ t('hero.cta.work') }}</span>
             <span class="arrow-down" aria-hidden="true">↓</span>
           </a>
-          <a :href="site.resumeZh" target="_blank" rel="noopener" class="btn btn--outline" data-track="resume_click" data-track-target="zh">
-            <span>{{ t('dock.resumeZh') }} ↗</span>
-          </a>
-          <a :href="site.resumeEn" target="_blank" rel="noopener" class="btn btn--outline" data-track="resume_click" data-track-target="en">
-            <span>{{ t('dock.resumeEn') }} ↗</span>
-          </a>
           <button type="button" class="btn btn--copy" :aria-label="t('dock.copyEmail')" data-track="email_copy" @click="copyHeroEmail">
             <span class="copy-swap">
               <span :class="{ hide: copied }">{{ site.email }}</span>
@@ -366,14 +360,6 @@ section {
 }
 .arrow-down {
   font-family: var(--font-serif);
-}
-.btn--outline {
-  background: var(--paper-2);
-  color: var(--ink);
-  border: 1px solid var(--line);
-}
-.btn--outline:hover {
-  border-color: var(--ink);
 }
 .btn--copy {
   color: var(--quiet);

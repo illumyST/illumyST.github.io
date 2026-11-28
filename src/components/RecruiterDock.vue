@@ -68,11 +68,6 @@ function toggle() {
           <button type="button" class="close-btn" :aria-label="t('dock.toggleClose')" @click="close">×</button>
         </div>
 
-        <p class="status-note">
-          <span class="status-vermilion">・</span>
-          <span>{{ t('dock.status') }}</span>
-        </p>
-
         <div class="divider"></div>
 
         <div class="section-block">
@@ -256,18 +251,6 @@ function toggle() {
 }
 .close-btn:hover {
   color: var(--ink);
-}
-
-.status-note {
-  font-size: 0.8125rem;
-  color: var(--quiet);
-  line-height: 1.6;
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-.status-vermilion {
-  color: var(--red);
-  font-weight: bold;
 }
 
 .divider {

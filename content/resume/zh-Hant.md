@@ -70,7 +70,7 @@ stack: React, TypeScript, Vue 3
 - 台大醫院北護分院腸胃鏡 AI 語音病歷系統 TPM：與臨床端、資料分析師及工程團隊將醫療需求轉為規格與任務，需求接收後一個月內上線；報告產出時間縮短 60%，醫師每日省下近 20% 工時。
 - 帶領 4 人工程師團隊，導入敏捷與規格先行的流程：重新拆解延宕功能與排定優先級，兩週內完成兩項重大功能驗收。
 - 建立前端共用開發基礎建設 aic-fe-infra：統一團隊的 AI Agent 規範與 Skill，讓 Claude Code、Codex、Copilot 跨專案維持一致的產出品質；PR 檢查與 Dependabot 自動升版也一處修改、各專案升版即生效。
-- 主導國科會金獎平台「醫點家」前端現代化，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。
+- 主導國科會金獎平台「醫點家」前端現代化，以 Vue 3 與 Nuxt 開發，規劃 Django 平台逐步前後端分離，首階段負責 AI 解析結果的檔案總管；建置 Web Components 共用元件庫，透過 CDN 跨專案共用。
 - 運用 AI 參與後端開發與部署，持續往全端發展：以 NestJS 與 Java 開發後端 API，實作 OAuth2 登入串接與 token 驗證，負責 Kubernetes 上的服務部署與維運，以及 IAM 管理。
 
 #### 履歷限定 {#details}
@@ -164,7 +164,7 @@ stack: React, TypeScript, Vue 3
 
 ### 設計與樣式 {#design}
 
-- 項目：Chakra UI, Tailwind CSS, Framer Motion, Adobe Ps/Ai
+- 項目：RWD, Chakra UI, Tailwind CSS, Framer Motion, Adobe Ps/Ai
 - 管道：notion, 104
 
 ## 作品 {#projects}

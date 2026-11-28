@@ -52,7 +52,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 - TPM for the NTUH Beihu Branch endoscopy AI voice-to-record system: turned clinical needs into specs and tasks with clinicians, data analysts and engineers; live within one month of intake, report time −60%, about 20% of physicians' day saved.
 - Leading a team of four engineers with agile and spec-first practices: re-split and re-prioritized a stalled backlog so two major features passed acceptance within two weeks.
 - Built aic-fe-infra, shared dev infrastructure for all frontend projects: unified AI agent rules and skills keep output consistent across projects for Claude Code, Codex and Copilot; PR checks and Dependabot upgrades are likewise changed in one place and rolled out by a version bump.
-- Leading the frontend modernization of MedAssist Hub (醫點家), a national-award-winning Django platform, starting with a file explorer for AI-parsed results; built a Web Components library shared across projects via CDN.
+- Leading the frontend modernization of MedAssist Hub (醫點家), a national-award-winning Django platform, building with Vue 3 and Nuxt and starting with a file explorer for AI-parsed results; built a Web Components library shared across projects via CDN.
 - Extending into full-stack work with AI-assisted development: develop backend APIs with NestJS and Java, implement OAuth2 sign-in integration and token validation, deploy and operate services on Kubernetes, and manage IAM.
 
 #### Resume only {#details}
@@ -142,7 +142,7 @@ Looking back on my path from a cross-disciplinary background to tech lead, I bel
 
 ### UI and design {#design}
 
-- Items：Chakra UI, Tailwind CSS, Framer Motion, Adobe Ps/Ai
+- Items：RWD, Chakra UI, Tailwind CSS, Framer Motion, Adobe Ps/Ai
 
 ## Projects {#projects}
 
